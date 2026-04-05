@@ -1,0 +1,66 @@
+:root {
+    --cyan: #00f2ff;
+    --pink: #ff007f;
+    --dark: #080808;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--dark); color: #fff; font-family: 'JetBrains Mono', monospace; overflow-x: hidden; }
+
+/* Cyber Background Grid */
+.grid-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(var(--glass) 1px, transparent 1px), linear-gradient(90deg, var(--glass) 1px, transparent 1px);
+    background-size: 50px 50px; z-index: -1;
+}
+
+nav { padding: 20px 5%; border-bottom: 1px solid var(--cyan); display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.9); }
+.logo { font-family: 'Orbitron'; font-size: 1.8rem; letter-spacing: 5px; color: var(--cyan); font-weight: 900; }
+.logo span { color: var(--pink); }
+.status-bar { font-size: 0.7rem; color: #0f0; letter-spacing: 2px; }
+
+/* Hero Dashboard */
+.hero { height: 90vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.dashboard-frame {
+    background: var(--glass); border: 1px solid #333; padding: 60px 40px; text-align: center;
+    backdrop-filter: blur(10px); clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
+}
+.avatar-box img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--cyan); box-shadow: 0 0 20px var(--cyan); margin-bottom: 20px; }
+.glitch { font-family: 'Orbitron'; font-size: clamp(2rem, 8vw, 4rem); letter-spacing: 10px; margin-bottom: 15px; }
+
+.contact-info { margin: 20px 0; font-size: 0.8rem; color: var(--cyan); display: flex; flex-direction: column; gap: 5px; }
+
+/* Buttons */
+.btn-group { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
+.btn { text-decoration: none; padding: 12px 30px; font-weight: bold; font-family: 'Orbitron'; font-size: 0.7rem; border-radius: 2px; transition: 0.3s; }
+.btn-neon { background: var(--cyan); color: #000; box-shadow: 0 0 15px var(--cyan); }
+.btn-outline { border: 1px solid var(--pink); color: var(--pink); }
+.btn:hover { transform: scale(1.1); box-shadow: 0 0 25px var(--cyan); }
+
+/* Service Cards */
+.services { padding: 80px 5%; }
+.title { font-family: 'Orbitron'; text-align: center; color: var(--pink); margin-bottom: 50px; letter-spacing: 5px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+.card { background: var(--glass); padding: 40px 20px; border: 1px solid #222; text-align: center; transition: 0.4s; }
+.card:hover { border-color: var(--cyan); background: rgba(0, 242, 255, 0.05); transform: translateY(-10px); }
+.card i { font-size: 2.5rem; color: var(--cyan); margin-bottom: 20px; }
+
+/* Floating Panel */
+.floating-panel { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; }
+.f-item { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #fff; text-decoration: none; transition: 0.3s; border: 1px solid rgba(255,255,255,0.2); }
+.wa-neon { background: #25d366; }
+.tel-neon { background: var(--cyan); }
+.mail-neon { background: var(--pink); }
+.f-item:hover { transform: rotate(360deg) scale(1.2); }
+
+footer { padding: 40px; text-align: center; font-size: 0.6rem; color: #444; border-top: 1px solid #111; letter-spacing: 5px; }
+
+.pulse { display: inline-block; width: 8px; height: 8px; background: #0f0; border-radius: 50%; box-shadow: 0 0 10px #0f0; margin-right: 8px; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (max-width: 768px) {
+    .dashboard-frame { padding: 40px 20px; }
+    .btn-group { flex-direction: column; }
+}
