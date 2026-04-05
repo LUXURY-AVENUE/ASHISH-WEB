@@ -3,134 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ASHISH DEV | Premium Interface</title>
+    <title>ASHISH | NEURAL INTERFACE V5.0</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="app-container">
+    <div class="hologram-grid"></div>
+    <div class="scanline"></div>
+    <div class="noise"></div>
+
+    <div class="os-wrapper">
         
-        <header class="app-bar">
-            <div class="user-profile">
-                <img src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?q=80&w=100" alt="Ashish">
-                <div class="user-info">
-                    <span class="welcome">Welcome back,</span>
-                    <span class="name">Ashish Developer</span>
+        <header class="os-header">
+            <div class="sys-info">
+                <div class="logo">ASHISH<span>_SYSTEMS</span></div>
+                <div class="loader-wrap">
+                    <div class="loader-bar"></div>
                 </div>
             </div>
-            <div class="app-status">
-                <i class="fas fa-bolt"></i>
+            <div class="sys-metrics pc-only">
+                <span>CPU: 12%</span>
+                <span>RAM: 4.2GB</span>
+                <span id="os-clock">00:00:00</span>
+            </div>
+            <div class="status-dot-wrap">
+                <span class="status-text">ENCRYPTED</span>
+                <div class="status-dot"></div>
             </div>
         </header>
 
-        <main class="content-area">
+        <main class="os-content">
             
-            <div class="hero-card">
-                <div class="card-content">
-                    <span class="label">SYSTEM STATUS</span>
-                    <h2>NEURAL CORE ACTIVE</h2>
-                    <p>Building the next generation of AI solutions.</p>
-                </div>
-                <div class="card-visual">
-                    <div class="pulse-ring"></div>
-                </div>
-            </div>
-
-            <div class="section-header">
-                <h3>Quick Commands</h3>
-            </div>
-            <div class="action-grid">
-                <a href="https://wa.me/917530919863" class="action-item">
+            <nav class="os-nav">
+                <div class="nav-item active" data-label="DASHBOARD"><i class="fas fa-th-large"></i></div>
+                <div class="nav-item" data-label="PROJECTS"><i class="fas fa-project-diagram"></i></div>
+                <div class="nav-item" data-label="TERMINAL"><i class="fas fa-terminal"></i></div>
+                <div class="nav-item center-btn" onclick="window.location.href='https://wa.me/917530919863'">
                     <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </a>
-                <a href="tel:+917530919863" class="action-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>Call Secure</span>
-                </a>
-                <a href="mailto:ashish95823@gmail.com" class="action-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                </a>
-            </div>
+                </div>
+                <div class="nav-item" data-label="NEURAL"><i class="fas fa-brain"></i></div>
+                <div class="nav-item" data-label="CONFIG"><i class="fas fa-cog"></i></div>
+            </nav>
 
-            <div class="section-header">
-                <h3>Active Projects</h3>
-                <span class="view-all">See All</span>
-            </div>
-            <div class="project-slider">
-                <div class="p-card">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=400" alt="Web Maker">
-                    <div class="p-details">
-                        <h4>Web Maker AI</h4>
-                        <p>Instant Web Generation</p>
+            <div class="scroll-area">
+                <section class="hero-block">
+                    <div class="glitch-box">
+                        <h1 class="glitch-main" data-text="ASHISH DEVELOPER">ASHISH DEVELOPER</h1>
+                        <p class="typewriter">> INITIALIZING NEURAL INTERFACE... SUCCESS.</p>
                     </div>
-                </div>
-                <div class="p-card">
-                    <img src="https://images.unsplash.com/photo-1611974782865-8db79196b01b?q=80&w=400" alt="Algo Trader">
-                    <div class="p-details">
-                        <h4>Algo Trader</h4>
-                        <p>ML Trading Engine</p>
-                    </div>
-                </div>
-                <div class="p-card">
-                    <img src="https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=400" alt="Modding">
-                    <div class="p-details">
-                        <h4>System Modder</h4>
-                        <p>Android Engineering</p>
-                    </div>
-                </div>
-            </div>
+                </section>
 
-            <div class="section-header">
-                <h3>Technology Stack</h3>
-            </div>
-            <div class="stack-list">
-                <div class="stack-item">
-                    <i class="fab fa-python"></i>
-                    <div class="stack-info">
-                        <h5>Python Automation</h5>
-                        <div class="progress-bar"><div class="fill" style="width: 95%;"></div></div>
+                <section class="module-grid">
+                    <div class="module-card">
+                        <div class="module-header">
+                            <span>MODULE_01</span>
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="module-body">
+                            <h3>WEB_GEN_V2</h3>
+                            <p>Automated Python-driven architecture for rapid web deployment.</p>
+                        </div>
+                        <div class="module-footer">
+                            <div class="tag">PYTHON</div><div class="tag">AI</div>
+                        </div>
                     </div>
-                </div>
-                <div class="stack-item">
-                    <i class="fab fa-react"></i>
-                    <div class="stack-info">
-                        <h5>React Native & Web</h5>
-                        <div class="progress-bar"><div class="fill" style="width: 88%;"></div></div>
-                    </div>
-                </div>
-            </div>
 
+                    <div class="module-card active-card">
+                        <div class="module-header">
+                            <span>MODULE_02</span>
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="module-body">
+                            <h3>QUANT_ALGO</h3>
+                            <p>High-frequency machine learning engine for market execution.</p>
+                        </div>
+                        <div class="module-footer">
+                            <div class="tag">ML</div><div class="tag">FINTECH</div>
+                        </div>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-header">
+                            <span>MODULE_03</span>
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="module-body">
+                            <h3>SYS_MODDER</h3>
+                            <p>Deep-level Android optimization and neural APK modding suite.</p>
+                        </div>
+                        <div class="module-footer">
+                            <div class="tag">KOTLIN</div><div class="tag">ROOT</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="console-box">
+                    <div class="console-header">COMMUNICATION_TERMINAL</div>
+                    <div class="console-content">
+                        <div class="line"><span class="cmd">user@ashish:~$</span> connect --secure --wa</div>
+                        <div class="line"><span class="res">Establishing secure tunnel to +91 7530919863...</span></div>
+                        <div class="btn-wrap">
+                            <a href="https://wa.me/917530919863" class="glow-btn">START CHAT</a>
+                            <a href="tel:+917530919863" class="glow-btn outline">VOICE CALL</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </main>
-
-        <nav class="bottom-nav">
-            <a href="#" class="nav-item active">
-                <i class="fas fa-th-large"></i>
-                <span>Home</span>
-            </a>
-            <a href="#projects" class="nav-item">
-                <i class="fas fa-project-diagram"></i>
-                <span>Projects</span>
-            </a>
-            <a href="tel:+917530919863" class="nav-item nav-center">
-                <div class="center-circle">
-                    <i class="fas fa-headset"></i>
-                </div>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-brain"></i>
-                <span>Skills</span>
-            </a>
-            <a href="mailto:ashish95823@gmail.com" class="nav-item">
-                <i class="fas fa-user-cog"></i>
-                <span>Account</span>
-            </a>
-        </nav>
     </div>
 
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('os-clock').innerText = now.toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+    </script>
 </body>
 </html>
 
