@@ -3,157 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Video Portal | Developer Ashish</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Premium Gallery | Developer Ashish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-dark: #05070a;
-            --card-dark: #0f1217;
-            --accent-blue: #00a3ff;
-            --text-gray: #94a3b8;
+            --main-bg: #080a0f;
+            --card-bg: #121620;
+            --accent: #00d2ff;
+            --text: #e2e8f0;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: white;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
+            background-color: var(--main-bg);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column; height: 100vh;
         }
 
-        /* Developer Header */
-        .dev-header {
-            background: rgba(15, 18, 23, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #1e293b;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        /* Top Header */
+        .header {
+            padding: 15px; text-align: center;
+            background: rgba(18, 22, 32, 0.9);
+            border-bottom: 2px solid var(--accent);
+            letter-spacing: 3px; font-weight: 600; font-size: 14px;
+            color: var(--accent); text-transform: uppercase;
         }
 
-        .dev-header h2 {
-            margin: 0;
-            font-size: 12px;
-            letter-spacing: 4px;
-            color: var(--accent-blue);
-            text-transform: uppercase;
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 0; height: calc(100vh - 50px);
         }
 
-        /* Tab System */
-        .tab-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 30px 0;
-            padding: 0 10px;
+        /* Video Player Area */
+        .player-section {
+            background: #000; position: relative;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        .tab-btn {
-            background: var(--card-dark);
-            border: 1px solid #1e293b;
-            color: var(--text-gray);
-            padding: 12px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: 600;
+        /* YouTube को पूरी तरह मास्क करने के लिए */
+        .iframe-container {
+            width: 100%; height: 100%; position: relative;
         }
 
-        .tab-btn.active {
-            background: var(--accent-blue);
-            color: white;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 20px rgba(0, 163, 255, 0.3);
+        iframe {
+            width: 100%; height: 100%; border: none;
+            /* ऊपर के टाइटल को छुपाने के लिए नेगेटिव मार्जिन */
+            margin-top: -60px; height: calc(100% + 120px);
         }
 
-        /* Player Section */
-        .player-wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* Sidebar / Playlist Area */
+        .sidebar {
+            background: var(--card-bg);
+            border-left: 1px solid #2d3748;
+            overflow-y: auto; padding: 20px;
         }
 
-        .video-box {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border-radius: 20px;
-            overflow: hidden;
-            background: #000;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-            border: 1px solid #1e293b;
+        .sidebar h3 {
+            font-size: 18px; margin-bottom: 20px; color: var(--accent);
+            border-bottom: 1px solid #2d3748; padding-bottom: 10px;
         }
 
-        /* Youtube Interface hiding trick */
-        .video-box iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+        .video-item {
+            background: #1a202c; border-radius: 10px;
+            padding: 10px; margin-bottom: 15px;
+            cursor: pointer; transition: 0.3s;
+            border: 1px solid transparent;
+            display: flex; gap: 10px; align-items: center;
         }
 
-        /* Overlay to hide top info of YouTube */
-        .player-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px;
-            background: linear-gradient(to bottom, rgba(5,7,10,1), transparent);
-            pointer-events: none;
-            z-index: 10;
+        .video-item:hover {
+            border-color: var(--accent); background: #2d3748;
         }
 
-        .footer-branding {
-            text-align: center;
-            padding: 50px;
-            color: #334155;
-            font-size: 14px;
+        .video-item img {
+            width: 100px; border-radius: 5px;
+        }
+
+        .video-item p {
+            margin: 0; font-size: 13px; font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .sidebar { height: 400px; }
+            iframe { margin-top: -45px; height: calc(100% + 90px); }
         }
     </style>
 </head>
 <body>
 
-    <header class="dev-header">
-        <h2>DEVELOPER BY ASHISH</h2>
-    </header>
+    <div class="header">DEVELOPER BY ASHISH</div>
 
-    <div class="tab-container">
-        <button class="tab-btn active" onclick="switchPlaylist('PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n', this)">Memory 1</button>
-        <button class="tab-btn" onclick="switchPlaylist('PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D', this)">Memory 2</button>
-        <button class="tab-btn" onclick="switchPlaylist('PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi', this)">Memory 3</button>
-    </div>
+    <div class="main-layout">
+        <!-- Main Player -->
+        <div class="player-section">
+            <div class="iframe-container">
+                <iframe id="main-video-player" 
+                    src="https://www.youtube.com/embed/videoseries?list=PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi&modestbranding=1&rel=0&controls=1&showinfo=0&iv_load_policy=3&vq=hd1080" 
+                    allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
 
-    <div class="player-wrapper">
-        <div class="video-box">
-            <div class="player-overlay"></div>
-            <!-- Modestbranding, rel, vq=hd1080 (for Max Resolution), and iv_load_policy used -->
-            <iframe id="main-player" 
-                src="https://www.youtube.com/embed/videoseries?list=PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&controls=1&vq=hd1080" 
-                allowfullscreen>
-            </iframe>
+        <!-- Sidebar List -->
+        <div class="sidebar">
+            <h3>Special Collection</h3>
+            
+            <div id="playlist-items">
+                <!-- Playlist 1 -->
+                <div class="video-item" onclick="changeVid('PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n')">
+                    <img src="https://img.youtube.com/vi/PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n/mqdefault.jpg" onerror="this.src='https://via.placeholder.com/100x60?text=Memory+1'" />
+                    <p>Memory Collection 01</p>
+                </div>
+
+                <!-- Playlist 2 -->
+                <div class="video-item" onclick="changeVid('PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D')">
+                    <img src="https://img.youtube.com/vi/PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D/mqdefault.jpg" onerror="this.src='https://via.placeholder.com/100x60?text=Memory+2'" />
+                    <p>Memory Collection 02</p>
+                </div>
+
+                <!-- Playlist 3 -->
+                <div class="video-item" onclick="changeVid('PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi')">
+                    <img src="https://img.youtube.com/vi/PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi/mqdefault.jpg" onerror="this.src='https://via.placeholder.com/100x60?text=Memory+3'" />
+                    <p>Memory Collection 03</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="footer-branding">
-        Designed for a seamless private experience.<br>
-        © 2026 Ashish Digital Portfolio
-    </div>
-
     <script>
-        function switchPlaylist(id, btn) {
-            // Player update with max resolution settings
-            const player = document.getElementById('main-player');
-            player.src = `https://www.youtube.com/embed/videoseries?list=${id}&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&controls=1&vq=hd1080`;
-            
-            // Tab button style update
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+        function changeVid(listId) {
+            const player = document.getElementById('main-video-player');
+            // vq=hd1080 उच्चतम गुणवत्ता के लिए
+            player.src = `https://www.youtube.com/embed/videoseries?list=${listId}&modestbranding=1&rel=0&controls=1&showinfo=0&iv_load_policy=3&vq=hd1080&autoplay=1`;
         }
     </script>
 
