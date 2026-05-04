@@ -3,161 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Gallery | Ashish</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    
+    <title>Premium Gallery | Developer Ashish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #000000;
-            --surface: #121212;
-            --accent: #00f2ff;
-            --text: #ffffff;
-        }
+        :root { --bg: #000; --accent: #00d2ff; --card: #111; }
+        body { background: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Montserrat', sans-serif;
-            margin: 0; padding: 0;
-            overflow-x: hidden;
-        }
+        .header { padding: 15px; text-align: center; background: #000; border-bottom: 1px solid var(--accent); letter-spacing: 4px; font-size: 12px; color: var(--accent); }
 
-        /* Branding Header */
-        .app-header {
-            padding: 15px;
-            text-align: center;
-            background: var(--surface);
-            border-bottom: 1px solid #333;
-            font-size: 10px;
-            letter-spacing: 5px;
-            color: var(--accent);
-            text-transform: uppercase;
-            position: sticky; top: 0; z-index: 100;
-        }
-
-        /* Video Player Area - Ultimate Hide Logic */
-        .player-viewport {
-            width: 100%;
-            max-width: 1000px;
-            margin: 20px auto;
-            aspect-ratio: 16/9;
-            position: relative;
-            overflow: hidden; /* यह यूट्यूब के लोगो/टाइटल को काट देगा */
-            border-radius: 12px;
+        /* प्लेयर को मास्क करने का तरीका */
+        .video-viewport {
+            width: 100%; max-width: 900px; margin: 20px auto;
+            aspect-ratio: 16/9; position: relative; overflow: hidden;
+            border-radius: 15px; box-shadow: 0 0 50px rgba(0,210,255,0.2);
             background: #000;
-            box-shadow: 0 0 40px rgba(0, 242, 255, 0.2);
         }
 
-        .player-viewport iframe {
+        /* यूट्यूब के टाइटल और लोगो को फ्रेम से बाहर धकेलना */
+        .video-viewport iframe {
             position: absolute;
-            top: -65px; /* ऊपर का टाइटल छुपाया */
-            left: -2px;
+            top: -65px; left: -2px;
             width: calc(100% + 4px);
-            height: calc(100% + 130px); /* नीचे के लोगो को बाहर धकेला */
+            height: calc(100% + 130px);
             border: none;
         }
 
-        /* Playlist Grid Section */
-        .content-section {
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        .section-title { font-size: 20px; margin: 30px 0 15px; border-left: 4px solid var(--accent); padding-left: 10px; }
 
-        .section-title {
-            font-size: 18px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--accent);
-            padding-left: 10px;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 15px;
-        }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
 
         .video-card {
-            background: var(--surface);
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: 0.3s;
-            border: 1px solid transparent;
+            background: var(--card); border-radius: 12px; overflow: hidden;
+            cursor: pointer; transition: 0.3s; border: 1px solid #222;
         }
 
-        .video-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
+        .video-card:hover { transform: scale(1.05); border-color: var(--accent); }
+        .video-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+        .video-card .info { padding: 12px; font-size: 13px; text-align: center; color: #bbb; }
 
-        .video-card img {
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-        }
-
-        .video-card .title {
-            padding: 10px;
-            font-size: 12px;
-            text-align: center;
-            color: #ccc;
-        }
-
-        /* High Resolution Settings Message */
-        .status-bar {
-            text-align: center;
-            font-size: 10px;
-            color: #555;
-            margin-top: 10px;
-        }
+        /* कस्टम स्क्रॉलबार */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="app-header">DEVELOPER BY ASHISH</div>
+    <div class="header">DEVELOPER BY ASHISH</div>
 
-    <!-- Main Active Player -->
-    <div class="player-viewport">
+    <!-- मुख्य प्लेयर -->
+    <div class="video-viewport">
         <iframe id="main-player" 
             src="https://www.youtube.com/embed/videoseries?list=PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&controls=1&vq=hd1080" 
             allow="autoplay; encrypted-media" allowfullscreen>
         </iframe>
     </div>
 
-    <div class="content-section">
-        <div class="section-title">Exclusive Video Collection</div>
+    <div class="container">
         
-        <div class="video-grid">
-            <!-- Video 1 -->
-            <div class="video-card" onclick="loadVid('PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n')">
-                <img src="https://img.youtube.com/vi/PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n/maxresdefault.jpg" onerror="this.src='https://via.placeholder.com/180x100?text=Series+1'">
-                <div class="title">Retirement Special 01</div>
+        <!-- प्लेलिस्ट 1 के वीडियो -->
+        <div class="section-title">Memory Collection - Part 1 (8 Videos)</div>
+        <div class="video-grid" id="list1">
+            <!-- आप यहाँ हर वीडियो की ID अलग से डाल सकते हैं ताकि वो अलग दिखें -->
+            <div class="video-card" onclick="playVideo('PLAYLIST_1_VIDEO_ID_1')">
+                <img src="https://img.youtube.com/vi/PLAYLIST_1_VIDEO_ID_1/maxresdefault.jpg">
+                <div class="info">Memories Video 01</div>
             </div>
+            <!-- ऐसे ही 8 वीडियो के कार्ड यहाँ आएँगे -->
+        </div>
 
-            <!-- Video 2 -->
-            <div class="video-card" onclick="loadVid('PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D')">
-                <img src="https://img.youtube.com/vi/PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D/maxresdefault.jpg" onerror="this.src='https://via.placeholder.com/180x100?text=Series+2'">
-                <div class="title">Retirement Special 02</div>
-            </div>
-
-            <!-- Video 3 -->
-            <div class="video-card" onclick="loadVid('PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi')">
-                <img src="https://img.youtube.com/vi/PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi/maxresdefault.jpg" onerror="this.src='https://via.placeholder.com/180x100?text=Series+3'">
-                <div class="title">Retirement Special 03</div>
+        <!-- प्लेलिस्ट 2 के वीडियो -->
+        <div class="section-title">Retirement Events - Part 2 (2 Videos)</div>
+        <div class="video-grid" id="list2">
+            <div class="video-card" onclick="playVideo('PLAYLIST_2_VIDEO_ID_1')">
+                <img src="https://img.youtube.com/vi/PLAYLIST_2_VIDEO_ID_1/maxresdefault.jpg">
+                <div class="info">Special Event 01</div>
             </div>
         </div>
-    </div>
 
-    <div class="status-bar">
-        FORCING MAX RESOLUTION (1080p/4K) | PRIVATE SECURE STREAM
+        <!-- प्लेलिस्ट 3 के वीडियो -->
+        <div class="section-title">Personal Gallery - Part 3 (3 Videos)</div>
+        <div class="video-grid" id="list3">
+            <div class="video-card" onclick="playVideo('PLAYLIST_3_VIDEO_ID_1')">
+                <img src="https://img.youtube.com/vi/PLAYLIST_3_VIDEO_ID_1/maxresdefault.jpg">
+                <div class="info">Gallery Video 01</div>
+            </div>
+        </div>
+
     </div>
 
     <script>
-        function loadVid(id) {
+        function playVideo(videoId) {
             const player = document.getElementById('main-player');
-            // vq=hd1080 ensures max resolution playback
-            player.src = "https://www.youtube.com/embed/videoseries?list=" + id + "&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&controls=1&vq=hd1080&autoplay=1";
+            // vq=hd1080 हाई क्वालिटी के लिए
+            player.src = "https://www.youtube.com/embed/" + videoId + "?modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&controls=1&vq=hd1080&autoplay=1";
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
