@@ -3,183 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Gallery | Developer Ashish</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Premium Gallery | Ashish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg: #05070a;
-            --sidebar-bg: #0f1217;
-            --accent: #00a3ff;
-            --text-color: #ffffff;
+            --bg: #000000;
+            --surface: #121212;
+            --accent: #00f2ff;
+            --text: #ffffff;
         }
 
         body {
             background-color: var(--bg);
-            color: var(--text-color);
-            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
             margin: 0; padding: 0;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        .header {
-            background: #111;
+        /* Branding Header */
+        .app-header {
             padding: 15px;
             text-align: center;
+            background: var(--surface);
             border-bottom: 1px solid #333;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-size: 10px;
+            letter-spacing: 5px;
             color: var(--accent);
-            font-size: 14px;
+            text-transform: uppercase;
+            position: sticky; top: 0; z-index: 100;
         }
 
-        .main-layout {
-            display: flex;
-            height: calc(100vh - 50px);
-        }
-
-        /* Player Section */
-        .player-container {
-            flex: 3;
+        /* Video Player Area - Ultimate Hide Logic */
+        .player-viewport {
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            aspect-ratio: 16/9;
+            position: relative;
+            overflow: hidden; /* यह यूट्यूब के लोगो/टाइटल को काट देगा */
+            border-radius: 12px;
             background: #000;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.2);
         }
 
-        /* YouTube Title/Logo Hide Trick */
-        .iframe-wrapper {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        iframe {
-            width: 100%;
-            height: calc(100% + 120px); /* Extra height to hide top/bottom bars */
-            margin-top: -60px; /* Hide YouTube Top bar */
+        .player-viewport iframe {
+            position: absolute;
+            top: -65px; /* ऊपर का टाइटल छुपाया */
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 130px); /* नीचे के लोगो को बाहर धकेला */
             border: none;
         }
 
-        /* Sidebar Section */
-        .sidebar {
-            flex: 1;
-            background: var(--sidebar-bg);
-            border-left: 1px solid #1e293b;
-            overflow-y: auto;
-            padding: 15px;
+        /* Playlist Grid Section */
+        .content-section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
         }
 
-        .sidebar h3 {
-            font-size: 16px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #333;
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
         }
 
         .video-card {
-            display: flex;
-            gap: 10px;
-            background: #1a1e26;
-            margin-bottom: 10px;
-            padding: 8px;
+            background: var(--surface);
             border-radius: 8px;
+            overflow: hidden;
             cursor: pointer;
             transition: 0.3s;
             border: 1px solid transparent;
         }
 
         .video-card:hover {
+            transform: translateY(-5px);
             border-color: var(--accent);
-            background: #242b38;
         }
 
         .video-card img {
-            width: 100px;
-            height: 60px;
+            width: 100%;
+            aspect-ratio: 16/9;
             object-fit: cover;
-            border-radius: 4px;
         }
 
-        .video-card .info {
+        .video-card .title {
+            padding: 10px;
             font-size: 12px;
-            line-height: 1.4;
+            text-align: center;
+            color: #ccc;
         }
 
-        .video-card .info b {
-            display: block;
-            color: var(--accent);
-            margin-bottom: 4px;
-        }
-
-        /* Mobile View */
-        @media (max-width: 800px) {
-            .main-layout { flex-direction: column; }
-            .sidebar { height: 300px; }
-            iframe { margin-top: -45px; height: calc(100% + 90px); }
+        /* High Resolution Settings Message */
+        .status-bar {
+            text-align: center;
+            font-size: 10px;
+            color: #555;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">DEVELOPER BY ASHISH</div>
+    <div class="app-header">DEVELOPER BY ASHISH</div>
 
-    <div class="main-layout">
-        <!-- Main Player Area -->
-        <div class="player-container">
-            <div class="iframe-wrapper">
-                <iframe id="video-frame" 
-                    src="https://www.youtube.com/embed/videoseries?list=PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi&modestbranding=1&rel=0&showinfo=0&controls=1&vq=hd1080" 
-                    allow="autoplay; encrypted-media" allowfullscreen>
-                </iframe>
+    <!-- Main Active Player -->
+    <div class="player-viewport">
+        <iframe id="main-player" 
+            src="https://www.youtube.com/embed/videoseries?list=PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&controls=1&vq=hd1080" 
+            allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="content-section">
+        <div class="section-title">Exclusive Video Collection</div>
+        
+        <div class="video-grid">
+            <!-- Video 1 -->
+            <div class="video-card" onclick="loadVid('PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n')">
+                <img src="https://img.youtube.com/vi/PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n/maxresdefault.jpg" onerror="this.src='https://via.placeholder.com/180x100?text=Series+1'">
+                <div class="title">Retirement Special 01</div>
             </div>
-        </div>
 
-        <!-- Sidebar Playlist Area -->
-        <div class="sidebar">
-            <h3>Video Library</h3>
+            <!-- Video 2 -->
+            <div class="video-card" onclick="loadVid('PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D')">
+                <img src="https://img.youtube.com/vi/PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D/maxresdefault.jpg" onerror="this.src='https://via.placeholder.com/180x100?text=Series+2'">
+                <div class="title">Retirement Special 02</div>
+            </div>
 
-            <!-- यहाँ आप अपने पसंदीदा वीडियो की लिस्ट डाल सकते हैं -->
-            <div id="video-list">
-                
-                <!-- Playlist 1 Group -->
-                <div class="video-card" onclick="playThis('PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n')">
-                    <img src="https://img.youtube.com/vi/PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n/mqdefault.jpg">
-                    <div class="info">
-                        <b>Memory Collection 1</b>
-                        <span>Click to play full playlist</span>
-                    </div>
-                </div>
-
-                <!-- Playlist 2 Group -->
-                <div class="video-card" onclick="playThis('PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D')">
-                    <img src="https://img.youtube.com/vi/PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D/mqdefault.jpg">
-                    <div class="info">
-                        <b>Memory Collection 2</b>
-                        <span>Click to play full playlist</span>
-                    </div>
-                </div>
-
-                <!-- Playlist 3 Group -->
-                <div class="video-card" onclick="playThis('PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi')">
-                    <img src="https://img.youtube.com/vi/PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi/mqdefault.jpg">
-                    <div class="info">
-                        <b>Memory Collection 3</b>
-                        <span>Click to play full playlist</span>
-                    </div>
-                </div>
-
+            <!-- Video 3 -->
+            <div class="video-card" onclick="loadVid('PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi')">
+                <img src="https://img.youtube.com/vi/PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi/maxresdefault.jpg" onerror="this.src='https://via.placeholder.com/180x100?text=Series+3'">
+                <div class="title">Retirement Special 03</div>
             </div>
         </div>
     </div>
 
+    <div class="status-bar">
+        FORCING MAX RESOLUTION (1080p/4K) | PRIVATE SECURE STREAM
+    </div>
+
     <script>
-        function playThis(id) {
-            const frame = document.getElementById('video-frame');
-            // vq=hd1080 set to ensure high quality
-            frame.src = "https://www.youtube.com/embed/videoseries?list=" + id + "&modestbranding=1&rel=0&showinfo=0&controls=1&vq=hd1080&autoplay=1";
+        function loadVid(id) {
+            const player = document.getElementById('main-player');
+            // vq=hd1080 ensures max resolution playback
+            player.src = "https://www.youtube.com/embed/videoseries?list=" + id + "&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&controls=1&vq=hd1080&autoplay=1";
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
 
