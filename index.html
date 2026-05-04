@@ -1,120 +1,45 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Gallery | Developer Ashish</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #000; --accent: #00f2ff; --card: #111; }
-        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
-
-        /* Header Branding */
-        .dev-header { padding: 15px; text-align: center; border-bottom: 1px solid #222; letter-spacing: 5px; font-size: 11px; color: var(--accent); font-weight: 700; text-transform: uppercase; }
-
-        /* Ultimate Hide Logic - YouTube Masking */
-        .player-viewport {
-            width: 100%; max-width: 950px; margin: 25px auto;
-            aspect-ratio: 16/9; position: relative; overflow: hidden;
-            border-radius: 20px; background: #000;
-            box-shadow: 0 0 50px rgba(0, 242, 255, 0.2);
+        body { background: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 0; }
+        .header { text-align: center; padding: 10px; color: #00f2ff; font-size: 12px; }
+        
+        /* YouTube Hide Logic */
+        .viewport { width: 100%; aspect-ratio: 16/9; overflow: hidden; position: relative; background: #000; }
+        iframe { 
+            position: absolute; 
+            top: -65px; /* Title Masking */
+            left: -2px; 
+            width: calc(100% + 4px); 
+            height: calc(100% + 130px); /* Logo Masking */
+            border: none; 
         }
 
-        .player-viewport iframe {
-            position: absolute;
-            top: -65px; /* Title गायब */
-            left: -2px;
-            width: calc(100% + 4px);
-            height: calc(100% + 130px); /* Logo गायब */
-            border: none;
-        }
-
-        .content { max-width: 1200px; margin: auto; padding: 20px; }
-        .section-title { font-size: 18px; margin: 35px 0 15px; color: var(--accent); border-left: 4px solid var(--accent); padding-left: 15px; text-transform: uppercase; }
-
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-
-        .video-card {
-            background: var(--card); border-radius: 12px; overflow: hidden;
-            cursor: pointer; transition: 0.3s ease; border: 1px solid #222;
-        }
-
-        .video-card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 15px 30px rgba(0,0,0,0.8); }
-        .video-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-        .video-card .title { padding: 12px; font-size: 13px; text-align: center; color: #bbb; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; }
+        .btn { background: #111; border: 1px solid #333; color: #fff; padding: 15px; border-radius: 10px; text-align: center; }
+        .active { border-color: #00f2ff; color: #00f2ff; }
     </style>
 </head>
 <body>
-
-    <div class="dev-header">DEVELOPER BY ASHISH</div>
-
-    <!-- Main Player -->
-    <div class="player-viewport">
-        <iframe id="vid-player" 
-            src="https://www.youtube.com/embed/Xm68a98q1u0?modestbranding=1&rel=0&iv_load_policy=3&controls=1&vq=hd1080" 
-            allow="autoplay; encrypted-media">
-        </iframe>
+    <div class="header">DEVELOPER BY ASHISH</div>
+    
+    <div class="viewport">
+        <iframe id="player" src="https://www.youtube.com/embed/videoseries?list=PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n&modestbranding=1&rel=0&vq=hd1080&controls=1"></iframe>
     </div>
 
-    <div class="content">
-        
-        <!-- Collection 1: 8 Videos -->
-        <div class="section-title">Memory Collection 01</div>
-        <div class="video-grid">
-            <script>
-                const ids1 = ["Xm68a98q1u0", "O_00qXv6fX8", "qYc7A6Y_B7E", "Z8tYI-88060", "y_2f5Yk_7P0", "r_9T7Q6_Vw8", "f_0A9K6_Xm0", "w_3L8P9_Yt1"];
-                ids1.forEach((id, i) => {
-                    document.write(`
-                        <div class="video-card" onclick="play('${id}')">
-                            <img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg">
-                            <div class="title">Memory Video 0${i+1}</div>
-                        </div>
-                    `);
-                });
-            </script>
-        </div>
-
-        <!-- Collection 2: 2 Videos -->
-        <div class="section-title">Memory Collection 02</div>
-        <div class="video-grid">
-            <script>
-                const ids2 = ["H_9G7L2_Xp0", "K_8J1M3_Yq1"];
-                ids2.forEach((id, i) => {
-                    document.write(`
-                        <div class="video-card" onclick="play('${id}')">
-                            <img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg">
-                            <div class="title">Event Video 0${i+1}</div>
-                        </div>
-                    `);
-                });
-            </script>
-        </div>
-
-        <!-- Collection 3: 3 Videos -->
-        <div class="section-title">Memory Collection 03</div>
-        <div class="video-grid">
-            <script>
-                const ids3 = ["PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi_1", "PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi_2", "PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi_3"];
-                ids3.forEach((id, i) => {
-                    document.write(`
-                        <div class="video-card" onclick="play('${id}')">
-                            <img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg">
-                            <div class="title">Special Video 0${i+1}</div>
-                        </div>
-                    `);
-                });
-            </script>
-        </div>
-
+    <div class="grid">
+        <div class="btn active" onclick="load('PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n', this)">Playlist 1</div>
+        <div class="btn" onclick="load('PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D', this)">Playlist 2</div>
+        <div class="btn" onclick="load('PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi', this)">Playlist 3</div>
     </div>
 
     <script>
-        function play(id) {
-            const player = document.getElementById('vid-player');
-            player.src = "https://www.youtube.com/embed/" + id + "?modestbranding=1&rel=0&iv_load_policy=3&controls=1&vq=hd1080&autoplay=1";
-            window.scrollTo({top: 0, behavior: 'smooth'});
+        function load(id, el) {
+            document.getElementById('player').src = "https://www.youtube.com/embed/videoseries?list=" + id + "&modestbranding=1&rel=0&vq=hd1080&controls=1&autoplay=1";
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
         }
     </script>
-
 </body>
 </html>
