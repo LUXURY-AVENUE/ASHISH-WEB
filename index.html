@@ -2,56 +2,72 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Premium Gallery | Ashish</title>
+    <!-- रोटेशन को सपोर्ट करने के लिए यह लाइन बहुत ज़रूरी है -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Professional Gallery | Developer Ashish</title>
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 0; overflow: hidden; }
-        .dev-header { padding: 10px; text-align: center; color: #00f2ff; font-size: 10px; letter-spacing: 3px; font-weight: bold; border-bottom: 1px solid #222; }
-
-        /* Ultimate Rotation-Proof Masking */
-        .player-wrapper {
-            position: relative; width: 100vw; height: 56.25vw; /* 16:9 Ratio */
-            max-height: 80vh; overflow: hidden; background: #000;
-        }
-
-        iframe {
-            position: absolute;
-            top: -65px; /* Top title hide */
-            left: -5px;
-            width: calc(100% + 10px);
-            height: calc(100% + 130px); /* Bottom logo hide */
-            border: none;
-        }
-
-        .nav-grid { display: grid; grid-template-columns: 1fr; gap: 10px; padding: 20px; overflow-y: auto; height: calc(100vh - 65vw); }
-        .nav-btn { background: #111; border: 1px solid #333; color: #fff; padding: 20px; border-radius: 12px; text-align: center; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .active { border-color: #00f2ff; background: rgba(0, 242, 255, 0.1); color: #00f2ff; }
+        body { background: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 0; }
         
-        /* Landscape Mode Fix */
+        .header { 
+            padding: 15px; text-align: center; color: #00f2ff; 
+            font-size: 11px; letter-spacing: 4px; font-weight: bold; 
+            border-bottom: 1px solid #222; 
+        }
+
+        /* Portrait Mode (सीधा फोन) के लिए प्लेयर */
+        .viewport { 
+            width: 100vw; height: 56.25vw; 
+            position: relative; overflow: hidden; background: #000; 
+        }
+
+        iframe { 
+            position: absolute; 
+            top: -65px; /* Title Masking */
+            left: -5px; 
+            width: calc(100% + 10px); 
+            height: calc(100% + 130px); /* Logo Masking */
+            border: none; 
+        }
+
+        .nav-grid { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 20px; }
+        .btn { 
+            background: #111; border: 1px solid #333; color: #fff; 
+            padding: 20px; border-radius: 12px; text-align: center; 
+            font-size: 14px; font-weight: bold; cursor: pointer; 
+        }
+        .active { border-color: #00f2ff; background: rgba(0, 242, 255, 0.1); color: #00f2ff; }
+
+        /* --- ROTATION LOGIC (Landscape Mode) --- */
         @media (orientation: landscape) {
-            .player-wrapper { height: 100vh; width: 100vw; }
-            .nav-grid, .dev-header { display: none; }
-            iframe { top: -80px; height: calc(100% + 160px); }
+            .header, .nav-grid { display: none; } /* वीडियो के अलावा सब छुपा दें */
+            .viewport { 
+                width: 100vw; height: 100vh; 
+                margin: 0; border-radius: 0; 
+            }
+            iframe { 
+                top: -75px; /* रोटेशन के बाद टाइटल छुपाने के लिए */
+                height: calc(100% + 150px); 
+            }
         }
     </style>
 </head>
 <body>
-    <div class="dev-header">DEVELOPER BY ASHISH</div>
+    <div class="header">DEVELOPER BY ASHISH</div>
     
-    <div class="player-wrapper">
-        <iframe id="main-player" src="https://www.youtube.com/embed/videoseries?list=PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n&modestbranding=1&rel=0&vq=hd1080&controls=1"></iframe>
+    <div class="viewport">
+        <iframe id="player" src="https://www.youtube.com/embed/videoseries?list=PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n&modestbranding=1&rel=0&vq=hd1080&controls=1"></iframe>
     </div>
 
     <div class="nav-grid">
-        <div class="nav-btn active" onclick="change('PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n', this)">JAIPAL JI RETIREMENT VIDEO</div>
-        <div class="nav-btn" onclick="change('PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D', this)">CHIRAG JAGARAN VIDEO</div>
-        <div class="nav-btn" onclick="change('PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi', this)">PARVEEN MARRIAGE VIDEO</div>
+        <div class="btn active" onclick="load('PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n', this)">JAIPAL JI RETIREMENT VIDEO</div>
+        <div class="btn" onclick="load('PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D', this)">CHIRAG JAGARAN VIDEO</div>
+        <div class="btn" onclick="load('PL52KVnVncFkbvTKCj2R6h7kQz0lOGV9Hi', this)">PARVEEN MARRIAGE VIDEO</div>
     </div>
 
     <script>
-        function change(id, el) {
-            document.getElementById('main-player').src = "https://www.youtube.com/embed/videoseries?list=" + id + "&modestbranding=1&rel=0&vq=hd1080&controls=1&autoplay=1";
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        function load(id, el) {
+            document.getElementById('player').src = "https://www.youtube.com/embed/videoseries?list=" + id + "&modestbranding=1&rel=0&vq=hd1080&controls=1&autoplay=1";
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
             el.classList.add('active');
         }
     </script>
