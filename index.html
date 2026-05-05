@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANN NEWS | Professional Trading Terminal | BY ASHISH</title>
+    <title>ANN NEWS | NSE LIVE TERMINAL | BY ASHISH</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -13,7 +13,6 @@
         .option-chain-table { font-size: 11px; width: 100%; text-align: center; border-collapse: collapse; }
         .option-chain-table th { background: #f8fafc; padding: 8px; border: 1px solid #e2e8f0; font-weight: 800; }
         .option-chain-table td { padding: 8px; border: 1px solid #e2e8f0; }
-        .strike-price { font-weight: bold; background: #f1f5f9; color: #1e40af; }
         ::-webkit-scrollbar { display: none; }
     </style>
 </head>
@@ -24,20 +23,18 @@
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
         {
         "symbols": [
-          { "proName": "NSE:NIFTY", "title": "NIFTY 50" },
+          { "proName": "SGX:IN1!", "title": "GIFT NIFTY" },
           { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
           { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
           { "proName": "NSE:ICICIBANK", "title": "ICICI BANK" },
-          { "proName": "NSE:BAJFINANCE", "title": "BAJAJ FIN" },
-          { "proName": "NSE:TCS", "title": "TCS" },
-          { "proName": "NSE:INFY", "title": "INFOSYS" }
+          { "proName": "NSE:BAJFINANCE", "title": "BAJAJ FIN" }
         ],
         "showSymbolLogo": true,
         "colorTheme": "light",
         "isTransparent": false,
         "displayMode": "adaptive",
         "locale": "in"
-      }
+        }
         </script>
     </div>
 
@@ -46,38 +43,60 @@
             <div class="text-3xl font-black italic tracking-tighter text-red-700 uppercase">
                 ANN <span class="text-black font-normal">NEWS</span>
             </div>
-            <div class="flex items-center gap-2">
-                <span class="text-[9px] font-bold bg-red-600 text-white px-2 py-1 rounded animate-pulse uppercase tracking-widest">Live Terminal</span>
-            </div>
+            <div class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-1 rounded">PRO TERMINAL</div>
         </div>
     </header>
 
     <div class="breaking-news-box text-white flex items-center shadow-lg">
         <div class="bg-black px-4 py-2 font-black italic text-xs z-10 border-r-2 border-red-500">BREAKING</div>
         <marquee class="font-bold text-sm py-2 uppercase" scrollamount="7">
-             • निफ्टी कल सुबह मॉर्निंग में गैप अप (GAP UP) खुलेगा: ANN न्यूज़ का विशेष विश्लेषण • प्रमुख स्टॉक्स HDFC और RELIANCE में तेज़ी के संकेत • डेवलपर आशीष द्वारा संचालित न्यूज़ टर्मिनल •
+             • निफ्टी कल सुबह मॉर्निंग में गैप अप (GAP UP) खुलेगा: ANN न्यूज़ का विशेष विश्लेषण • HDFC BANK और RELIANCE में तेज़ी के संकेत • डेवलपर आशीष का न्यूज़ पोर्टल लाइव •
         </marquee>
     </div>
 
     <section class="p-2 bg-white shadow-sm mt-1">
-        <div id="tradingview_gift_main" class="w-full h-[400px] border rounded-lg overflow-hidden"></div>
+        <h2 class="text-[11px] font-black text-gray-700 uppercase italic mb-2 px-1">
+            <i class="fa-solid fa-chart-line text-blue-600"></i> GIFT NIFTY LIVE (STABLE)
+        </h2>
+        <div id="gift_nifty_stable" class="w-full h-[400px] border rounded-lg overflow-hidden"></div>
     </section>
 
-    <section class="p-2 grid grid-cols-1 md:grid-cols-2 gap-2">
-        <div class="bg-white p-2 rounded-xl shadow-sm border">
-            <span class="text-[10px] font-black text-gray-500">NIFTY 50 INDEX</span>
-            <div id="tradingview_nifty_mini" class="h-[200px]"></div>
-        </div>
-        <div class="bg-white p-2 rounded-xl shadow-sm border">
-            <span class="text-[10px] font-black text-gray-500">SENSEX INDEX</span>
-            <div id="tradingview_sensex_mini" class="h-[200px]"></div>
+    <section class="p-2 bg-white mt-2 border-t shadow-sm">
+        <h2 class="text-xs font-black mb-3 text-gray-700 uppercase italic px-1">
+            <i class="fa-solid fa-bolt text-yellow-500"></i> NSE Heavyweights Live
+        </h2>
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+            {
+              "colorTheme": "light",
+              "dateRange": "12M",
+              "showChart": false,
+              "locale": "in",
+              "width": "100%",
+              "height": "300",
+              "largeChartUrl": "",
+              "isTransparent": false,
+              "showSymbolLogo": true,
+              "showFloatingTooltip": false,
+              "tabs": [
+                {
+                  "title": "NSE Stocks",
+                  "symbols": [
+                    { "s": "NSE:HDFCBANK", "d": "HDFC Bank" },
+                    { "s": "NSE:RELIANCE", "d": "Reliance" },
+                    { "s": "NSE:ICICIBANK", "d": "ICICI Bank" },
+                    { "s": "NSE:BAJFINANCE", "d": "Bajaj Finance" },
+                    { "s": "NSE:TCS", "d": "TCS" }
+                  ]
+                }
+              ]
+            }
+            </script>
         </div>
     </section>
 
     <section class="p-2 bg-white mt-2 border-t shadow-sm overflow-x-auto">
-        <h2 class="text-xs font-black mb-3 text-gray-700 uppercase italic px-1 flex items-center gap-2">
-            <i class="fa-solid fa-list-check text-red-600"></i> Nifty Option Chain Snapshot
-        </h2>
         <table class="option-chain-table">
             <thead>
                 <tr class="bg-gray-100">
@@ -89,7 +108,7 @@
             <tbody>
                 <tr class="outline outline-2 outline-yellow-400">
                     <td class="bg-green-50 font-black">45.10</td>
-                    <td class="strike-price bg-yellow-400 text-black">24000 (ATM)</td>
+                    <td class="font-bold bg-yellow-400">24000 (ATM)</td>
                     <td class="bg-red-50 font-black">112.40</td>
                 </tr>
             </tbody>
@@ -107,12 +126,12 @@
 
     <footer class="bg-black text-white pt-10 pb-28 px-6 text-center border-t-4 border-red-700">
         <h3 class="text-white text-2xl font-black tracking-tighter italic uppercase">DEVELOPER BY ASHISH</h3>
-        <p class="text-gray-400 text-[9px] mt-2 uppercase tracking-widest">Ghaziabad, Uttar Pradesh</p>
+        <p class="text-gray-400 text-[9px] mt-2 uppercase tracking-widest italic">Ghaziabad Hub</p>
     </footer>
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script type="text/javascript">
-        // GIFT NIFTY Stable Symbol
+        // GIFT NIFTY Stable Fix
         new TradingView.widget({
             "autosize": true,
             "symbol": "SGX:IN1!",
@@ -121,27 +140,7 @@
             "theme": "light",
             "style": "1",
             "locale": "in",
-            "container_id": "tradingview_gift_main"
-        });
-
-        // NIFTY MINI
-        new TradingView.widget({
-            "autosize": true,
-            "symbol": "NSE:NIFTY",
-            "interval": "D",
-            "theme": "light",
-            "style": "3",
-            "container_id": "tradingview_nifty_mini"
-        });
-
-        // SENSEX MINI
-        new TradingView.widget({
-            "autosize": true,
-            "symbol": "BSE:SENSEX",
-            "interval": "D",
-            "theme": "light",
-            "style": "3",
-            "container_id": "tradingview_sensex_mini"
+            "container_id": "gift_nifty_stable"
         });
     </script>
 </body>
