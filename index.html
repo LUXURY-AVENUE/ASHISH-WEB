@@ -1,74 +1,155 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- रोटेशन को सपोर्ट करने के लिए यह लाइन बहुत ज़रूरी है -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Professional Gallery | Developer Ashish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFT HUB | Ashish Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 0; }
-        
-        .header { 
-            padding: 15px; text-align: center; color: #00f2ff; 
-            font-size: 11px; letter-spacing: 4px; font-weight: bold; 
-            border-bottom: 1px solid #222; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Portrait Mode (सीधा फोन) के लिए प्लेयर */
-        .viewport { 
-            width: 100vw; height: 56.25vw; 
-            position: relative; overflow: hidden; background: #000; 
+        body {
+            background-color: #020205;
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
         }
 
-        iframe { 
-            position: absolute; 
-            top: -65px; /* Title Masking */
-            left: -5px; 
-            width: calc(100% + 10px); 
-            height: calc(100% + 130px); /* Logo Masking */
-            border: none; 
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
         }
 
-        .nav-grid { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 20px; }
-        .btn { 
-            background: #111; border: 1px solid #333; color: #fff; 
-            padding: 20px; border-radius: 12px; text-align: center; 
-            font-size: 14px; font-weight: bold; cursor: pointer; 
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
-        .active { border-color: #00f2ff; background: rgba(0, 242, 255, 0.1); color: #00f2ff; }
 
-        /* --- ROTATION LOGIC (Landscape Mode) --- */
-        @media (orientation: landscape) {
-            .header, .nav-grid { display: none; } /* वीडियो के अलावा सब छुपा दें */
-            .viewport { 
-                width: 100vw; height: 100vh; 
-                margin: 0; border-radius: 0; 
-            }
-            iframe { 
-                top: -75px; /* रोटेशन के बाद टाइटल छुपाने के लिए */
-                height: calc(100% + 150px); 
-            }
+        .brand-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .brand-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 0 10px #00d2ff, 0 0 30px #3a7bd5;
+            margin-bottom: 10px;
+        }
+
+        .brand-header p {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            color: #00d2ff;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            padding: 50px 40px;
+            border-radius: 25px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        .label {
+            font-size: 0.8rem;
+            color: #888;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 20px;
+            display: block;
+        }
+
+        .value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .highlight {
+            color: #00d2ff;
+        }
+
+        .btn {
+            margin-top: 40px;
+            padding: 15px 45px;
+            background: transparent;
+            border: 2px solid #00d2ff;
+            color: #00d2ff;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #00d2ff;
+            color: #000;
+            box-shadow: 0 0 20px #00d2ff;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #444;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
-    <div class="header">DEVELOPER BY ASHISH</div>
-    
-    <div class="viewport">
-        <iframe id="player" src="https://www.youtube.com/embed/videoseries?list=PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n&modestbranding=1&rel=0&vq=hd1080&controls=1"></iframe>
+
+    <div class="bg-overlay"></div>
+
+    <div class="container">
+        <div class="brand-header">
+            <h1>GIFT HUB</h1>
+            <p>Future of Gifting & Interior</p>
+        </div>
+
+        <div class="card">
+            <span class="label">Lead Developer</span>
+            <span class="value highlight">ASHISH DEVELOPER</span>
+
+            <span class="label">Direct Contact</span>
+            <span class="value">7530919863</span>
+
+            <span class="label">Official Email</span>
+            <span class="value">ashish95823@gmail.com</span>
+
+            <button class="btn" onclick="window.location.href='tel:7530919863'">
+                Call Now
+            </button>
+        </div>
+
+        <footer>
+            &copy; 2026 Crafted by Ashish Developer
+        </footer>
     </div>
 
-    <div class="nav-grid">
-        <div class="btn active" onclick="load('PL52KVnVncFkbV38wQ4FNz_LjOSkQu9p5n', this)">JAIPAL JI RETIREMENT VIDEO</div>
-        <div class="btn" onclick="load('PL52KVnVncFkbRx8PnnywcuZTfwxJhtl-D', this)">CHIRAG JAGARAN VIDEO</div>
-    </div>
-
-    <script>
-        function load(id, el) {
-            document.getElementById('player').src = "https://www.youtube.com/embed/videoseries?list=" + id + "&modestbranding=1&rel=0&vq=hd1080&controls=1&autoplay=1";
-            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-            el.classList.add('active');
-        }
-    </script>
 </body>
 </html>
