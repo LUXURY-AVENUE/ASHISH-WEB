@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANN News | Live updates</title>
+    <title>ANN News | Live updates by Ashish</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .breaking-news-gradient {
-            background: linear-gradient(90deg, #d20000 0%, #ff0000 100%);
-        }
+        .breaking-news-gradient { background: linear-gradient(90deg, #d20000 0%, #ff0000 100%); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100 font-sans pb-20">
 
     <header class="bg-white border-b sticky top-0 z-50">
         <div class="flex items-center justify-between px-4 py-2 border-b">
@@ -23,87 +23,106 @@
                     <input type="text" placeholder="annnews.in" class="bg-transparent outline-none w-full text-sm">
                 </div>
             </div>
-            <div class="flex items-center space-x-4">
-                <span class="bg-gray-200 rounded px-2 text-sm font-bold">:D</span>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-            </div>
+            <div class="flex items-center space-x-4 font-bold text-red-600">ANN News</div>
         </div>
-        
-        <nav class="flex items-center justify-between px-4 py-2">
+        <nav class="flex items-center justify-between px-4 py-2 shadow-sm">
             <div class="bg-red-700 text-white px-2 py-1 font-bold text-xl italic">
-                ANN <span class="text-white font-normal">न्यूज़</span>
+                ANN <span class="font-light">NEWS</span>
             </div>
-            <div class="flex space-x-4 overflow-x-auto text-sm font-semibold whitespace-nowrap scrollbar-hide">
-                <a href="#" class="text-red-600">ई-पेपर</a>
-                <a href="#">बाकी</a>
-                <a href="#">वीडियो</a>
+            <div class="flex space-x-4 overflow-x-auto text-sm font-semibold whitespace-nowrap px-2">
+                <a href="#live" class="text-red-600">लाइव टीवी</a>
+                <a href="#news">आज की ताजा खबर</a>
                 <a href="#">चुनाव 2026</a>
-            </div>
-            <div class="bg-red-600 text-white rounded-full p-2">
-                <i class="fa-solid fa-user"></i>
+                <a href="#">वीडियो</a>
             </div>
         </nav>
     </header>
 
     <div class="breaking-news-gradient text-white flex">
-        <div class="bg-red-900 px-4 py-3 font-black italic flex items-center leading-tight">
-            BREAKING <br> NEWS
-        </div>
-        <div class="px-4 py-3 flex-1 font-bold text-lg">
-            IRCTC घोटाले में बड़ी खबर: ANN न्यूज़ पर आज बड़ा फैसला संभव
-        </div>
+        <div class="bg-red-900 px-3 py-2 font-black italic text-sm flex items-center">BREAKING</div>
+        <marquee class="py-2 font-bold text-md italic" scrollamount="5">
+            IRCTC घोटाले में लालू परिवार पर आज बड़ा फैसला संभव | शेयर बाजार में आज जबरदस्त उछाल | ANN न्यूज़ पर देखें सबसे तेज खबरें...
+        </marquee>
     </div>
 
-    <div class="flex space-x-2 p-4 overflow-x-auto">
-        <button class="bg-white border rounded-lg px-4 py-2 text-sm font-bold shadow-sm whitespace-nowrap">उठो अनारकली</button>
-        <button class="bg-white border rounded-lg px-4 py-2 text-sm font-bold shadow-sm whitespace-nowrap">विधानसभा चुनाव नतीजे 2026</button>
-        <button class="bg-white border rounded-lg px-4 py-2 text-sm font-bold shadow-sm whitespace-nowrap">पीएम मोदी</button>
-    </div>
+    <section id="live" class="p-4">
+        <h2 class="text-xl font-bold border-l-4 border-red-600 pl-2 mb-4 text-gray-800 italic">LIVE TV - सबसे तेज</h2>
+        
+        <div class="space-y-6">
+            <div>
+                <p class="text-sm font-bold text-red-600 mb-1"><i class="fa-solid fa-circle-dot animate-pulse"></i> Aaj Tak Live</p>
+                <div class="video-container shadow-lg">
+                    <iframe src="https://www.youtube.com/embed/live_stream?channel=UCt4t-jeY85JegMlZ-E5UWtA&autoplay=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
 
-    <div class="px-4">
-        <p class="text-center text-xs text-gray-500 mb-1">ADVERTISEMENT</p>
-        <div class="bg-blue-400 rounded-lg overflow-hidden relative">
-            <img src="https://via.placeholder.com/600x400/22d3ee/ffffff?text=ANN+News+Ad+Banner" alt="Ad" class="w-full h-auto">
-            <div class="absolute bottom-2 right-2 bg-gray-900/50 text-white text-[10px] px-1">AD</div>
+            <div>
+                <p class="text-sm font-bold text-blue-600 mb-1"><i class="fa-solid fa-circle-dot animate-pulse"></i> Zee News Live</p>
+                <div class="video-container shadow-lg">
+                    <iframe src="https://www.youtube.com/embed/live_stream?channel=UC77X3Z3E6rS40nNCvI_C59g&autoplay=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="mt-6 px-4">
-        <div class="bg-blue-900 text-white py-4 text-center rounded-t-xl">
-            <h2 class="text-4xl font-black tracking-tighter">चुनाव 2026</h2>
+    <section id="news" class="p-4 bg-white mt-4">
+        <h2 class="text-xl font-bold border-l-4 border-black pl-2 mb-4">आज की बड़ी खबरें</h2>
+        
+        <div class="divide-y">
+            <div class="py-4 flex gap-4">
+                <div class="flex-1">
+                    <h3 class="font-bold text-md leading-tight">यूपी विधानसभा चुनाव 2026: सभी पार्टियों ने कसी कमर, ANN न्यूज़ की ग्राउंड रिपोर्ट।</h3>
+                    <p class="text-xs text-gray-500 mt-1">2 घंटे पहले | लखनऊ</p>
+                </div>
+                <img src="https://via.placeholder.com/100x70" class="rounded object-cover">
+            </div>
+
+            <div class="py-4 flex gap-4">
+                <div class="flex-1">
+                    <h3 class="font-bold text-md leading-tight">Stock Market Update: निफ्टी में ऐतिहासिक तेजी, निवेशकों की हुई चांदी।</h3>
+                    <p class="text-xs text-gray-500 mt-1">4 घंटे पहले | बिजनेस</p>
+                </div>
+                <img src="https://via.placeholder.com/100x70" class="rounded object-cover">
+            </div>
+
+            <div class="py-4 flex gap-4">
+                <div class="flex-1">
+                    <h3 class="font-bold text-md leading-tight">Weather Update: दिल्ली-NCR में गर्मी से राहत, आज हो सकती है बूंदाबांदी।</h3>
+                    <p class="text-xs text-gray-500 mt-1">6 घंटे पहले | मौसम</p>
+                </div>
+                <img src="https://via.placeholder.com/100x70" class="rounded object-cover">
+            </div>
         </div>
-    </div>
+    </section>
 
-    <footer class="mt-10 bg-gray-800 text-white py-6 text-center">
-        <p class="text-lg font-bold">ANN NEWS</p>
-        <p class="text-xs text-gray-400 mt-2">© 2026 All Rights Reserved</p>
-        <div class="mt-4 bg-red-600 inline-block px-4 py-1 rounded text-sm font-mono tracking-widest uppercase">
-            Developed by Ashish
+    <footer class="bg-gray-900 text-white p-8 text-center mt-10">
+        <h1 class="text-2xl font-black italic">ANN NEWS</h1>
+        <p class="text-gray-400 text-xs mt-2 uppercase tracking-widest">Truth and Fast Updates</p>
+        <div class="mt-6 border-t border-gray-700 pt-4">
+            <div class="bg-red-600 inline-block px-6 py-2 rounded-full font-mono text-sm font-bold uppercase tracking-wider">
+                DEVELOPER BY ASHISH
+            </div>
         </div>
     </footer>
 
-    <div class="fixed bottom-0 w-full bg-white border-t flex justify-around py-2 text-[10px] text-gray-600 font-bold">
-        <div class="flex flex-col items-center text-red-600">
-            <i class="fa-solid fa-house text-lg"></i>
+    <div class="fixed bottom-0 w-full bg-white border-t flex justify-around py-3 text-[11px] text-gray-600 font-bold z-50">
+        <a href="#" class="flex flex-col items-center text-red-600">
+            <i class="fa-solid fa-house text-xl"></i>
             <span>होम</span>
-        </div>
+        </a>
+        <a href="#live" class="flex flex-col items-center">
+            <i class="fa-solid fa-play-circle text-xl"></i>
+            <span>लाइव</span>
+        </a>
+        <a href="#news" class="flex flex-col items-center">
+            <i class="fa-solid fa-newspaper text-xl"></i>
+            <span>न्यूज़</span>
+        </a>
         <div class="flex flex-col items-center">
-            <i class="fa-solid fa-circle-play text-lg"></i>
-            <span>वीडियो</span>
-        </div>
-        <div class="flex flex-col items-center">
-            <i class="fa-solid fa-tv text-lg text-red-600"></i>
-            <span class="text-red-600 uppercase">Live TV</span>
-        </div>
-        <div class="flex flex-col items-center">
-            <i class="fa-solid fa-film text-lg"></i>
-            <span>न्यूज़ रील</span>
-        </div>
-        <div class="flex flex-col items-center">
-            <i class="fa-solid fa-bars text-lg"></i>
+            <i class="fa-solid fa-bars text-xl"></i>
             <span>मेन्यू</span>
         </div>
     </div>
 
-    <div class="h-16"></div> </body>
+</body>
 </html>
