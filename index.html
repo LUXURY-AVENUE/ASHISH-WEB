@@ -3,103 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashish | Interior Specialist & Web Developer</title>
+    <title>Ashish Interiors | Flipkart Style</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-        }
-        .gallery-card:hover img { transform: scale(1.1); transition: 0.5s; }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        body { font-family: 'Roboto', sans-serif; background-color: #f1f3f6; }
+        .fk-blue { background-color: #2874f0; }
+        .fk-yellow { background-color: #ff9f00; }
+        .product-card:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
     </style>
 </head>
-<body class="bg-slate-50 text-gray-900">
+<body>
 
-    <nav class="fixed w-full z-50 glass-effect shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tighter text-indigo-700">ASHISH <span class="text-gray-500 underline decoration-indigo-300">INTERIORS</span></div>
-            <div class="hidden md:flex space-x-8 font-medium">
-                <a href="#home" class="hover:text-indigo-600">Home</a>
-                <a href="#gallery" class="hover:text-indigo-600">Designs</a>
-                <a href="#contact" class="hover:text-indigo-600">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1616486341351-70252447c574?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover" alt="Luxury Interior">
-            <div class="absolute inset-0 bg-black/50"></div>
-        </div>
-        <div class="relative z-10 text-center text-white px-4">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">Elevate Your Living Space</h1>
-            <p class="text-xl md:text-2xl mb-8 font-light max-w-2xl mx-auto italic">प्रीमियम वॉलपेपर और मॉडर्न इंटीरियर डिज़ाइन का सबसे बेहतरीन कलेक्शन।</p>
-            <a href="#gallery" class="bg-indigo-600 hover:bg-indigo-700 text-white px-10 py-4 rounded-full text-lg font-semibold transition-all">Explore Gallery</a>
-        </div>
-    </section>
-
-    <section id="gallery" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16">
-                <h2 class="text-4xl font-bold text-gray-800">Interior Gallery</h2>
-                <div class="h-1.5 w-24 bg-indigo-600 mt-2"></div>
-                <p class="text-gray-500 mt-4">हमारे लेटेस्ट वॉलपेपर और वॉल डिज़ाइन प्रोजेक्ट्स</p>
+    <header class="fk-blue text-white sticky top-0 z-50 py-3 shadow-md">
+        <div class="container mx-auto px-4 md:px-10 flex flex-wrap items-center justify-between">
+            <div class="flex flex-col items-start leading-none mr-4">
+                <span class="text-xl font-bold italic">Ashish</span>
+                <span class="text-xs italic text-yellow-300 font-bold">Plus <i class="fas fa-plus"></i></span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="gallery-card group relative overflow-hidden rounded-2xl shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800" class="w-full h-80 object-cover" alt="Wallpaper">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                        <p class="text-white font-medium">Textured Royal Wall</p>
-                    </div>
-                </div>
-                <div class="gallery-card group relative overflow-hidden rounded-2xl shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1552862750-746b8f6f7f55?auto=format&fit=crop&q=80&w=800" class="w-full h-80 object-cover" alt="Wallpaper">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                        <p class="text-white font-medium">Minimalist Grey Concept</p>
-                    </div>
-                </div>
-                <div class="gallery-card group relative overflow-hidden rounded-2xl shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" class="w-full h-80 object-cover" alt="Wallpaper">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                        <p class="text-white font-medium">Modern Living Finish</p>
-                    </div>
-                </div>
-                </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-12 md:space-y-0">
-            
-            <div class="max-w-md">
-                <h3 class="text-3xl font-bold mb-6 italic">Get In Touch</h3>
-                <p class="text-gray-400 mb-8 leading-relaxed">अगर आप अपने घर को नया लुक देना चाहते हैं, तो आज ही संपर्क करें।</p>
-                <div class="flex items-center space-x-4 text-xl">
-                    <div class="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <span class="font-bold tracking-widest">+91-XXXXXXXXXX</span> </div>
-            </div>
-
-            <div class="bg-white/10 border border-white/20 p-8 rounded-3xl backdrop-blur-md w-full md:w-96">
-                <p class="text-indigo-400 font-mono mb-2">// Designed & Built By</p>
-                <h4 class="text-2xl font-bold mb-1">आशीष</h4>
-                <p class="text-gray-300 font-light mb-6 underline">Professional Web Developer</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="hover:text-indigo-400"><i class="fab fa-github fa-lg"></i></a>
-                    <a href="#" class="hover:text-indigo-400"><i class="fab fa-linkedin fa-lg"></i></a>
+            <div class="flex-grow max-w-xl mx-4 hidden md:block">
+                <div class="relative text-gray-600">
+                    <input type="search" placeholder="इंटीरियर डिज़ाइन और वॉलपेपर खोजें..." class="w-full bg-white h-9 px-5 pr-10 rounded-sm text-sm focus:outline-none shadow-sm">
+                    <button type="submit" class="absolute right-0 top-0 mt-2 mr-4 text-blue-600">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
             </div>
 
+            <div class="flex items-center space-x-6 font-medium">
+                <div class="group relative cursor-pointer bg-white text-blue-600 px-8 py-1 rounded-sm font-bold shadow-md">
+                    Contact
+                    <div class="hidden group-hover:block absolute top-full right-0 mt-1 w-64 bg-white text-gray-800 shadow-2xl rounded-sm p-4 border">
+                        <p class="text-sm font-bold border-b pb-2 mb-2">आशीष वेब डेवलपर</p>
+                        <p class="text-xs mb-1"><i class="fas fa-phone mr-2 text-blue-600"></i> +91 7530919863</p>
+                        <p class="text-xs"><i class="fas fa-envelope mr-2 text-blue-600"></i> आशीष95823@gmail.com</p>
+                    </div>
+                </div>
+                <span class="hidden lg:block cursor-pointer">Become a Seller</span>
+                <div class="cursor-pointer"><i class="fas fa-shopping-cart mr-1"></i> Cart</div>
+            </div>
         </div>
-    </section>
+    </header>
 
-    <footer class="bg-black py-8 text-center text-gray-600 text-sm">
-        &copy; 2026 Ashish Web Developer Portfolio | Ghaziabad, India
+    <main class="container mx-auto mt-4 px-2 md:px-10">
+        
+        <div class="w-full h-40 md:h-72 bg-white shadow-sm overflow-hidden rounded-sm mb-6">
+            <img src="https://images.unsplash.com/photo-1616137422495-1e9e47e217c2?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover" alt="Banner">
+        </div>
+
+        <div class="bg-white p-4 shadow-sm rounded-sm">
+            <div class="flex justify-between items-center border-b pb-4 mb-6">
+                <div>
+                    <h2 class="text-xl font-bold">Best of Interior Designs</h2>
+                    <p class="text-xs text-gray-500">Premium Wallpapers & Textures</p>
+                </div>
+                <button class="fk-blue text-white px-5 py-2 rounded-sm text-sm shadow-md">VIEW ALL</button>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                
+                <div class="product-card border rounded-sm p-2 text-center transition cursor-pointer bg-white">
+                    <div class="h-40 overflow-hidden mb-2">
+                        <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-contain hover:scale-110 transition duration-300">
+                    </div>
+                    <p class="text-sm font-medium truncate">Royal Velvet Texture</p>
+                    <p class="text-green-700 text-xs mt-1">Starting from ₹499</p>
+                    <p class="text-gray-400 text-xs mt-1">Premium Wall Finish</p>
+                </div>
+
+                <div class="product-card border rounded-sm p-2 text-center transition cursor-pointer">
+                    <div class="h-40 overflow-hidden mb-2">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-contain hover:scale-110 transition duration-300">
+                    </div>
+                    <p class="text-sm font-medium truncate">Modern Wooden Panel</p>
+                    <p class="text-green-700 text-xs mt-1">Flat 20% Off</p>
+                    <p class="text-gray-400 text-xs mt-1">Living Room Special</p>
+                </div>
+
+                <div class="product-card border rounded-sm p-2 text-center transition cursor-pointer">
+                    <div class="h-40 overflow-hidden mb-2">
+                        <img src="https://images.unsplash.com/photo-1552862750-746b8f6f7f55?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-contain hover:scale-110 transition duration-300">
+                    </div>
+                    <p class="text-sm font-medium truncate">Minimalist Floral</p>
+                    <p class="text-green-700 text-xs mt-1">Best Seller</p>
+                    <p class="text-gray-400 text-xs mt-1">Master Bedroom</p>
+                </div>
+
+                <div class="product-card border rounded-sm p-2 text-center transition cursor-pointer">
+                    <div class="h-40 overflow-hidden mb-2">
+                        <img src="https://images.unsplash.com/photo-1616486341351-70252447c574?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-contain hover:scale-110 transition duration-300">
+                    </div>
+                    <p class="text-sm font-medium truncate">Stone Finish Wall</p>
+                    <p class="text-green-700 text-xs mt-1">New Arrivals</p>
+                    <p class="text-gray-400 text-xs mt-1">Office & Studio</p>
+                </div>
+
+                <div class="product-card border rounded-sm p-2 text-center transition cursor-pointer">
+                    <div class="h-40 overflow-hidden mb-2">
+                        <img src="https://images.unsplash.com/photo-1615873968403-89e068629275?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-contain hover:scale-110 transition duration-300">
+                    </div>
+                    <p class="text-sm font-medium truncate">Abstract Art Wall</p>
+                    <p class="text-green-700 text-xs mt-1">Up to 40% Off</p>
+                    <p class="text-gray-400 text-xs mt-1">Creative Spaces</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white mt-10 border-t py-12">
+        <div class="container mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-gray-500 text-xs font-bold mb-4">ABOUT</h4>
+                <p class="text-sm text-gray-700 leading-loose">हम गाजियाबाद में सबसे बेहतरीन इंटीरियर और वॉलपेपर सेवाएं प्रदान करते हैं। यह वेबसाइट हमारे टैलेंटेड <b>आशीष वेब डेवलपर</b> द्वारा डिजाइन की गई है।</p>
+            </div>
+            <div>
+                <h4 class="text-gray-500 text-xs font-bold mb-4">DEVELOPER CONTACT</h4>
+                <ul class="text-sm space-y-2 font-medium">
+                    <li class="flex items-center"><i class="fas fa-phone mr-3 text-blue-600"></i> +91 7530919863</li>
+                    <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-600"></i> आशीष95823@gmail.com</li>
+                    <li class="flex items-center"><i class="fas fa-map-marker-alt mr-3 text-blue-600"></i> Ghaziabad, UP</li>
+                </ul>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <h4 class="text-gray-500 text-xs font-bold mb-2">SOCIAL LINKS</h4>
+                <div class="flex space-x-4 text-gray-600">
+                    <i class="fab fa-facebook fa-lg hover:text-blue-600 cursor-pointer"></i>
+                    <i class="fab fa-instagram fa-lg hover:text-pink-600 cursor-pointer"></i>
+                    <i class="fab fa-youtube fa-lg hover:text-red-600 cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 border-t pt-8 text-xs text-gray-400">
+            © 2026 Ashish Interiors & Web Solutions. Built for Professional Excellence.
+        </div>
     </footer>
 
 </body>
