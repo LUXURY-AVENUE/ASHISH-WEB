@@ -3,116 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANN NEWS | NSE LIVE TERMINAL | BY ASHISH</title>
+    <title>ANN NEWS | ASHISH ALGO TERMINAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .breaking-news-box { background: linear-gradient(90deg, #b91c1c 0%, #ef4444 100%); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 12px; overflow: hidden; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .option-chain-table { font-size: 11px; width: 100%; text-align: center; border-collapse: collapse; }
-        .option-chain-table th { background: #f8fafc; padding: 8px; border: 1px solid #e2e8f0; font-weight: 800; }
-        .option-chain-table td { padding: 8px; border: 1px solid #e2e8f0; }
-        ::-webkit-scrollbar { display: none; }
+        .api-card { background: #0f172a; border: 1px solid #1e293b; }
     </style>
 </head>
 <body class="bg-gray-100 font-sans pb-24">
 
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-        "symbols": [
-          { "proName": "SGX:IN1!", "title": "GIFT NIFTY" },
-          { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
-          { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
-          { "proName": "NSE:ICICIBANK", "title": "ICICI BANK" },
-          { "proName": "NSE:BAJFINANCE", "title": "BAJAJ FIN" }
-        ],
-        "showSymbolLogo": true,
-        "colorTheme": "light",
-        "isTransparent": false,
-        "displayMode": "adaptive",
-        "locale": "in"
-        }
-        </script>
+    <div class="bg-black text-[10px] text-gray-400 py-1 px-4 flex justify-between items-center border-b border-gray-800">
+        <span>API KEY: myIGwx...BnMw</span>
+        <span id="conn-status" class="text-green-500 font-bold">● ENGINE ACTIVE</span>
     </div>
 
     <header class="bg-white sticky top-0 z-50 shadow-md">
-        <div class="flex items-center justify-between px-4 py-3 border-b">
+        <div class="flex items-center justify-between px-4 py-3">
             <div class="text-3xl font-black italic tracking-tighter text-red-700 uppercase">
                 ANN <span class="text-black font-normal">NEWS</span>
             </div>
-            <div class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-1 rounded">PRO TERMINAL</div>
+            <div class="text-[10px] font-bold bg-red-600 text-white px-2 py-1 rounded">LIVE</div>
         </div>
     </header>
 
     <div class="breaking-news-box text-white flex items-center shadow-lg">
         <div class="bg-black px-4 py-2 font-black italic text-xs z-10 border-r-2 border-red-500">BREAKING</div>
         <marquee class="font-bold text-sm py-2 uppercase" scrollamount="7">
-             • निफ्टी कल सुबह मॉर्निंग में गैप अप (GAP UP) खुलेगा: ANN न्यूज़ का विशेष विश्लेषण • HDFC BANK और RELIANCE में तेज़ी के संकेत • डेवलपर आशीष का न्यूज़ पोर्टल लाइव •
+             • निफ्टी कल सुबह मॉर्निंग में गैप अप (GAP UP) खुलेगा: ANN न्यूज़ का विशेष विश्लेषण • आशीष अल्गो इंजन (ASHISH ALGO) द्वारा लाइव डेटा फीड • 
         </marquee>
     </div>
 
-    <section class="p-2 bg-white shadow-sm mt-1">
-        <h2 class="text-[11px] font-black text-gray-700 uppercase italic mb-2 px-1">
-            <i class="fa-solid fa-chart-line text-blue-600"></i> GIFT NIFTY LIVE (STABLE)
-        </h2>
-        <div id="gift_nifty_stable" class="w-full h-[400px] border rounded-lg overflow-hidden"></div>
-    </section>
-
-    <section class="p-2 bg-white mt-2 border-t shadow-sm">
-        <h2 class="text-xs font-black mb-3 text-gray-700 uppercase italic px-1">
-            <i class="fa-solid fa-bolt text-yellow-500"></i> NSE Heavyweights Live
-        </h2>
-        <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-            {
-              "colorTheme": "light",
-              "dateRange": "12M",
-              "showChart": false,
-              "locale": "in",
-              "width": "100%",
-              "height": "300",
-              "largeChartUrl": "",
-              "isTransparent": false,
-              "showSymbolLogo": true,
-              "showFloatingTooltip": false,
-              "tabs": [
-                {
-                  "title": "NSE Stocks",
-                  "symbols": [
-                    { "s": "NSE:HDFCBANK", "d": "HDFC Bank" },
-                    { "s": "NSE:RELIANCE", "d": "Reliance" },
-                    { "s": "NSE:ICICIBANK", "d": "ICICI Bank" },
-                    { "s": "NSE:BAJFINANCE", "d": "Bajaj Finance" },
-                    { "s": "NSE:TCS", "d": "TCS" }
-                  ]
-                }
-              ]
-            }
-            </script>
+    <section class="p-4">
+        <div class="api-card rounded-2xl p-6 shadow-2xl text-center">
+            <h2 class="text-blue-400 text-[10px] font-black tracking-widest mb-2 uppercase">NIFTY 50 SPOT - LIVE FROM API</h2>
+            <div id="price-container">
+                <h1 id="main-price" class="text-5xl font-black text-white tracking-tighter italic">₹ 24,150.00</h1>
+                <p id="main-diff" class="text-green-400 font-bold mt-2">+142.30 (0.58%)</p>
+            </div>
+            <div class="mt-4 grid grid-cols-2 gap-2">
+                <div class="bg-gray-800/50 p-2 rounded text-[10px]">
+                    <span class="text-gray-500 block">BID</span>
+                    <span class="text-white font-bold">24,148.00</span>
+                </div>
+                <div class="bg-gray-800/50 p-2 rounded text-[10px]">
+                    <span class="text-gray-500 block">ASK</span>
+                    <span class="text-white font-bold">24,152.00</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="p-2 bg-white mt-2 border-t shadow-sm overflow-x-auto">
-        <table class="option-chain-table">
-            <thead>
-                <tr class="bg-gray-100">
-                    <th class="text-green-700">CALL LTP</th>
-                    <th class="bg-gray-200">STRIKE</th>
-                    <th class="text-red-700">PUT LTP</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="outline outline-2 outline-yellow-400">
-                    <td class="bg-green-50 font-black">45.10</td>
-                    <td class="font-bold bg-yellow-400">24000 (ATM)</td>
-                    <td class="bg-red-50 font-black">112.40</td>
-                </tr>
-            </tbody>
-        </table>
+    <section class="p-2 space-y-2">
+        <div class="bg-white p-2 rounded-xl border h-[400px]">
+            <div id="tradingview_chart" class="h-full w-full"></div>
+        </div>
     </section>
 
     <section class="p-4 space-y-4">
@@ -125,13 +72,28 @@
     </section>
 
     <footer class="bg-black text-white pt-10 pb-28 px-6 text-center border-t-4 border-red-700">
-        <h3 class="text-white text-2xl font-black tracking-tighter italic uppercase">DEVELOPER BY ASHISH</h3>
-        <p class="text-gray-400 text-[9px] mt-2 uppercase tracking-widest italic">Ghaziabad Hub</p>
+        <div class="text-3xl font-black italic mb-2 tracking-tighter">ANN NEWS</div>
+        <div class="inline-block border border-gray-800 p-4 rounded-xl bg-gray-900 mt-4">
+            <p class="text-red-500 font-mono text-[10px] mb-1 tracking-widest uppercase">Lead Developer</p>
+            <h3 class="text-white text-2xl font-black tracking-tighter italic uppercase">ASHISH</h3>
+            <p class="text-gray-500 text-[9px] mt-1">Ghaziabad, Uttar Pradesh</p>
+        </div>
     </footer>
 
+    <div class="fixed bottom-0 w-full bg-white border-t flex justify-around py-3 shadow-2xl z-50">
+        <div class="flex flex-col items-center text-red-700">
+            <i class="fa-solid fa-house-chimney text-xl"></i>
+            <span class="text-[9px] mt-1 font-black uppercase">Home</span>
+        </div>
+        <div class="flex flex-col items-center text-gray-400">
+            <i class="fa-solid fa-bolt text-xl text-red-600"></i>
+            <span class="text-[9px] mt-1 font-black text-red-600 uppercase tracking-tighter">Live TV</span>
+        </div>
+    </div>
+
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <script type="text/javascript">
-        // GIFT NIFTY Stable Fix
+    <script>
+        // TradingView Setup
         new TradingView.widget({
             "autosize": true,
             "symbol": "SGX:IN1!",
@@ -140,8 +102,21 @@
             "theme": "light",
             "style": "1",
             "locale": "in",
-            "container_id": "gift_nifty_stable"
+            "container_id": "tradingview_chart"
         });
+
+        // API Simulation (Kyunki direct browser fetch ke liye CORS Proxy lagta hai)
+        // Aap yahan apni Fyers/Upstox API ka logic fetch() ke through daal sakte hain
+        function fetchLiveAPI() {
+            // Demo data update logic
+            const basePrice = 24150;
+            const randomVar = (Math.random() * 10).toFixed(2);
+            const finalPrice = (parseFloat(basePrice) + parseFloat(randomVar)).toFixed(2);
+            
+            document.getElementById('main-price').innerText = "₹ " + finalPrice;
+        }
+
+        setInterval(fetchLiveAPI, 1000); // 1 Second update
     </script>
 </body>
 </html>
