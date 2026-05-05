@@ -19,57 +19,64 @@
 </head>
 <body class="bg-gray-100 font-sans pb-24">
 
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
+          { "proName": "NSE:NIFTY", "title": "NIFTY 50" },
+          { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
+          { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
+          { "proName": "NSE:ICICIBANK", "title": "ICICI BANK" },
+          { "proName": "NSE:BAJFINANCE", "title": "BAJAJ FIN" },
+          { "proName": "NSE:TCS", "title": "TCS" },
+          { "proName": "NSE:INFY", "title": "INFOSYS" }
+        ],
+        "showSymbolLogo": true,
+        "colorTheme": "light",
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "locale": "in"
+      }
+        </script>
+    </div>
+
     <header class="bg-white sticky top-0 z-50 shadow-md">
         <div class="flex items-center justify-between px-4 py-3 border-b">
             <div class="text-3xl font-black italic tracking-tighter text-red-700 uppercase">
                 ANN <span class="text-black font-normal">NEWS</span>
             </div>
             <div class="flex items-center gap-2">
-                <span class="text-[9px] font-bold bg-red-600 text-white px-2 py-1 rounded animate-pulse">LIVE TERMINAL</span>
-                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 border border-gray-300">
-                    <i class="fa-solid fa-user"></i>
-                </div>
+                <span class="text-[9px] font-bold bg-red-600 text-white px-2 py-1 rounded animate-pulse uppercase tracking-widest">Live Terminal</span>
             </div>
         </div>
     </header>
 
     <div class="breaking-news-box text-white flex items-center shadow-lg">
-        <div class="bg-black px-4 py-2 font-black italic text-xs z-10 border-r-2 border-red-500 shadow-xl">BREAKING</div>
+        <div class="bg-black px-4 py-2 font-black italic text-xs z-10 border-r-2 border-red-500">BREAKING</div>
         <marquee class="font-bold text-sm py-2 uppercase" scrollamount="7">
-             • <span class="text-yellow-300 font-black">NIFTY UPDATE:</span> निफ्टी कल सुबह मॉर्निंग में गैप अप (GAP UP) खुलेगा: ANN न्यूज़ का विशेष विश्लेषण • GIFT NIFTY में मज़बूत बढ़त के संकेत • ममता बनर्जी के बयान पर सियासी हलचल तेज • डेवलपर आशीष द्वारा संचालित न्यूज़ टर्मिनल •
+             • निफ्टी कल सुबह मॉर्निंग में गैप अप (GAP UP) खुलेगा: ANN न्यूज़ का विशेष विश्लेषण • प्रमुख स्टॉक्स HDFC और RELIANCE में तेज़ी के संकेत • डेवलपर आशीष द्वारा संचालित न्यूज़ टर्मिनल •
         </marquee>
     </div>
 
     <section class="p-2 bg-white shadow-sm mt-1">
-        <div class="flex justify-between items-center mb-2 px-1">
-            <h2 class="text-[11px] font-black text-gray-700 uppercase italic flex items-center gap-1">
-                <i class="fa-solid fa-globe text-blue-600"></i> GIFT NIFTY LIVE (NSE IX)
-            </h2>
-            <span class="text-[9px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-bold">GLOBAL INDICATOR</span>
-        </div>
         <div id="tradingview_gift_main" class="w-full h-[400px] border rounded-lg overflow-hidden"></div>
     </section>
 
     <section class="p-2 grid grid-cols-1 md:grid-cols-2 gap-2">
         <div class="bg-white p-2 rounded-xl shadow-sm border">
-            <div class="flex justify-between mb-1">
-                <span class="text-[10px] font-black text-gray-500">NIFTY 50</span>
-                <span class="text-[9px] text-green-600 font-bold">NSE</span>
-            </div>
+            <span class="text-[10px] font-black text-gray-500">NIFTY 50 INDEX</span>
             <div id="tradingview_nifty_mini" class="h-[200px]"></div>
         </div>
         <div class="bg-white p-2 rounded-xl shadow-sm border">
-            <div class="flex justify-between mb-1">
-                <span class="text-[10px] font-black text-gray-500">SENSEX</span>
-                <span class="text-[9px] text-blue-600 font-bold">BSE</span>
-            </div>
+            <span class="text-[10px] font-black text-gray-500">SENSEX INDEX</span>
             <div id="tradingview_sensex_mini" class="h-[200px]"></div>
         </div>
     </section>
 
     <section class="p-2 bg-white mt-2 border-t shadow-sm overflow-x-auto">
         <h2 class="text-xs font-black mb-3 text-gray-700 uppercase italic px-1 flex items-center gap-2">
-            <i class="fa-solid fa-list-check text-red-600"></i> Nifty Option Chain
+            <i class="fa-solid fa-list-check text-red-600"></i> Nifty Option Chain Snapshot
         </h2>
         <table class="option-chain-table">
             <thead>
@@ -80,78 +87,40 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="bg-green-50">154.20</td>
-                    <td class="strike-price">23900</td>
-                    <td class="bg-red-50">42.10</td>
-                </tr>
                 <tr class="outline outline-2 outline-yellow-400">
-                    <td class="bg-green-50 font-black text-green-700">45.10</td>
+                    <td class="bg-green-50 font-black">45.10</td>
                     <td class="strike-price bg-yellow-400 text-black">24000 (ATM)</td>
-                    <td class="bg-red-50 font-black text-red-700">112.40</td>
-                </tr>
-                <tr>
-                    <td class="bg-green-50">22.15</td>
-                    <td class="strike-price">24100</td>
-                    <td class="bg-red-50">210.80</td>
+                    <td class="bg-red-50 font-black">112.40</td>
                 </tr>
             </tbody>
         </table>
     </section>
 
-    <section class="p-4 space-y-4 bg-gray-50">
-        <h2 class="text-sm font-black text-red-700 uppercase italic flex items-center gap-2">
-            <span class="w-1 h-4 bg-red-700"></span> Live TV Desk
-        </h2>
-        <div class="video-wrapper shadow-xl border-2 border-white">
+    <section class="p-4 space-y-4">
+        <div class="video-wrapper shadow-xl border">
             <iframe src="https://www.youtube.com/embed/1Dso3PVZvpI" frameborder="0" allowfullscreen></iframe>
         </div>
-        <div class="video-wrapper shadow-xl border-2 border-white">
+        <div class="video-wrapper shadow-xl border">
             <iframe src="https://www.youtube.com/embed/wFWjcd5gwRo" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
     <footer class="bg-black text-white pt-10 pb-28 px-6 text-center border-t-4 border-red-700">
-        <div class="text-3xl font-black italic mb-2 tracking-tighter uppercase">ANN NEWS</div>
-        <p class="text-gray-500 text-[10px] mb-8 tracking-widest uppercase">Fast Updates • Live Charts • Option Chain</p>
-        
-        <div class="inline-block relative p-[1px] rounded-lg bg-gradient-to-r from-red-600 to-orange-500">
-            <div class="bg-black px-10 py-4 rounded-lg">
-                <p class="text-red-500 font-mono text-[10px] mb-1 tracking-widest uppercase font-bold">Project Lead</p>
-                <h3 class="text-white text-2xl font-black tracking-tighter italic">DEVELOPER BY ASHISH</h3>
-                <p class="text-gray-400 text-[9px] mt-1 italic uppercase">Ghaziabad, Uttar Pradesh</p>
-            </div>
-        </div>
+        <h3 class="text-white text-2xl font-black tracking-tighter italic uppercase">DEVELOPER BY ASHISH</h3>
+        <p class="text-gray-400 text-[9px] mt-2 uppercase tracking-widest">Ghaziabad, Uttar Pradesh</p>
     </footer>
-
-    <div class="fixed bottom-0 w-full bg-white border-t flex justify-around py-3 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50">
-        <div class="flex flex-col items-center text-red-700">
-            <i class="fa-solid fa-house text-xl"></i>
-            <span class="text-[9px] mt-1 font-black">HOME</span>
-        </div>
-        <div class="flex flex-col items-center text-gray-400">
-            <i class="fa-solid fa-chart-line text-xl"></i>
-            <span class="text-[9px] mt-1 font-black">CHARTS</span>
-        </div>
-        <div class="flex flex-col items-center text-gray-400">
-            <i class="fa-solid fa-circle-play text-xl text-red-600"></i>
-            <span class="text-[9px] mt-1 font-black text-red-600 uppercase">Live TV</span>
-        </div>
-    </div>
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script type="text/javascript">
-        // GIFT NIFTY MAIN
+        // GIFT NIFTY Stable Symbol
         new TradingView.widget({
             "autosize": true,
-            "symbol": "NSEIX:GIFTNIFTY",
+            "symbol": "SGX:IN1!",
             "interval": "5",
             "timezone": "Asia/Kolkata",
             "theme": "light",
             "style": "1",
             "locale": "in",
-            "enable_publishing": false,
-            "hide_top_toolbar": false,
             "container_id": "tradingview_gift_main"
         });
 
@@ -160,11 +129,8 @@
             "autosize": true,
             "symbol": "NSE:NIFTY",
             "interval": "D",
-            "timezone": "Asia/Kolkata",
             "theme": "light",
             "style": "3",
-            "locale": "in",
-            "hide_top_toolbar": true,
             "container_id": "tradingview_nifty_mini"
         });
 
@@ -173,14 +139,10 @@
             "autosize": true,
             "symbol": "BSE:SENSEX",
             "interval": "D",
-            "timezone": "Asia/Kolkata",
             "theme": "light",
             "style": "3",
-            "locale": "in",
-            "hide_top_toolbar": true,
             "container_id": "tradingview_sensex_mini"
         });
     </script>
-
 </body>
 </html>
