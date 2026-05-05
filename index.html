@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANN NEWS | NIFTY LIVE | BY ASHISH</title>
+    <title>ANN NEWS | NIFTY OPTION CHAIN | BY ASHISH</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .breaking-news-box { background: linear-gradient(90deg, #b91c1c 0%, #ef4444 100%); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 12px; overflow: hidden; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .market-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        @media (min-width: 768px) { .market-grid { grid-template-columns: 2fr 1fr; } }
     </style>
 </head>
 <body class="bg-gray-100 font-sans pb-24">
@@ -19,94 +21,112 @@
             <div class="text-3xl font-black italic tracking-tighter text-red-700">
                 ANN <span class="text-black font-normal">NEWS</span>
             </div>
-            <div class="text-[10px] font-bold bg-red-100 text-red-700 px-2 py-1 rounded">LIVE MARKET</div>
+            <div class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-1 rounded">TRADING TERMINAL</div>
         </div>
     </header>
 
-    <section class="p-2 bg-white shadow-sm">
-        <div class="flex justify-between items-center mb-2 px-2">
-            <h2 class="text-sm font-bold text-gray-800 uppercase tracking-tighter">
-                <i class="fa-solid fa-chart-line text-green-600 mr-1"></i> NIFTY 50 LIVE CHART
-            </h2>
-            <span class="text-[10px] text-green-600 font-bold animate-pulse">● LIVE DATA</span>
+    <section class="p-2 space-y-4">
+        <div class="market-grid">
+            <div class="bg-white p-2 rounded-xl shadow-sm border">
+                <h2 class="text-xs font-bold mb-2 text-gray-600 uppercase italic">NIFTY 50 LIVE CHART</h2>
+                <div id="tradingview_chart" class="h-[400px]"></div>
+            </div>
+
+            <div class="bg-white p-2 rounded-xl shadow-sm border">
+                <h2 class="text-xs font-bold mb-2 text-gray-600 uppercase italic">NIFTY MARKET WATCH</h2>
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                    {
+                      "colorTheme": "light",
+                      "dateRange": "12M",
+                      "showChart": false,
+                      "locale": "in",
+                      "width": "100%",
+                      "height": "400",
+                      "largeChartUrl": "",
+                      "isTransparent": false,
+                      "showSymbolLogo": true,
+                      "showFloatingTooltip": false,
+                      "tabs": [
+                        {
+                          "title": "Nifty Options/Indices",
+                          "symbols": [
+                            { "s": "NSE:NIFTY", "d": "NIFTY 50" },
+                            { "s": "NSE:BANKNIFTY", "d": "BANK NIFTY" },
+                            { "s": "NSE:FINNIFTY", "d": "FIN NIFTY" },
+                            { "s": "NSE:CNXIT", "d": "NIFTY IT" }
+                          ]
+                        }
+                      ]
+                    }
+                    </script>
+                </div>
+            </div>
         </div>
-        
-        <div id="tradingview_nifty" class="w-full h-[400px] border rounded-lg overflow-hidden"></div>
-        
-        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-        <script type="text/javascript">
-            new TradingView.widget({
-                "width": "100%",
-                "height": 400,
-                "symbol": "NSE:NIFTY",
-                "interval": "5",
-                "timezone": "Asia/Kolkata",
-                "theme": "light",
-                "style": "1",
-                "locale": "in",
-                "toolbar_bg": "#f1f3f6",
-                "enable_publishing": false,
-                "allow_symbol_change": true,
-                "container_id": "tradingview_nifty"
-            });
-        </script>
     </section>
 
-    <div class="breaking-news-box text-white flex items-center mt-2">
+    <section class="px-2">
+        <div class="bg-white p-4 rounded-xl shadow-sm border">
+            <h2 class="text-xs font-bold mb-4 text-gray-600 uppercase italic">NIFTY SENTIMENT ANALYZER</h2>
+            <div class="h-[350px]">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                    {
+                      "interval": "5m",
+                      "width": "100%",
+                      "isTransparent": false,
+                      "height": "330",
+                      "symbol": "NSE:NIFTY",
+                      "showIntervalTabs": true,
+                      "locale": "in",
+                      "colorTheme": "light"
+                    }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="breaking-news-box text-white flex items-center mt-4">
         <div class="bg-black px-3 py-2 font-bold text-xs italic">BREAKING</div>
         <marquee class="font-semibold text-sm py-2" scrollamount="5">
-             • NIFTY 50 में आज जबरदस्त हलचल • ममता बनर्जी का बंगाल चुनाव पर बड़ा बयान • ANN न्यूज़ पर देखें सबसे सटीक विश्लेषण • डेवलपर आशीष का नया धमाका
+             • Nifty Option Chain: 24,000 के लेवल पर तगड़ा रेजिस्टेंस • आशीष का ANN न्यूज़ टर्मिनल हुआ लाइव • आज तक और ज़ी न्यूज़ पर देखें चुनावी हलचल
         </marquee>
     </div>
 
     <section class="p-4 space-y-4">
-        <h2 class="text-lg font-black italic border-l-4 border-red-600 pl-2">LIVE TV</h2>
-        
         <div class="video-wrapper shadow-lg border border-gray-200">
             <iframe src="https://www.youtube.com/embed/1Dso3PVZvpI" frameborder="0" allowfullscreen></iframe>
         </div>
-
         <div class="video-wrapper shadow-lg border border-gray-200">
             <iframe src="https://www.youtube.com/embed/wFWjcd5gwRo" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
-    <section class="px-4 py-4 bg-white mt-4 shadow-inner">
-        <h2 class="text-xl font-black mb-4 italic underline decoration-red-600">आज की मुख्य खबरें</h2>
-        <div class="space-y-4">
-            <div class="border-b pb-3">
-                <h3 class="font-bold text-md text-gray-800">बंगाल चुनाव परिणाम: ममता बनर्जी की बड़ी जीत के बाद राजनीतिक समीकरण बदले।</h3>
-                <p class="text-[10px] text-gray-400 mt-1 uppercase">Politics • 10 Mins Ago</p>
-            </div>
-            <div class="border-b pb-3">
-                <h3 class="font-bold text-md text-gray-800">गाजियाबाद में नया आईटी पार्क: आशीष ने पेश किया अपना नया वेब प्रोजेक्ट।</h3>
-                <p class="text-[10px] text-gray-400 mt-1 uppercase">Local News • 1 Hour Ago</p>
-            </div>
-        </div>
-    </section>
-
     <footer class="bg-black text-white py-12 px-6 text-center">
-        <div class="text-2xl font-black italic mb-4">ANN NEWS</div>
-        <div class="inline-block border-2 border-red-600 px-6 py-2 rounded-lg">
-            <span class="text-red-500 font-mono text-[10px] block">PROJECT BY</span>
-            <span class="text-white text-lg font-black tracking-tighter uppercase">DEVELOPER BY ASHISH</span>
+        <div class="text-2xl font-black italic mb-4 tracking-tighter">ANN NEWS</div>
+        <div class="inline-block border-2 border-red-600 px-6 py-2 rounded-lg bg-gray-900">
+            <span class="text-red-500 font-mono text-[10px] block mb-1">CRAFTED BY</span>
+            <span class="text-white text-xl font-black tracking-tighter uppercase">DEVELOPER BY ASHISH</span>
         </div>
     </footer>
 
-    <div class="fixed bottom-0 w-full bg-white border-t flex justify-around py-3 shadow-2xl z-50">
-        <div class="flex flex-col items-center text-red-700">
-            <i class="fa-solid fa-house text-lg"></i>
-            <span class="text-[9px] mt-1 font-bold">HOME</span>
-        </div>
-        <div class="flex flex-col items-center text-gray-400">
-            <i class="fa-solid fa-chart-line text-lg"></i>
-            <span class="text-[9px] mt-1 font-bold">CHARTS</span>
-        </div>
-        <div class="flex flex-col items-center text-gray-400">
-            <i class="fa-solid fa-tv text-lg text-red-600"></i>
-            <span class="text-[9px] mt-1 font-bold text-red-600">LIVE</span>
-        </div>
-    </div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+        new TradingView.widget({
+            "width": "100%",
+            "height": 400,
+            "symbol": "NSE:NIFTY",
+            "interval": "5",
+            "timezone": "Asia/Kolkata",
+            "theme": "light",
+            "style": "1",
+            "locale": "in",
+            "container_id": "tradingview_chart"
+        });
+    </script>
 
 </body>
 </html>
