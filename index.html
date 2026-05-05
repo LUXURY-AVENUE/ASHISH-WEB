@@ -3,138 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANN | आशीष मार्केट न्यूज़</title>
+    <title>ANN News | Live updates</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700&display=swap');
-        body { font-family: 'Mukta', sans-serif; background-color: #f0f2f5; }
-        .market-up { color: #00c853; }
-        .market-down { color: #ff3d00; }
-        .breaking-tag { background: #d32f2f; animation: blinker 1.5s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
+        .breaking-news-gradient {
+            background: linear-gradient(90deg, #d20000 0%, #ff0000 100%);
+        }
     </style>
 </head>
-<body>
+<body class="bg-gray-100 font-sans">
 
-    <header class="bg-white shadow-sm border-b-4 border-red-600">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex flex-col">
-                <h1 class="text-4xl font-black text-gray-900 tracking-tighter">ANN <span class="text-red-600">MARKET</span></h1>
-                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">डेवलपर भाई आशीष | सच सबसे तेज़</p>
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="flex items-center justify-between px-4 py-2 border-b">
+            <i class="fa-solid fa-house text-red-600 text-xl"></i>
+            <div class="flex-1 mx-4">
+                <div class="bg-gray-200 rounded-full flex items-center px-4 py-1">
+                    <i class="fa-solid fa-magnifying-glass text-gray-500 mr-2"></i>
+                    <input type="text" placeholder="annnews.in" class="bg-transparent outline-none w-full text-sm">
+                </div>
             </div>
-            <div class="text-right hidden md:block">
-                <p class="text-sm font-bold text-gray-800"><i class="fas fa-phone-alt text-red-600 mr-2"></i>+91 7530919863</p>
-                <p class="text-xs text-gray-500 italic">आशीष95823@gmail.com</p>
+            <div class="flex items-center space-x-4">
+                <span class="bg-gray-200 rounded px-2 text-sm font-bold">:D</span>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
         </div>
+        
+        <nav class="flex items-center justify-between px-4 py-2">
+            <div class="bg-red-700 text-white px-2 py-1 font-bold text-xl italic">
+                ANN <span class="text-white font-normal">न्यूज़</span>
+            </div>
+            <div class="flex space-x-4 overflow-x-auto text-sm font-semibold whitespace-nowrap scrollbar-hide">
+                <a href="#" class="text-red-600">ई-पेपर</a>
+                <a href="#">बाकी</a>
+                <a href="#">वीडियो</a>
+                <a href="#">चुनाव 2026</a>
+            </div>
+            <div class="bg-red-600 text-white rounded-full p-2">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </nav>
     </header>
 
-    <div class="bg-gray-900 text-white py-2 overflow-hidden border-y border-gray-700">
-        <div class="container mx-auto px-4 flex items-center">
-            <span class="bg-yellow-500 text-black px-2 py-0.5 text-xs font-bold mr-4 shrink-0 uppercase">Market Watch</span>
-            <marquee class="font-bold text-sm">
-                NIFTY 50: 22,450 <span class="market-up">▲ (+0.85%)</span> &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
-                BANK NIFTY: 48,200 <span class="market-up">▲ (+1.20%)</span> &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
-                RELIANCE: 2,950 <span class="market-down">▼ (-0.15%)</span> &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
-                आज की बड़ी खबर: विदेशी निवेशकों ने मार्केट में की भारी खरीदारी, कल के लिए अहम हैं ये लेवल्स...
-            </marquee>
+    <div class="breaking-news-gradient text-white flex">
+        <div class="bg-red-900 px-4 py-3 font-black italic flex items-center leading-tight">
+            BREAKING <br> NEWS
+        </div>
+        <div class="px-4 py-3 flex-1 font-bold text-lg">
+            IRCTC घोटाले में बड़ी खबर: ANN न्यूज़ पर आज बड़ा फैसला संभव
         </div>
     </div>
 
-    <main class="container mx-auto mt-6 px-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            <div class="lg:col-span-8">
-                <h2 class="text-2xl font-bold mb-6 border-l-8 border-red-600 pl-4 bg-white py-2 shadow-sm uppercase italic">आज की ताज़ा खबर (News Blocks)</h2>
-                
-                <div class="space-y-6">
-                    <div class="bg-white p-5 rounded-lg shadow-md border hover:border-red-400 transition">
-                        <div class="flex items-center mb-3">
-                            <span class="breaking-tag text-white text-[10px] px-2 py-0.5 rounded font-bold mr-2 uppercase">Market Update</span>
-                            <span class="text-gray-400 text-xs">5 May 2026 | 03:45 PM</span>
-                        </div>
-                        <h3 class="text-xl font-black text-gray-800 mb-2">निफ्टी (Nifty) में आई ज़बरदस्त रिकवरी, क्या ये टिकेगी?</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            आज सुबह के सत्र में बिकवाली के बाद निफ्टी ने 22,300 के लेवल से शानदार बाउंस-बैक किया है। Fibonacci लेवल्स की मानें तो 22,500 एक तगड़ा रेजिस्टेंस है। अगर मार्केट इसके ऊपर क्लोजिंग देता है, तो कल भी तेजी बनी रह सकती है। ट्रेडर्स को सलाह है कि 'Stop Loss' का सख्ती से पालन करें।
-                        </p>
-                        <a href="https://hindi.moneycontrol.com/news/market-news/" target="_blank" class="bg-blue-50 text-blue-700 px-4 py-2 rounded text-xs font-bold hover:bg-blue-600 hover:text-white transition uppercase">पूरा ब्लॉग पढ़ें (Moneycontrol)</a>
-                    </div>
+    <div class="flex space-x-2 p-4 overflow-x-auto">
+        <button class="bg-white border rounded-lg px-4 py-2 text-sm font-bold shadow-sm whitespace-nowrap">उठो अनारकली</button>
+        <button class="bg-white border rounded-lg px-4 py-2 text-sm font-bold shadow-sm whitespace-nowrap">विधानसभा चुनाव नतीजे 2026</button>
+        <button class="bg-white border rounded-lg px-4 py-2 text-sm font-bold shadow-sm whitespace-nowrap">पीएम मोदी</button>
+    </div>
 
-                    <div class="bg-white p-5 rounded-lg shadow-md border hover:border-red-400 transition">
-                        <div class="flex items-center mb-3">
-                            <span class="bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded font-bold mr-2 uppercase">Tech News</span>
-                            <span class="text-gray-400 text-xs">5 May 2026 | 02:30 PM</span>
-                        </div>
-                        <h3 class="text-xl font-black text-gray-800 mb-2">AI की दुनिया में फिर हलचल: आशीष वेब डेवलपर का नया न्यूज़ टूल</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            टेक्नोलॉजी अब न्यूज़ लिखने का अंदाज़ बदल रही है। ANN (Ashish News Agency) ने एक ऐसा ऑटोमेटेड फ़ीड सिस्टम तैयार किया है जो इंटरनेट के बड़े ब्लॉक्स से ताज़ा जानकारी खींचकर पाठकों तक पहुँचाता है। यह न्यूज़ एजेंसी गाज़ियाबाद से संचालित हो रही है।
-                        </p>
-                        <a href="https://gadgets360.com/hindi/" target="_blank" class="bg-red-50 text-red-700 px-4 py-2 rounded text-xs font-bold hover:bg-red-600 hover:text-white transition uppercase">टेक ब्लॉग देखें >></a>
-                    </div>
-
-                    <div class="bg-white p-5 rounded-lg shadow-md border hover:border-red-400 transition">
-                        <div class="flex items-center mb-3">
-                            <span class="bg-green-600 text-white text-[10px] px-2 py-0.5 rounded font-bold mr-2 uppercase">Hot Today</span>
-                            <span class="text-gray-400 text-xs">5 May 2026 | 01:15 PM</span>
-                        </div>
-                        <h3 class="text-xl font-black text-gray-800 mb-2">SMC और स्मार्ट मनी कांसेप्ट: ट्रेडिंग में नया दौर</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            रिटेल ट्रेडर्स अब टेक्निकल एनालिसिस के पुराने तरीकों को छोड़ 'Smart Money Concept' (SMC) की ओर बढ़ रहे हैं। बड़े प्लेयर्स (Banks/FIIs) के फुटप्रिंट्स पहचानना अब आसान हो गया है। आज के लाइव मार्केट में बैंक निफ्टी ने SMC लेवल्स को बखूबी रिस्पेक्ट दी।
-                        </p>
-                        <a href="https://www.tradingview.com/markets/indices/quotes-india/" target="_blank" class="bg-indigo-50 text-indigo-700 px-4 py-2 rounded text-xs font-bold hover:bg-indigo-600 hover:text-white transition uppercase">Live Chart Link</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lg:col-span-4">
-                <div class="bg-white p-6 shadow-xl rounded-xl border-t-4 border-blue-600 sticky top-24">
-                    <h4 class="text-lg font-bold mb-6 text-gray-800 uppercase italic">मार्केट लिंक्स & संपर्क</h4>
-                    
-                    <div class="bg-gray-50 p-4 rounded-lg mb-6 border border-dashed border-blue-300">
-                        <p class="text-xs text-gray-400 font-bold uppercase mb-2 italic underline text-center">रिपोर्ट न्यूज़ / विज्ञापन</p>
-                        <p class="text-xl font-black text-blue-900 text-center"><i class="fas fa-phone-square mr-2"></i>7530919863</p>
-                        <p class="text-[10px] text-gray-500 text-center mt-2">डेवलपर: आशीष95823@gmail.com</p>
-                    </div>
-
-                    <div class="space-y-3">
-                        <a href="https://www.nseindia.com" class="flex items-center justify-between p-3 bg-blue-50 hover:bg-blue-600 hover:text-white rounded transition group">
-                            <span class="text-sm font-bold uppercase tracking-tighter">NSE India Official</span>
-                            <i class="fas fa-external-link-alt text-xs opacity-0 group-hover:opacity-100"></i>
-                        </a>
-                        <a href="https://economictimes.indiatimes.com/hindi" class="flex items-center justify-between p-3 bg-red-50 hover:bg-red-600 hover:text-white rounded transition group">
-                            <span class="text-sm font-bold uppercase tracking-tighter">Economic Times News</span>
-                            <i class="fas fa-external-link-alt text-xs opacity-0 group-hover:opacity-100"></i>
-                        </a>
-                        <a href="https://www.aajtak.in/business" class="flex items-center justify-between p-3 bg-orange-50 hover:bg-orange-600 hover:text-white rounded transition group">
-                            <span class="text-sm font-bold uppercase tracking-tighter">Aaj Tak Business News</span>
-                            <i class="fas fa-external-link-alt text-xs opacity-0 group-hover:opacity-100"></i>
-                        </a>
-                    </div>
-
-                    <div class="mt-10 h-60 bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center rounded">
-                        <p class="text-gray-400 text-xs font-bold italic">Space for Ad / Trading Tips</p>
-                    </div>
-                </div>
-            </div>
-
+    <div class="px-4">
+        <p class="text-center text-xs text-gray-500 mb-1">ADVERTISEMENT</p>
+        <div class="bg-blue-400 rounded-lg overflow-hidden relative">
+            <img src="https://via.placeholder.com/600x400/22d3ee/ffffff?text=ANN+News+Ad+Banner" alt="Ad" class="w-full h-auto">
+            <div class="absolute bottom-2 right-2 bg-gray-900/50 text-white text-[10px] px-1">AD</div>
         </div>
-    </main>
+    </div>
 
-    <footer class="bg-gray-900 text-white mt-16 py-12">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-black italic">ANN <span class="text-red-600">NETWORK</span></h2>
-            <p class="text-gray-500 mt-2 text-sm">गाज़ियाबाद की सबसे तेज़ न्यूज़ एजेंसी।</p>
-            <div class="mt-6 flex justify-center space-x-8 text-gray-400 text-xl">
-                <i class="fab fa-whatsapp hover:text-green-500 cursor-pointer"></i>
-                <i class="fab fa-telegram-plane hover:text-blue-400 cursor-pointer"></i>
-                <i class="fab fa-youtube hover:text-red-500 cursor-pointer"></i>
-            </div>
-            <div class="mt-10 pt-8 border-t border-gray-800 text-[10px] text-gray-600 uppercase tracking-widest">
-                Copyright © 2026 Designed & Maintained By आशीष वेब डेवलपर
-            </div>
+    <div class="mt-6 px-4">
+        <div class="bg-blue-900 text-white py-4 text-center rounded-t-xl">
+            <h2 class="text-4xl font-black tracking-tighter">चुनाव 2026</h2>
+        </div>
+    </div>
+
+    <footer class="mt-10 bg-gray-800 text-white py-6 text-center">
+        <p class="text-lg font-bold">ANN NEWS</p>
+        <p class="text-xs text-gray-400 mt-2">© 2026 All Rights Reserved</p>
+        <div class="mt-4 bg-red-600 inline-block px-4 py-1 rounded text-sm font-mono tracking-widest uppercase">
+            Developed by Ashish
         </div>
     </footer>
 
-</body>
+    <div class="fixed bottom-0 w-full bg-white border-t flex justify-around py-2 text-[10px] text-gray-600 font-bold">
+        <div class="flex flex-col items-center text-red-600">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span>होम</span>
+        </div>
+        <div class="flex flex-col items-center">
+            <i class="fa-solid fa-circle-play text-lg"></i>
+            <span>वीडियो</span>
+        </div>
+        <div class="flex flex-col items-center">
+            <i class="fa-solid fa-tv text-lg text-red-600"></i>
+            <span class="text-red-600 uppercase">Live TV</span>
+        </div>
+        <div class="flex flex-col items-center">
+            <i class="fa-solid fa-film text-lg"></i>
+            <span>न्यूज़ रील</span>
+        </div>
+        <div class="flex flex-col items-center">
+            <i class="fa-solid fa-bars text-lg"></i>
+            <span>मेन्यू</span>
+        </div>
+    </div>
+
+    <div class="h-16"></div> </body>
 </html>
