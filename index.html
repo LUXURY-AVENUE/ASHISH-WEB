@@ -3,97 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANN NEWS | ASHISH ALGO TERMINAL</title>
+    <title>ANN NEWS | Professional Terminal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .breaking-news-box { background: linear-gradient(90deg, #b91c1c 0%, #ef4444 100%); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 12px; overflow: hidden; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .api-card { background: #0f172a; border: 1px solid #1e293b; }
+        .news-item-img { width: 100px; height: 75px; object-fit: cover; border-radius: 4px; }
+        /* Main Image Container for Amit Shah Photo */
+        .main-featured-img { width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 8px; }
+        ::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="bg-gray-100 font-sans pb-24">
 
-    <div class="bg-black text-[10px] text-gray-400 py-1 px-4 flex justify-between items-center border-b border-gray-800">
-        <span>API KEY: myIGwx...BnMw</span>
-        <span id="conn-status" class="text-green-500 font-bold">● ENGINE ACTIVE</span>
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+          "symbols": [
+            { "proName": "SGX:IN1!", "title": "GIFT NIFTY" },
+            { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
+            { "proName": "NSE:RELIANCE", "title": "RELIANCE" }
+          ],
+          "showSymbolLogo": true, "colorTheme": "light", "displayMode": "adaptive", "locale": "in"
+        }
+        </script>
     </div>
 
     <header class="bg-white sticky top-0 z-50 shadow-md">
-        <div class="flex items-center justify-between px-4 py-3">
+        <div class="flex items-center justify-between px-4 py-3 border-b">
             <div class="text-3xl font-black italic tracking-tighter text-red-700 uppercase">
                 ANN <span class="text-black font-normal">NEWS</span>
             </div>
-            <div class="text-[10px] font-bold bg-red-600 text-white px-2 py-1 rounded">LIVE</div>
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-tower-broadcast text-red-600 animate-pulse"></i>
+                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center border border-gray-300">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
         </div>
     </header>
 
-    <div class="breaking-news-box text-white flex items-center shadow-lg">
-        <div class="bg-black px-4 py-2 font-black italic text-xs z-10 border-r-2 border-red-500">BREAKING</div>
+    <div class="breaking-news-box text-white flex items-center">
+        <div class="bg-black px-4 py-2 font-black italic text-xs border-r-2 border-red-500">BREAKING</div>
         <marquee class="font-bold text-sm py-2 uppercase" scrollamount="7">
-             • निफ्टी कल सुबह मॉर्निंग में गैप अप (GAP UP) खुलेगा: ANN न्यूज़ का विशेष विश्लेषण • आशीष अल्गो इंजन (ASHISH ALGO) द्वारा लाइव डेटा फीड • 
+             • <span class="text-yellow-300 font-black">NIFTY UPDATE:</span> कल सुबह मॉर्निंग में गैप अप (GAP UP) खुलेगा: ANN न्यूज़ का विशेष विश्लेषण • बंगाल चुनाव: ममता बनर्जी ने दिया इस्तीफ़ा, अमित Shah का बड़ा बयान •
         </marquee>
     </div>
 
-    <section class="p-4">
-        <div class="api-card rounded-2xl p-6 shadow-2xl text-center">
-            <h2 class="text-blue-400 text-[10px] font-black tracking-widest mb-2 uppercase">NIFTY 50 SPOT - LIVE FROM API</h2>
-            <div id="price-container">
-                <h1 id="main-price" class="text-5xl font-black text-white tracking-tighter italic">₹ 24,150.00</h1>
-                <p id="main-diff" class="text-green-400 font-bold mt-2">+142.30 (0.58%)</p>
+    <section class="bg-white p-4 shadow-sm border-b">
+        <div class="rounded-lg overflow-hidden mb-3">
+            <img src="https://images.unsplash.com/photo-1599739291060-4578e77dac5d?auto=format&fit=crop&q=80&w=800" alt="Amit Shah Rally" class="main-featured-img">
+        </div>
+        <h1 class="text-xl font-bold leading-tight mb-2">बंगाल में कौन होगा CM? अमित शाह की क्राइटेरिया में कौन-कौन बैठ रहा फिट</h1>
+        <p class="text-gray-600 text-sm">पश्चिम बंगाल में बीजेपी ने ममता बनर्जी को 15 साल के बाद सत्ता से बाहर कर दिया है. अब सबके मन में सवाल है कि अगला मुख्यमंत्री कौन बनेगा...</p>
+    </section>
+
+    <section class="bg-white mt-2 border-t">
+        <div class="divide-y divide-gray-200">
+            
+            <div class="flex p-4 gap-3 items-center">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=200" class="news-item-img" alt="Wedding">
+                <h3 class="text-md font-bold leading-tight">एक दुल्हन, 9 दूल्हे! जिस लड़की से की शादी, वह 8 लोगों संग ले चुकी थी फेरे</h3>
             </div>
-            <div class="mt-4 grid grid-cols-2 gap-2">
-                <div class="bg-gray-800/50 p-2 rounded text-[10px]">
-                    <span class="text-gray-500 block">BID</span>
-                    <span class="text-white font-bold">24,148.00</span>
+
+            <div class="flex p-4 gap-3 items-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1541873676947-d79041302e21?auto=format&fit=crop&q=80&w=200" class="news-item-img" alt="Kolkata Violence">
+                    <i class="fa-solid fa-circle-play absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl"></i>
                 </div>
-                <div class="bg-gray-800/50 p-2 rounded text-[10px]">
-                    <span class="text-gray-500 block">ASK</span>
-                    <span class="text-white font-bold">24,152.00</span>
-                </div>
+                <h3 class="text-md font-bold leading-tight uppercase text-red-600">LIVE: कोलकाता में बुलडोजर, आसनसोल में आगजनी... बंगाल में हिंसा</h3>
             </div>
+
+            <div class="flex p-4 gap-3 items-center">
+                <img src="https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&q=80&w=200" class="news-item-img" alt="Attack">
+                <h3 class="text-md font-bold leading-tight">पहलगाम आतंकी हमले में कौन सी 5 बड़ी चूक हुई, अब क्या है हमारी तैयारी?</h3>
+            </div>
+
         </div>
     </section>
 
-    <section class="p-2 space-y-2">
-        <div class="bg-white p-2 rounded-xl border h-[400px]">
-            <div id="tradingview_chart" class="h-full w-full"></div>
-        </div>
-    </section>
-
-    <section class="p-4 space-y-4">
-        <div class="video-wrapper shadow-xl border">
+    <section class="p-4 space-y-4 bg-gray-50 mt-2">
+        <h2 class="text-sm font-black text-red-700 uppercase italic flex items-center gap-2">
+            <span class="w-1 h-4 bg-red-700"></span> Live Coverage
+        </h2>
+        <div class="video-wrapper shadow-xl border-2 border-white">
             <iframe src="https://www.youtube.com/embed/1Dso3PVZvpI" frameborder="0" allowfullscreen></iframe>
         </div>
-        <div class="video-wrapper shadow-xl border">
-            <iframe src="https://www.youtube.com/embed/wFWjcd5gwRo" frameborder="0" allowfullscreen></iframe>
-        </div>
+    </section>
+
+    <section class="p-2 bg-white shadow-sm mt-2">
+        <div id="tradingview_gift_main" class="w-full h-[400px] border rounded-lg overflow-hidden"></div>
     </section>
 
     <footer class="bg-black text-white pt-10 pb-28 px-6 text-center border-t-4 border-red-700">
-        <div class="text-3xl font-black italic mb-2 tracking-tighter">ANN NEWS</div>
+        <div class="text-3xl font-black italic mb-2 tracking-tighter uppercase">ANN NEWS</div>
         <div class="inline-block border border-gray-800 p-4 rounded-xl bg-gray-900 mt-4">
-            <p class="text-red-500 font-mono text-[10px] mb-1 tracking-widest uppercase">Lead Developer</p>
-            <h3 class="text-white text-2xl font-black tracking-tighter italic uppercase">ASHISH</h3>
-            <p class="text-gray-500 text-[9px] mt-1">Ghaziabad, Uttar Pradesh</p>
+            <h3 class="text-white text-2xl font-black tracking-tighter italic">DEVELOPER BY ASHISH</h3>
+            <p class="text-gray-500 text-[9px] mt-1 italic uppercase">Ghaziabad, Uttar Pradesh</p>
         </div>
     </footer>
 
-    <div class="fixed bottom-0 w-full bg-white border-t flex justify-around py-3 shadow-2xl z-50">
+    <div class="fixed bottom-0 w-full bg-white border-t flex justify-around py-3 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50">
         <div class="flex flex-col items-center text-red-700">
             <i class="fa-solid fa-house-chimney text-xl"></i>
             <span class="text-[9px] mt-1 font-black uppercase">Home</span>
         </div>
         <div class="flex flex-col items-center text-gray-400">
-            <i class="fa-solid fa-bolt text-xl text-red-600"></i>
-            <span class="text-[9px] mt-1 font-black text-red-600 uppercase tracking-tighter">Live TV</span>
+            <i class="fa-solid fa-circle-play text-xl text-red-600"></i>
+            <span class="text-[9px] mt-1 font-black text-red-600 uppercase">Live TV</span>
         </div>
     </div>
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <script>
-        // TradingView Setup
+    <script type="text/javascript">
         new TradingView.widget({
             "autosize": true,
             "symbol": "SGX:IN1!",
@@ -102,21 +127,8 @@
             "theme": "light",
             "style": "1",
             "locale": "in",
-            "container_id": "tradingview_chart"
+            "container_id": "tradingview_gift_main"
         });
-
-        // API Simulation (Kyunki direct browser fetch ke liye CORS Proxy lagta hai)
-        // Aap yahan apni Fyers/Upstox API ka logic fetch() ke through daal sakte hain
-        function fetchLiveAPI() {
-            // Demo data update logic
-            const basePrice = 24150;
-            const randomVar = (Math.random() * 10).toFixed(2);
-            const finalPrice = (parseFloat(basePrice) + parseFloat(randomVar)).toFixed(2);
-            
-            document.getElementById('main-price').innerText = "₹ " + finalPrice;
-        }
-
-        setInterval(fetchLiveAPI, 1000); // 1 Second update
     </script>
 </body>
 </html>
