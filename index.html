@@ -3,122 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANN NEWS | Professional Terminal</title>
+    <title>ANN NEWS | REAL-TIME TERMINAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .breaking-news-box { background: linear-gradient(90deg, #b91c1c 0%, #ef4444 100%); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 12px; overflow: hidden; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .news-item-img { width: 100px; height: 75px; object-fit: cover; border-radius: 4px; }
-        /* Main Image Container for Amit Shah Photo */
-        .main-featured-img { width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 8px; }
+        .news-item-img { width: 110px; height: 80px; object-fit: cover; border-radius: 6px; }
         ::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="bg-gray-100 font-sans pb-24">
-
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-          "symbols": [
-            { "proName": "SGX:IN1!", "title": "GIFT NIFTY" },
-            { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
-            { "proName": "NSE:RELIANCE", "title": "RELIANCE" }
-          ],
-          "showSymbolLogo": true, "colorTheme": "light", "displayMode": "adaptive", "locale": "in"
-        }
-        </script>
-    </div>
 
     <header class="bg-white sticky top-0 z-50 shadow-md">
         <div class="flex items-center justify-between px-4 py-3 border-b">
             <div class="text-3xl font-black italic tracking-tighter text-red-700 uppercase">
                 ANN <span class="text-black font-normal">NEWS</span>
             </div>
-            <div class="flex items-center gap-3">
-                <i class="fa-solid fa-tower-broadcast text-red-600 animate-pulse"></i>
-                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center border border-gray-300">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-            </div>
+            <div id="connection-status" class="text-[9px] font-bold bg-green-100 text-green-700 px-2 py-1 rounded">YAHOO LIVE CONNECTED</div>
         </div>
     </header>
 
+    <section class="p-4 bg-white border-b shadow-sm">
+        <h2 class="text-xs font-black text-gray-400 uppercase mb-3 tracking-widest italic">Yahoo Finance Live Feed</h2>
+        <div class="grid grid-cols-2 gap-3">
+            <div class="bg-gray-900 p-4 rounded-xl text-white shadow-lg">
+                <p class="text-[10px] text-gray-400 font-bold">NIFTY 50</p>
+                <h3 id="nifty-price" class="text-xl font-black italic">--.---</h3>
+                <span id="nifty-change" class="text-[10px] font-bold">0.00%</span>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-xl text-white shadow-lg">
+                <p class="text-[10px] text-gray-400 font-bold">RELIANCE.NS</p>
+                <h3 id="rel-price" class="text-xl font-black italic">--.---</h3>
+                <span id="rel-change" class="text-[10px] font-bold">0.00%</span>
+            </div>
+        </div>
+    </section>
+
     <div class="breaking-news-box text-white flex items-center">
-        <div class="bg-black px-4 py-2 font-black italic text-xs border-r-2 border-red-500">BREAKING</div>
-        <marquee class="font-bold text-sm py-2 uppercase" scrollamount="7">
-             • <span class="text-yellow-300 font-black">NIFTY UPDATE:</span> कल सुबह मॉर्निंग में गैप अप (GAP UP) खुलेगा: ANN न्यूज़ का विशेष विश्लेषण • बंगाल चुनाव: ममता बनर्जी ने दिया इस्तीफ़ा, अमित Shah का बड़ा बयान •
+        <div class="bg-black px-4 py-2 font-black italic text-xs z-10 border-r-2 border-red-500">BREAKING</div>
+        <marquee id="dynamic-news" class="font-bold text-sm py-2 uppercase" scrollamount="7">
+             • LOADING LIVE NEWS FEED FROM YAHOO FINANCE... • निफ्टी कल सुबह मॉर्निंग में गैप अप खुलेगा • 
         </marquee>
     </div>
 
-    <section class="bg-white p-4 shadow-sm border-b">
-        <div class="rounded-lg overflow-hidden mb-3">
-            <img src="https://images.unsplash.com/photo-1599739291060-4578e77dac5d?auto=format&fit=crop&q=80&w=800" alt="Amit Shah Rally" class="main-featured-img">
-        </div>
-        <h1 class="text-xl font-bold leading-tight mb-2">बंगाल में कौन होगा CM? अमित शाह की क्राइटेरिया में कौन-कौन बैठ रहा फिट</h1>
-        <p class="text-gray-600 text-sm">पश्चिम बंगाल में बीजेपी ने ममता बनर्जी को 15 साल के बाद सत्ता से बाहर कर दिया है. अब सबके मन में सवाल है कि अगला मुख्यमंत्री कौन बनेगा...</p>
+    <section class="bg-white p-4">
+        <h1 class="text-xl font-bold leading-tight mb-3">बंगाल में कौन होगा CM? अमित शाह की क्राइटेरिया में कौन-कौन बैठ रहा फिट</h1>
+        <img src="https://img.etimg.com/thumb/msid-100238945,width-1200,height-900,resizemode-4,imgsize-84562/amit-shah.jpg" class="w-full h-auto rounded-lg shadow-md mb-3">
+        <p class="text-gray-600 text-sm italic">भाजपा आलाकमान बंगाल चुनाव के नतीजों के बाद अब नए नेतृत्व को लेकर गंभीर मंथन कर रहा है...</p>
     </section>
 
-    <section class="bg-white mt-2 border-t">
-        <div class="divide-y divide-gray-200">
-            
-            <div class="flex p-4 gap-3 items-center">
-                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=200" class="news-item-img" alt="Wedding">
-                <h3 class="text-md font-bold leading-tight">एक दुल्हन, 9 दूल्हे! जिस लड़की से की शादी, वह 8 लोगों संग ले चुकी थी फेरे</h3>
-            </div>
-
-            <div class="flex p-4 gap-3 items-center">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1541873676947-d79041302e21?auto=format&fit=crop&q=80&w=200" class="news-item-img" alt="Kolkata Violence">
-                    <i class="fa-solid fa-circle-play absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl"></i>
-                </div>
-                <h3 class="text-md font-bold leading-tight uppercase text-red-600">LIVE: कोलकाता में बुलडोजर, आसनसोल में आगजनी... बंगाल में हिंसा</h3>
-            </div>
-
-            <div class="flex p-4 gap-3 items-center">
-                <img src="https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&q=80&w=200" class="news-item-img" alt="Attack">
-                <h3 class="text-md font-bold leading-tight">पहलगाम आतंकी हमले में कौन सी 5 बड़ी चूक हुई, अब क्या है हमारी तैयारी?</h3>
-            </div>
-
-        </div>
+    <section class="p-2">
+        <div id="tradingview_stable" class="w-full h-[400px] border rounded-lg bg-white overflow-hidden"></div>
     </section>
 
-    <section class="p-4 space-y-4 bg-gray-50 mt-2">
-        <h2 class="text-sm font-black text-red-700 uppercase italic flex items-center gap-2">
-            <span class="w-1 h-4 bg-red-700"></span> Live Coverage
-        </h2>
-        <div class="video-wrapper shadow-xl border-2 border-white">
-            <iframe src="https://www.youtube.com/embed/1Dso3PVZvpI" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </section>
-
-    <section class="p-2 bg-white shadow-sm mt-2">
-        <div id="tradingview_gift_main" class="w-full h-[400px] border rounded-lg overflow-hidden"></div>
-    </section>
-
-    <footer class="bg-black text-white pt-10 pb-28 px-6 text-center border-t-4 border-red-700">
-        <div class="text-3xl font-black italic mb-2 tracking-tighter uppercase">ANN NEWS</div>
+    <footer class="bg-black text-white pt-10 pb-28 px-6 text-center">
+        <div class="text-3xl font-black italic mb-2 tracking-tighter">ANN NEWS</div>
         <div class="inline-block border border-gray-800 p-4 rounded-xl bg-gray-900 mt-4">
-            <h3 class="text-white text-2xl font-black tracking-tighter italic">DEVELOPER BY ASHISH</h3>
-            <p class="text-gray-500 text-[9px] mt-1 italic uppercase">Ghaziabad, Uttar Pradesh</p>
+            <h3 class="text-white text-2xl font-black tracking-tighter italic uppercase">DEVELOPER BY ASHISH</h3>
+            <p class="text-gray-500 text-[9px] mt-1">GHAZIABAD HUB</p>
         </div>
     </footer>
 
-    <div class="fixed bottom-0 w-full bg-white border-t flex justify-around py-3 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50">
-        <div class="flex flex-col items-center text-red-700">
-            <i class="fa-solid fa-house-chimney text-xl"></i>
-            <span class="text-[9px] mt-1 font-black uppercase">Home</span>
-        </div>
-        <div class="flex flex-col items-center text-gray-400">
-            <i class="fa-solid fa-circle-play text-xl text-red-600"></i>
-            <span class="text-[9px] mt-1 font-black text-red-600 uppercase">Live TV</span>
-        </div>
-    </div>
+    <script>
+        // Yahoo Finance Query URL (Public Proxy)
+        async function fetchRealMarketData() {
+            try {
+                // Symbols: ^NSEI (Nifty), RELIANCE.NS, HDFCBANK.NS
+                const symbols = '^NSEI,RELIANCE.NS,HDFCBANK.NS';
+                const response = await fetch(`https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols}`);
+                const data = await response.json();
+                const quotes = data.quoteResponse.result;
+
+                quotes.forEach(quote => {
+                    if (quote.symbol === '^NSEI') {
+                        updateUI('nifty', quote);
+                    } else if (quote.symbol === 'RELIANCE.NS') {
+                        updateUI('rel', quote);
+                    }
+                });
+
+                document.getElementById('connection-status').innerText = "YAHOO LIVE: " + new Date().toLocaleTimeString();
+            } catch (error) {
+                console.error("Yahoo API Error:", error);
+                document.getElementById('connection-status').innerText = "CONNECTION ERROR";
+                document.getElementById('connection-status').classList.replace('bg-green-100', 'bg-red-100');
+            }
+        }
+
+        function updateUI(id, quote) {
+            const price = quote.regularMarketPrice.toFixed(2);
+            const change = quote.regularMarketChangePercent.toFixed(2);
+            const elementPrice = document.getElementById(`${id}-price`);
+            const elementChange = document.getElementById(`${id}-change`);
+
+            elementPrice.innerText = "₹ " + price;
+            elementChange.innerText = (change >= 0 ? "+" : "") + change + "%";
+            elementChange.className = change >= 0 ? "text-[10px] font-bold text-green-400" : "text-[10px] font-bold text-red-400";
+        }
+
+        // Run Every 5 Seconds for Real-Time data
+        setInterval(fetchRealMarketData, 5000);
+        fetchRealMarketData();
+    </script>
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <script type="text/javascript">
+    <script>
         new TradingView.widget({
             "autosize": true,
             "symbol": "SGX:IN1!",
@@ -127,7 +118,7 @@
             "theme": "light",
             "style": "1",
             "locale": "in",
-            "container_id": "tradingview_gift_main"
+            "container_id": "tradingview_stable"
         });
     </script>
 </body>
