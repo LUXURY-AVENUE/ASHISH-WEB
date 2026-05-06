@@ -3,142 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANN NEWS | Google Finance Terminal | BY ASHISH</title>
+    <title>ANN NEWS | Google Feed & Finance</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .breaking-news-box { background: linear-gradient(90deg, #b91c1c 0%, #ef4444 100%); }
-        .news-item-img { width: 100px; height: 75px; object-fit: cover; border-radius: 6px; }
-        .finance-card { background: #ffffff; border-radius: 12px; transition: transform 0.2s; }
-        .finance-card:hover { transform: translateY(-3px); }
+        .google-card { background: white; border-radius: 16px; margin-bottom: 12px; border: 1px solid #e5e7eb; overflow: hidden; }
+        .feed-img { width: 100%; height: 200px; object-fit: cover; }
+        .ticker-patti { background: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%); color: white; }
         ::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="bg-gray-50 font-sans pb-24">
 
-    <header class="bg-white sticky top-0 z-50 shadow-sm border-b">
-        <div class="flex items-center justify-between px-4 py-3">
-            <div class="text-3xl font-black italic tracking-tighter text-red-700 uppercase">
-                ANN <span class="text-black font-normal">NEWS</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="text-[9px] font-bold bg-blue-600 text-white px-2 py-1 rounded-full uppercase tracking-tighter">Google Finance Feed</span>
-            </div>
+    <header class="bg-white sticky top-0 z-50 px-4 py-3 border-b flex justify-between items-center shadow-sm">
+        <div class="text-2xl font-black italic text-red-700 tracking-tighter uppercase">ANN <span class="text-black font-normal">NEWS</span></div>
+        <div class="flex gap-4 text-gray-500 items-center">
+            <i class="fa-solid fa-magnifying-glass text-lg"></i>
+            <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">A</div>
         </div>
     </header>
 
-    <div class="breaking-news-box text-white flex items-center shadow-md">
-        <div class="bg-black px-4 py-2 font-black italic text-xs z-10 border-r-2 border-red-500 shadow-xl">BREAKING</div>
-        <marquee class="font-bold text-sm py-2 uppercase" scrollamount="7">
-             • <span class="text-yellow-300 font-black">MARKET ALERT:</span> निफ्टी कल सुबह मॉर्निंग में गैप अप (GAP UP) खुलेगा: Google Finance एनालिसिस • अमित शाह का बंगाल दौरा: CM चेहरे पर सस्पेंस खत्म • 
+    <div class="ticker-patti flex items-center py-2 shadow-inner overflow-hidden">
+        <div class="bg-white text-blue-800 text-[10px] font-black px-3 py-1 ml-2 rounded shadow-sm italic">MARKET</div>
+        <marquee class="font-bold text-xs" scrollamount="6">
+            • NIFTY 50: 24,152.45 <span class="text-green-300">(+0.62%)</span> • SENSEX: 79,480.12 <span class="text-green-300">(+0.45%)</span> • RELIANCE: 2,945.00 • HDFC BANK: 1,542.20 • ANN NEWS डेवलपर आशीष द्वारा संचालित •
         </marquee>
     </div>
 
-    <section class="bg-white p-4 border-b">
-        <h1 class="text-xl font-bold leading-tight mb-3">बंगाल में कौन होगा CM? अमित शाह की क्राइटेरिया में कौन-कौन बैठ रहा फिट</h1>
-        <img src="https://img.etimg.com/thumb/msid-100238945,width-1200,height-900,resizemode-4,imgsize-84562/amit-shah.jpg" alt="Amit Shah Rally" class="w-full h-auto rounded-xl shadow-md mb-3">
-        <p class="text-gray-600 text-sm italic">बीजेपी आलाकमान अब बंगाल के नए मुख्यमंत्री के चेहरे को लेकर फाइनल मंथन कर रहा है...</p>
-    </section>
-
-    <section class="p-4">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xs font-black text-gray-500 uppercase tracking-widest italic">Live Market Watch (NSE)</h2>
-            <span id="last-update" class="text-[9px] text-gray-400 font-bold uppercase">Syncing...</span>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-            <div class="finance-card p-4 shadow-sm border border-gray-100">
-                <p class="text-[10px] text-blue-600 font-black mb-1">NIFTY 50</p>
-                <h3 id="price-nifty" class="text-lg font-black italic">₹ 24,150.00</h3>
-                <span class="text-[10px] text-green-600 font-bold">+0.58%</span>
-            </div>
-            <div class="finance-card p-4 shadow-sm border border-gray-100">
-                <p class="text-[10px] text-blue-600 font-black mb-1">SENSEX</p>
-                <h3 id="price-sensex" class="text-lg font-black italic">₹ 79,480.00</h3>
-                <span class="text-[10px] text-green-600 font-bold">+0.42%</span>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            <table class="w-full text-left text-sm">
-                <thead class="bg-gray-50 text-[10px] font-black uppercase text-gray-400">
-                    <tr>
-                        <th class="px-4 py-3">Symbol</th>
-                        <th class="px-4 py-3 text-right">Price</th>
-                        <th class="px-4 py-3 text-right">Change</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-100 font-bold" id="stock-list">
-                    <tr>
-                        <td class="px-4 py-3 italic">HDFCBANK.NS</td>
-                        <td class="px-4 py-3 text-right">₹ 1,542.45</td>
-                        <td class="px-4 py-3 text-right text-green-600">+1.2%</td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-3 italic">RELIANCE.NS</td>
-                        <td class="px-4 py-3 text-right">₹ 2,945.10</td>
-                        <td class="px-4 py-3 text-right text-red-600">-0.4%</td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-3 italic">ICICIBANK.NS</td>
-                        <td class="px-4 py-3 text-right">₹ 1,120.30</td>
-                        <td class="px-4 py-3 text-right text-green-600">+0.8%</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section class="bg-white mt-2 border-t">
-        <div class="divide-y divide-gray-200">
-            <div class="flex p-4 gap-3 items-center">
-                <img src="https://static.toiimg.com/photo/100023894/wedding.jpg" class="news-item-img">
-                <h3 class="text-md font-bold leading-tight">एक दुल्हन, 9 दूल्हे! शादी के बाद 8 लोगों को दे चुकी थी चकma</h3>
-            </div>
-            <div class="flex p-4 gap-3 items-center">
-                <div class="relative">
-                    <img src="https://img.etimg.com/thumb/msid-100238900/kolkata.jpg" class="news-item-img">
-                    <i class="fa-solid fa-circle-play absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl"></i>
+    <main class="p-3">
+        
+        <div class="google-card shadow-sm">
+            <div class="flex p-4 gap-3">
+                <div class="flex-1">
+                    <h2 class="text-md font-bold leading-tight text-gray-800">U.S.-led task force tells ships to reroute on first day of new effort to reopen the Strait of Hormuz</h2>
+                    <div class="flex items-center gap-2 mt-3 text-[10px] text-gray-400 font-bold uppercase">
+                        <img src="https://www.google.com/s2/favicons?domain=ctvnews.ca" class="w-3 h-3"> CTV News • 1d
+                    </div>
                 </div>
-                <h3 class="text-md font-bold leading-tight text-red-700 uppercase italic font-black">LIVE: बंगाल चुनाव के बाद हिंसा, आसनसोल में हाई अलर्ट</h3>
+                <img src="https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&q=80&w=150" class="w-24 h-20 rounded-xl object-cover shadow-sm">
             </div>
+        </div>
+
+        <div class="google-card shadow-sm">
+            <img src="https://images.unsplash.com/photo-1540910419892-f7c748392915?auto=format&fit=crop&q=80&w=600" class="feed-img">
+            <div class="p-4">
+                <h2 class="text-lg font-bold leading-tight">Election Results 2026 Live: तमिलनाडु में कांग्रेस ने बुलाई इमरजेंसी मीटिंग, विजय ने साधा संपर्क</h2>
+                <div class="flex items-center justify-between mt-4">
+                    <div class="flex items-center gap-2 text-[10px] text-gray-400 font-bold uppercase">
+                        <img src="https://www.google.com/s2/favicons?domain=abplive.com" class="w-3 h-3"> ABP News • 40m
+                    </div>
+                    <div class="flex gap-4 text-gray-400">
+                        <i class="fa-solid fa-share-nodes"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="google-card shadow-sm">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600" class="feed-img">
+            <div class="p-4">
+                <h2 class="text-lg font-bold leading-tight italic uppercase">8th Pay Commission update: Where things stand after 6 months</h2>
+                <div class="flex items-center justify-between mt-4">
+                    <div class="flex items-center gap-2 text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-newspaper text-blue-600"></i> Business Desk • 2h
+                    </div>
+                    <div class="flex gap-4 text-gray-400">
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <section class="px-3">
+        <h3 class="text-xs font-black text-gray-500 uppercase italic mb-3 px-1">Live News डेस्क</h3>
+        <div class="bg-black rounded-2xl overflow-hidden shadow-2xl">
+            <iframe src="https://www.youtube.com/embed/1Dso3PVZvpI" width="100%" height="210" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
-    <footer class="bg-black text-white pt-10 pb-28 px-6 text-center">
-        <div class="text-3xl font-black italic mb-2 tracking-tighter uppercase">ANN NEWS</div>
-        <div class="inline-block border border-gray-800 p-4 rounded-xl bg-gray-900 mt-4">
-            <h3 class="text-white text-2xl font-black tracking-tighter italic uppercase">DEVELOPER BY ASHISH</h3>
-            <p class="text-gray-500 text-[9px] mt-1 italic uppercase font-bold tracking-widest">Ghaziabad Hub</p>
+    <footer class="mt-10 mb-24 px-6 text-center">
+        <div class="text-gray-400 text-[10px] uppercase font-bold tracking-[3px] mb-4">News Engine v4.0</div>
+        <div class="bg-white border border-gray-200 p-6 rounded-3xl inline-block shadow-sm">
+            <div class="text-red-600 font-black italic text-xl tracking-tighter">ASHISH DEVELOPER</div>
+            <div class="text-gray-400 text-[8px] mt-1 font-bold tracking-widest">GHAZIABAD TECH HUB</div>
         </div>
     </footer>
 
-    <div class="fixed bottom-0 w-full bg-white border-t flex justify-around py-3 shadow-2xl z-50">
-        <div class="flex flex-col items-center text-red-700">
-            <i class="fa-solid fa-house-chimney text-xl"></i>
-            <span class="text-[9px] mt-1 font-black uppercase">Home</span>
+    <div class="fixed bottom-0 w-full bg-white/90 backdrop-blur-md border-t flex justify-around py-3 z-50">
+        <div class="flex flex-col items-center text-blue-600">
+            <i class="fa-solid fa-compass text-xl"></i>
+            <span class="text-[9px] mt-1 font-black">DISCOVER</span>
         </div>
         <div class="flex flex-col items-center text-gray-400">
-            <i class="fa-solid fa-circle-play text-xl text-red-600"></i>
-            <span class="text-[9px] mt-1 font-black text-red-600 uppercase">Live TV</span>
+            <i class="fa-solid fa-magnifying-glass text-xl"></i>
+            <span class="text-[9px] mt-1 font-black">SEARCH</span>
+        </div>
+        <div class="flex flex-col items-center text-gray-400">
+            <i class="fa-solid fa-clapperboard text-xl text-red-600"></i>
+            <span class="text-[9px] mt-1 font-black text-red-600 uppercase">LIVE TV</span>
+        </div>
+        <div class="flex flex-col items-center text-gray-400">
+            <i class="fa-solid fa-bars text-xl"></i>
+            <span class="text-[9px] mt-1 font-black uppercase">MENU</span>
         </div>
     </div>
-
-    <script>
-        function updateFinanceData() {
-            // Hum yahan Google Finance data simulate kar rahe hain jo bilkul Yahoo/Google ke server feed jaisa lagega
-            // Professional setup mein aap ek choti Python script se data push kar sakte hain
-            const time = new Date().toLocaleTimeString();
-            document.getElementById('last-update').innerText = "LIVE: " + time;
-            
-            // Random variation to look real-time (LTP)
-            const nifty = (24140 + Math.random() * 20).toFixed(2);
-            document.getElementById('price-nifty').innerText = "₹ " + nifty;
-        }
-
-        setInterval(updateFinanceData, 2000); // 2 Second refresh
-        updateFinanceData();
-    </script>
 
 </body>
 </html>
