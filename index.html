@@ -3,111 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASHISH GAMING | The Global Standard</title>
+    <title>ASHISH GAMING | Dominate The Game</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Rajdhani:wght@500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Rajdhani:wght@500;700&display=swap');
         
-        body { background-color: #000; color: #fff; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
-        .font-sync { font-family: 'Syncopate', sans-serif; }
+        body { background-color: #050505; color: #fff; font-family: 'Rajdhani', sans-serif; }
+        .font-sync { font-family: 'Syncopate', sans-serif; font-weight: 700; }
         
-        .chair-card { 
-            background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
-            border: 1px solid #333;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .gaming-card { 
+            background: linear-gradient(145deg, #101010, #181818);
+            border: 1px solid #222;
+            transition: all 0.3s ease;
         }
         
-        .chair-card:hover { 
+        .gaming-card:hover { 
             border-color: #ff0055; 
-            box-shadow: 0 0 30px rgba(255, 0, 85, 0.2);
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px -10px rgba(255, 0, 85, 0.4);
         }
 
-        .glow-text { text-shadow: 0 0 10px rgba(255, 0, 85, 0.5); }
+        .gradient-text { background: linear-gradient(90deg, #ff0055, #ff7300); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .nav-blur { background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(15px); }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #ff0055; border-radius: 10px; }
     </style>
 </head>
 <body class="pb-20">
 
-    <nav class="nav-blur sticky top-0 z-[100] p-5 border-b border-zinc-800">
+    <nav class="nav-blur sticky top-0 z-[100] p-4 border-b border-zinc-800">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <span class="text-3xl font-black font-sync tracking-tighter glow-text italic">ASHISH<span class="text-[#ff0055]">.G</span></span>
+            <div class="flex items-center gap-3">
+                <span class="text-3xl font-sync tracking-tighter italic gradient-text">ASHISH<span class="text-white">.G</span></span>
             </div>
             <div class="hidden md:flex gap-10 font-bold uppercase text-[10px] tracking-[0.3em]">
-                <a href="#" class="hover:text-[#ff0055] transition">Elite Series</a>
-                <a href="#" class="hover:text-[#ff0055] transition">Customization</a>
-                <a href="#" class="hover:text-[#ff0055] transition">Global Shipping</a>
+                <a href="#" class="hover:text-[#ff0055] transition">Pro Series</a>
+                <a href="#" class="hover:text-[#ff0055] transition">RGB Setup</a>
+                <a href="#" class="hover:text-[#ff0055] transition">Global Support</a>
             </div>
-            <div class="flex items-center gap-5">
-                <a href="https://wa.me/917530919863" class="hidden sm:block border border-[#ff0055] text-[#ff0055] px-6 py-2 rounded-full text-xs font-bold hover:bg-[#ff0055] hover:text-white transition-all">VIP SUPPORT</a>
-                <i class="fas fa-bars text-xl"></i>
-            </div>
+            <a href="https://wa.me/917530919863" class="bg-[#ff0055] hover:bg-[#d00045] px-6 py-2 rounded-full font-bold text-xs transition-all">
+                <i class="fab fa-whatsapp"></i> Chat Order
+            </a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6">
+    <main class="max-w-7xl mx-auto px-6 mt-16">
         
-        <div class="py-20 text-center">
-            <h2 class="text-7xl md:text-9xl font-black font-sync uppercase opacity-10 absolute left-0 right-0 -z-10 select-none">ULTIMATE</h2>
-            <h3 class="text-4xl md:text-6xl font-bold font-sync uppercase tracking-tighter">DOMINATE THE <span class="text-[#ff0055]">GAME</span></h3>
-            <p class="mt-6 text-zinc-500 tracking-widest text-sm">CHOOSE YOUR THRONE. 10 MODELS DESIGNED FOR PEAK PERFORMANCE.</p>
+        <div class="text-center mb-16 relative">
+            <h2 class="text-5xl md:text-7xl font-bold font-sync uppercase leading-none tracking-tight">Level Up <br> Your <span class="gradient-text">Comfort</span></h2>
+            <p class="mt-6 text-zinc-400 tracking-widest text-sm max-w-2xl mx-auto">10 Models. engineered for the elite. chosen by champions worldwide.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             
             <script>
-                // चेयर डेटा ऑब्जेक्ट
+                // 10 चेयर का डेटा (नाम, कीमत, कलर, और असली फ़ोटो)
                 const chairs = [
-                    { name: "Alpha Neon", price: "14,500", color: "#ff0055", img: "https://images.unsplash.com/photo-1598550476439-6847785fce6e" },
-                    { name: "Stealth Knight", price: "18,900", color: "#3b82f6", img: "https://images.unsplash.com/photo-1616627561950-9f746e330171" },
-                    { name: "Titan Frost", price: "22,500", color: "#00f2ff", img: "https://images.unsplash.com/photo-1595246140625-58397c5889a8" },
-                    { name: "Vulcan Magma", price: "19,200", color: "#ff4d00", img: "https://images.unsplash.com/photo-1519183071298-a2962edf1a5e" },
-                    { name: "Carbon X", price: "26,000", color: "#4ade80", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e" },
-                    { name: "Empire Leather", price: "32,000", color: "#fbbf24", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267" },
-                    { name: "Cyber Pulse", price: "16,800", color: "#a855f7", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e" },
-                    { name: "God Mode V1", price: "45,000", color: "#ffffff", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f" },
-                    { name: "Rogue Shadow", price: "21,000", color: "#64748b", img: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400" },
-                    { name: "Neon Matrix", price: "24,300", color: "#ec4899", img: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f" }
+                    { name: "Alpha Neon X", price: "14,500", color: "#ff0055", img: "https://resource.astrogaming.com/w_380,c_limit,q_auto,f_auto,dpr_auto/content/dam/astro/en/products/chairs/alpha-red/alpha-red-gallery-1.png" },
+                    { name: "Stealth Knight V3", price: "18,900", color: "#3b82f6", img: "https://secure.img1-fg.wfcdn.com/im/34850875/resize-h445%5Ecompr-r85/1195/119532578/default_name.jpg" },
+                    { name: "Titan Frost", price: "22,500", color: "#00f2ff", img: "https://www.corsair.com/corsairmedia/sys_master/productcontent/CF-9010043-WW-gallery-T3-RUSH-GrayWhite-01.png" },
+                    { name: "Vulcan Magma 4D", price: "19,200", color: "#ff4d00", img: "https://images-na.ssl-images-amazon.com/images/I/71Y7XFjK0lL._AC_SL1500_.jpg" },
+                    { name: "Carbon Fury", price: "26,000", color: "#4ade80", img: "https://m.media-amazon.com/images/I/71K%2BDwV6-WL._AC_SL1500_.jpg" },
+                    { name: "Empire Royal", price: "32,000", color: "#fbbf24", img: "https://m.media-amazon.com/images/I/61NlB0YF2HL._AC_SL1500_.jpg" },
+                    { name: "Cyber Pulse RGB", price: "16,800", color: "#a855f7", img: "https://m.media-amazon.com/images/I/72c4q7t5cSL._AC_SL1500_.jpg" },
+                    { name: "God Mode V1", price: "45,000", color: "#ffffff", img: "https://cdn.shopify.com/s/files/1/0073/0313/5321/products/2021_D_M_B_A_P.png?v=1611701389" },
+                    { name: "Rogue Shadow", price: "21,000", color: "#64748b", img: "https://images-na.ssl-images-amazon.com/images/I/6146v%2BQZlOL._AC_SL1500_.jpg" },
+                    { name: "Neon Spectrum", price: "24,300", color: "#ec4899", img: "https://m.media-amazon.com/images/I/71K%2BDwV6-WL._AC_SL1500_.jpg" }
                 ];
 
                 const container = document.currentScript.parentElement;
                 
                 chairs.forEach((chair, index) => {
                     container.innerHTML += `
-                        <div class="chair-card p-4 rounded-[2rem] flex flex-col justify-between">
+                        <div class="gaming-card p-4 rounded-[2rem] flex flex-col justify-between transition-all duration-300">
                             <div>
-                                <div class="h-64 rounded-[1.5rem] overflow-hidden bg-zinc-900 mb-6">
-                                    <img src="${chair.img}?auto=format&fit=crop&w=400" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500" />
+                                <div class="h-64 rounded-[1.5rem] overflow-hidden bg-zinc-900 mb-6 relative">
+                                    <img src="${chair.img}" class="w-full h-full object-contain p-4 hover:scale-110 transition duration-500" alt="Chair" />
+                                    <div class="absolute top-3 left-3 px-2 py-0.5 bg-black/60 rounded-full text-[10px] text-zinc-400">0${index + 1}</div>
                                 </div>
                                 <div class="px-2">
-                                    <span class="text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">Series 0${index + 1}</span>
-                                    <h4 class="text-xl font-bold mt-1 uppercase font-sync">${chair.name}</h4>
-                                    <p class="text-xs text-zinc-600 mt-2">Adjustable Lumbar • 4D Armrest • Memory Foam</p>
+                                    <h4 class="text-xl font-bold font-sync uppercase tracking-tighter text-white">${chair.name}</h4>
+                                    <p class="text-xs text-zinc-500 mt-1 italic">4D Armrest • 180° Recline • Lumbar Support</p>
                                 </div>
                             </div>
                             
                             <div class="mt-8 px-2">
-                                <div class="flex justify-between items-end mb-6">
+                                <div class="flex justify-between items-end mb-6 border-l-2 pl-3 border-[${chair.color}]">
                                     <div>
-                                        <p class="text-[10px] text-zinc-500 uppercase">Investment</p>
-                                        <p class="text-2xl font-black font-sync italic">₹${chair.price}</p>
+                                        <p class="text-[10px] text-zinc-500 uppercase">MSRP PRICE</p>
+                                        <p class="text-3xl font-black">₹${chair.price}</p>
                                     </div>
-                                    <div class="w-8 h-8 rounded-full border border-zinc-800 flex items-center justify-center">
-                                        <div class="w-2 h-2 rounded-full" style="background: ${chair.color}"></div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 rounded-full" style="background: ${chair.color}; box-shadow: 0 0 10px ${chair.color}"></div>
+                                        <i class="fas fa-shipping-fast text-zinc-700 text-lg"></i>
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-3">
                                     <a href="upi://pay?pa=7530919863@paytm&pn=AshishGaming&am=${chair.price.replace(',', '')}&cu=INR" 
-                                       class="bg-white text-black text-[10px] font-bold py-4 rounded-xl text-center hover:bg-[#ff0055] hover:text-white transition-all">PAY NOW</a>
-                                    <a href="https://wa.me/917530919863?text=Interested in ${chair.name}" 
-                                       class="border border-zinc-800 text-white text-[10px] font-bold py-4 rounded-xl text-center hover:border-zinc-500 transition-all">WHATSAPP</a>
+                                       class="bg-white text-black text-[10px] font-bold py-4 rounded-xl text-center hover:bg-[#ff0055] hover:text-white transition-all uppercase">Buy via UPI</a>
+                                    <a href="https://wa.me/917530919863?text=I'm interested in the ${chair.name} Gaming Chair" 
+                                       class="border border-zinc-800 text-white text-[10px] font-bold py-4 rounded-xl text-center hover:border-zinc-500 transition-all uppercase">Order WhatsApp</a>
                                 </div>
                             </div>
                         </div>
@@ -118,14 +112,14 @@
         </div>
     </main>
 
-    <footer class="mt-40 border-t border-zinc-900 bg-zinc-950 p-20 text-center">
-        <h2 class="text-4xl font-black font-sync tracking-tighter italic glow-text">ASHISH<span class="text-[#ff0055]">.G</span></h2>
-        <div class="flex justify-center gap-10 mt-10 text-zinc-500">
-            <a href="https://wa.me/917530919863" class="hover:text-white"><i class="fab fa-whatsapp"></i></a>
-            <a href="tel:+917530919863" class="hover:text-white"><i class="fas fa-phone-alt"></i></a>
-            <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+    <footer class="mt-40 border-t border-zinc-900 bg-black p-16 text-center">
+        <span class="text-4xl font-sync italic gradient-text">ASHISH<span class="text-white">.G</span></span>
+        <p class="text-zinc-600 text-sm mt-4">Connecting Gamers Worldwide. Designed in India.</p>
+        <div class="flex justify-center gap-10 mt-10 text-2xl text-zinc-500">
+            <a href="https://wa.me/917530919863" class="hover:text-green-500 transition"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+917530919863" class="hover:text-blue-500 transition"><i class="fas fa-phone-alt"></i></a>
         </div>
-        <p class="mt-10 text-[10px] text-zinc-700 tracking-[0.5em] uppercase">Built for Champions by Developer Ashish</p>
+        <p class="mt-10 text-[10px] text-zinc-800 tracking-[0.5em] uppercase">Built for Dominance by Ashish Components</p>
     </footer>
 
 </body>
