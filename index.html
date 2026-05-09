@@ -3,123 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASHISH GAMING | Dominate The Game</title>
+    <title>ASHISH GAMING X CHAIRS | The Ultimate Throne</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Rajdhani:wght@500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Rajdhani:wght@600;700&display=swap');
         
         body { background-color: #050505; color: #fff; font-family: 'Rajdhani', sans-serif; }
-        .font-sync { font-family: 'Syncopate', sans-serif; font-weight: 700; }
+        .font-sync { font-family: 'Syncopate', sans-serif; }
         
         .gaming-card { 
-            background: linear-gradient(145deg, #101010, #181818);
+            background: linear-gradient(160deg, #111, #000);
             border: 1px solid #222;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .gaming-card:hover { 
             border-color: #ff0055; 
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px -10px rgba(255, 0, 85, 0.4);
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 20px 60px -15px rgba(255, 0, 85, 0.5);
         }
 
-        .gradient-text { background: linear-gradient(90deg, #ff0055, #ff7300); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-blur { background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(15px); }
+        .neon-text { text-shadow: 0 0 10px rgba(255, 0, 85, 0.8); }
+        .gradient-bg { background: linear-gradient(90deg, #ff0055, #7000ff); }
+        .nav-glass { background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid #1a1a1a; }
     </style>
 </head>
 <body class="pb-20">
 
-    <nav class="nav-blur sticky top-0 z-[100] p-4 border-b border-zinc-800">
+    <nav class="nav-glass sticky top-0 z-[100] p-5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <span class="text-3xl font-sync tracking-tighter italic gradient-text">ASHISH<span class="text-white">.G</span></span>
+                <span class="text-2xl font-sync tracking-tighter text-[#ff0055] neon-text italic uppercase">ASHISH GAMING X</span>
             </div>
-            <div class="hidden md:flex gap-10 font-bold uppercase text-[10px] tracking-[0.3em]">
-                <a href="#" class="hover:text-[#ff0055] transition">Pro Series</a>
-                <a href="#" class="hover:text-[#ff0055] transition">RGB Setup</a>
-                <a href="#" class="hover:text-[#ff0055] transition">Global Support</a>
+            <div class="hidden lg:flex gap-10 font-bold uppercase text-[10px] tracking-[0.4em] text-zinc-400">
+                <a href="#" class="hover:text-white transition">Elite Chairs</a>
+                <a href="#" class="hover:text-white transition">Global Store</a>
             </div>
-            <a href="https://wa.me/917530919863" class="bg-[#ff0055] hover:bg-[#d00045] px-6 py-2 rounded-full font-bold text-xs transition-all">
-                <i class="fab fa-whatsapp"></i> Chat Order
+            <a href="https://wa.me/917530919863" class="gradient-bg px-7 py-2 rounded-full font-bold text-xs shadow-lg shadow-pink-500/20">
+                <i class="fab fa-whatsapp"></i> ORDER NOW
             </a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 mt-16">
+    <header class="py-20 text-center">
+        <h2 class="text-6xl md:text-8xl font-bold font-sync uppercase tracking-tighter italic">LIVE FROM <span class="text-[#ff0055] neon-text">GITHUB</span></h2>
+        <p class="mt-4 text-zinc-500 tracking-[0.5em] text-[10px] uppercase">Official Ashish Gaming X Inventory</p>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
         
-        <div class="text-center mb-16 relative">
-            <h2 class="text-5xl md:text-7xl font-bold font-sync uppercase leading-none tracking-tight">Level Up <br> Your <span class="gradient-text">Comfort</span></h2>
-            <p class="mt-6 text-zinc-400 tracking-widest text-sm max-w-2xl mx-auto">10 Models. engineered for the elite. chosen by champions worldwide.</p>
-        </div>
+        <script>
+            // आपके GitHub से फोटो लोड करने के लिए सेटिंग
+            const githubUser = "LUXURY-AVENUE"; // यहाँ अपना GitHub यूजरनेम कन्फर्म करें
+            const repo = "ASHISH-WEB"; 
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            const chairs = [
+                { name: "Alpha Neon X", price: "14,500", img: "Screenshot_20260510-011529.jpg" },
+                { name: "Stealth Knight", price: "18,900", img: "Screenshot_20260510-011511.jpg" },
+                { name: "Titan Frost", price: "22,500", img: "Screenshot_20260510-011401.jpg" },
+                { name: "Vulcan Magma", price: "19,200", img: "Screenshot_20260510-011427.jpg" },
+                { name: "Carbon Fury", price: "26,000", img: "Screenshot_20260510-011344.jpg" },
+                { name: "Empire Leather", price: "32,000", img: "Screenshot_20260510-011323.jpg" },
+                { name: "Cyber Pulse", price: "16,800", img: "Screenshot_20260510-011240.jpg" },
+                { name: "God Mode V1", price: "45,000", img: "Screenshot_20260510-011257.jpg" },
+                { name: "Rogue Shadow", price: "21,000", img: "Screenshot_20260510-011220.jpg" },
+                { name: "Neon Spectrum", price: "23,800", img: "Screenshot_20260510-011159.jpg" }
+            ];
+
+            const container = document.currentScript.parentElement;
             
-            <script>
-                // 10 चेयर का डेटा (नाम, कीमत, कलर, और असली फ़ोटो)
-                const chairs = [
-                    { name: "Alpha Neon X", price: "14,500", color: "#ff0055", img: "https://resource.astrogaming.com/w_380,c_limit,q_auto,f_auto,dpr_auto/content/dam/astro/en/products/chairs/alpha-red/alpha-red-gallery-1.png" },
-                    { name: "Stealth Knight V3", price: "18,900", color: "#3b82f6", img: "https://secure.img1-fg.wfcdn.com/im/34850875/resize-h445%5Ecompr-r85/1195/119532578/default_name.jpg" },
-                    { name: "Titan Frost", price: "22,500", color: "#00f2ff", img: "https://www.corsair.com/corsairmedia/sys_master/productcontent/CF-9010043-WW-gallery-T3-RUSH-GrayWhite-01.png" },
-                    { name: "Vulcan Magma 4D", price: "19,200", color: "#ff4d00", img: "https://images-na.ssl-images-amazon.com/images/I/71Y7XFjK0lL._AC_SL1500_.jpg" },
-                    { name: "Carbon Fury", price: "26,000", color: "#4ade80", img: "https://m.media-amazon.com/images/I/71K%2BDwV6-WL._AC_SL1500_.jpg" },
-                    { name: "Empire Royal", price: "32,000", color: "#fbbf24", img: "https://m.media-amazon.com/images/I/61NlB0YF2HL._AC_SL1500_.jpg" },
-                    { name: "Cyber Pulse RGB", price: "16,800", color: "#a855f7", img: "https://m.media-amazon.com/images/I/72c4q7t5cSL._AC_SL1500_.jpg" },
-                    { name: "God Mode V1", price: "45,000", color: "#ffffff", img: "https://cdn.shopify.com/s/files/1/0073/0313/5321/products/2021_D_M_B_A_P.png?v=1611701389" },
-                    { name: "Rogue Shadow", price: "21,000", color: "#64748b", img: "https://images-na.ssl-images-amazon.com/images/I/6146v%2BQZlOL._AC_SL1500_.jpg" },
-                    { name: "Neon Spectrum", price: "24,300", color: "#ec4899", img: "https://m.media-amazon.com/images/I/71K%2BDwV6-WL._AC_SL1500_.jpg" }
-                ];
+            chairs.forEach((chair) => {
+                // GitHub Raw Image URL बनाना
+                const imgPath = `https://raw.githubusercontent.com/${githubUser}/${repo}/main/${chair.img}`;
 
-                const container = document.currentScript.parentElement;
-                
-                chairs.forEach((chair, index) => {
-                    container.innerHTML += `
-                        <div class="gaming-card p-4 rounded-[2rem] flex flex-col justify-between transition-all duration-300">
-                            <div>
-                                <div class="h-64 rounded-[1.5rem] overflow-hidden bg-zinc-900 mb-6 relative">
-                                    <img src="${chair.img}" class="w-full h-full object-contain p-4 hover:scale-110 transition duration-500" alt="Chair" />
-                                    <div class="absolute top-3 left-3 px-2 py-0.5 bg-black/60 rounded-full text-[10px] text-zinc-400">0${index + 1}</div>
-                                </div>
-                                <div class="px-2">
-                                    <h4 class="text-xl font-bold font-sync uppercase tracking-tighter text-white">${chair.name}</h4>
-                                    <p class="text-xs text-zinc-500 mt-1 italic">4D Armrest • 180° Recline • Lumbar Support</p>
-                                </div>
+                container.innerHTML += `
+                    <div class="gaming-card p-5 rounded-[2.5rem] flex flex-col justify-between overflow-hidden">
+                        <div>
+                            <div class="h-64 rounded-[2rem] overflow-hidden bg-zinc-900 mb-6 flex items-center justify-center border border-zinc-800">
+                                <img src="${imgPath}" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="${chair.name}" onerror="this.src='https://via.placeholder.com/400x400/111/ff0055?text=Image+Loading...'"/>
                             </div>
-                            
-                            <div class="mt-8 px-2">
-                                <div class="flex justify-between items-end mb-6 border-l-2 pl-3 border-[${chair.color}]">
-                                    <div>
-                                        <p class="text-[10px] text-zinc-500 uppercase">MSRP PRICE</p>
-                                        <p class="text-3xl font-black">₹${chair.price}</p>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-3 h-3 rounded-full" style="background: ${chair.color}; box-shadow: 0 0 10px ${chair.color}"></div>
-                                        <i class="fas fa-shipping-fast text-zinc-700 text-lg"></i>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-2 gap-3">
-                                    <a href="upi://pay?pa=7530919863@paytm&pn=AshishGaming&am=${chair.price.replace(',', '')}&cu=INR" 
-                                       class="bg-white text-black text-[10px] font-bold py-4 rounded-xl text-center hover:bg-[#ff0055] hover:text-white transition-all uppercase">Buy via UPI</a>
-                                    <a href="https://wa.me/917530919863?text=I'm interested in the ${chair.name} Gaming Chair" 
-                                       class="border border-zinc-800 text-white text-[10px] font-bold py-4 rounded-xl text-center hover:border-zinc-500 transition-all uppercase">Order WhatsApp</a>
-                                </div>
+                            <div class="px-2 text-center">
+                                <h4 class="text-xl font-bold font-sync text-white uppercase italic tracking-tighter">${chair.name}</h4>
+                                <p class="text-[10px] text-zinc-500 mt-2 uppercase tracking-[0.2em]">X-Series Edition</p>
                             </div>
                         </div>
-                    `;
-                });
-            </script>
-
-        </div>
+                        <div class="mt-8 px-2">
+                            <div class="text-center mb-6">
+                                <p class="text-[9px] text-zinc-500 uppercase">PRICE</p>
+                                <p class="text-3xl font-black italic tracking-tighter">₹${chair.price}</p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <a href="upi://pay?pa=7530919863@paytm&pn=AshishGamingX&am=${chair.price.replace(',', '')}&cu=INR" 
+                                   class="bg-white text-black text-[10px] font-bold py-4 rounded-xl text-center hover:bg-[#ff0055] hover:text-white transition-all uppercase tracking-widest">Pay UPI</a>
+                                <a href="https://wa.me/917530919863?text=Interested in: ${chair.name}" 
+                                   class="border border-zinc-800 text-white text-[10px] font-bold py-4 rounded-xl text-center hover:border-zinc-500 transition-all uppercase tracking-widest">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        </script>
     </main>
 
-    <footer class="mt-40 border-t border-zinc-900 bg-black p-16 text-center">
-        <span class="text-4xl font-sync italic gradient-text">ASHISH<span class="text-white">.G</span></span>
-        <p class="text-zinc-600 text-sm mt-4">Connecting Gamers Worldwide. Designed in India.</p>
-        <div class="flex justify-center gap-10 mt-10 text-2xl text-zinc-500">
-            <a href="https://wa.me/917530919863" class="hover:text-green-500 transition"><i class="fab fa-whatsapp"></i></a>
-            <a href="tel:+917530919863" class="hover:text-blue-500 transition"><i class="fas fa-phone-alt"></i></a>
-        </div>
-        <p class="mt-10 text-[10px] text-zinc-800 tracking-[0.5em] uppercase">Built for Dominance by Ashish Components</p>
+    <footer class="mt-40 p-20 border-t border-zinc-900 text-center">
+        <h2 class="text-2xl font-sync italic text-[#ff0055] neon-text">ASHISH GAMING X CHAIRS</h2>
+        <p class="text-zinc-600 text-[10px] mt-4 tracking-[0.5em] uppercase">Engineered for Dominance • 7530919863</p>
     </footer>
 
 </body>
