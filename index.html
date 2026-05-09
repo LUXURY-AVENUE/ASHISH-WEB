@@ -3,58 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Trading Terminal | Chartink & Options</title>
+    <title>Live Trading Terminal | Chartink Real-Time</title>
     <style>
-        /* Modern Dark Theme Styling */
         :root {
-            --bg-dark: #0d1117;
+            --bg-color: #090c10;
             --card-bg: #161b22;
-            --border-color: #30363d;
-            --text-main: #c9d1d9;
-            --accent-blue: #58a6ff;
-            --bullish: #238636;
-            --bearish: #da3633;
+            --border: #30363d;
+            --accent: #58a6ff;
+            --green: #238636;
+            --red: #da3633;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 10px;
+            overflow: hidden; /* Screen fit rakhne ke liye */
         }
 
-        .header {
+        /* Header */
+        .top-nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
-            background: var(--card-bg);
-            border-bottom: 2px solid var(--bullish);
-            margin-bottom: 15px;
-            border-radius: 8px;
+            height: 40px;
         }
 
-        .header h1 {
-            margin: 0;
-            font-size: 22px;
-            color: white;
-            letter-spacing: 1px;
-        }
+        .logo { font-weight: bold; color: var(--accent); letter-spacing: 1px; }
 
-        .main-grid {
+        /* Dashboard Layout */
+        .dashboard {
             display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 15px;
+            grid-template-columns: 1fr 320px;
+            height: calc(100vh - 60px);
         }
 
-        /* Chart Section */
-        .chart-section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            height: 600px;
-            overflow: hidden;
+        /* Real Chart Section */
+        .chart-container {
+            border-right: 1px solid var(--border);
+            background: #000;
         }
 
         iframe {
@@ -63,169 +54,114 @@
             border: none;
         }
 
-        /* Sidebar Sections */
+        /* Sidebar Section */
         .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .sidebar-box {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
             padding: 15px;
+            background: var(--card-bg);
+            overflow-y: auto;
         }
 
-        h2 {
-            margin-top: 0;
-            font-size: 16px;
-            color: var(--accent-blue);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        /* Analysis Stats */
-        .analysis-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .stat-item {
-            background: #21262d;
-            padding: 10px;
+        .box {
+            background: var(--bg-color);
+            border: 1px solid var(--border);
             border-radius: 6px;
-            text-align: center;
+            padding: 12px;
+            margin-bottom: 15px;
         }
 
-        .stat-val {
-            display: block;
-            font-size: 20px;
-            font-weight: bold;
-        }
+        h3 { margin: 0 0 10px 0; font-size: 14px; color: var(--accent); text-transform: uppercase; }
 
-        /* Strike Price Table */
-        table {
+        /* Option Chain Table */
+        table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        th, td { padding: 8px 4px; text-align: center; border-bottom: 1px solid var(--border); }
+        .strike { font-weight: bold; color: #fff; background: #21262d; }
+        .ce { color: var(--green); font-weight: bold; }
+        .pe { color: var(--red); font-weight: bold; }
+
+        .refresh-btn {
             width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
-
-        th, td {
-            padding: 10px 5px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th { color: #8b949e; font-weight: normal; }
-
-        .strike { 
-            background: #30363d; 
-            color: white; 
-            font-weight: bold;
+            padding: 10px;
+            background: var(--green);
+            color: white;
+            border: none;
             border-radius: 4px;
-        }
-
-        .ce-price { color: var(--bullish); font-weight: bold; }
-        .pe-price { color: var(--bearish); font-weight: bold; }
-
-        @media (max-width: 1024px) {
-            .main-grid { grid-template-columns: 1fr; }
-            .chart-section { height: 450px; }
+            cursor: pointer;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>TRADING TERMINAL</h1>
-        <div id="live-clock" style="color: var(--accent-blue);">Loading...</div>
+    <div class="top-nav">
+        <div class="logo">PRO-TRADE LIVE</div>
+        <div id="clock" style="font-family: monospace;">Loading...</div>
     </div>
 
-    <div class="main-grid">
-        <!-- Live Chart Section -->
-        <div class="chart-section">
-            <!-- Yahan Chartink ka link daalein -->
-            <iframe src="https://chartink.com/charts/nifty" title="Live Chart"></iframe>
+    <div class="dashboard">
+        <!-- Direct Chartink Link Section -->
+        <div class="chart-container">
+            <iframe 
+                src="https://chartink.com/stocks-new?symbol=NIFTY" 
+                title="Chartink Live Chart">
+            </iframe>
         </div>
 
-        <!-- Sidebar Section -->
+        <!-- Sidebar for Analysis & Strikes -->
         <div class="sidebar">
             
-            <!-- Technical Analysis Section -->
-            <div class="sidebar-box">
-                <h2>Technical Analysis</h2>
-                <div class="analysis-row">
-                    <div class="stat-item">
-                        <span style="font-size: 12px;">PCR (Nifty)</span>
-                        <span class="stat-val" style="color: var(--bullish);">1.08</span>
-                    </div>
-                    <div class="stat-item">
-                        <span style="font-size: 12px;">RSI (14)</span>
-                        <span class="stat-val" style="color: #e3b341;">58.5</span>
-                    </div>
+            <div class="box">
+                <h3>Live Nifty Analysis</h3>
+                <div style="display: flex; justify-content: space-between;">
+                    <span>PCR: <b style="color: var(--green);">1.05</b></span>
+                    <span>Trend: <b style="color: var(--accent);">Sideways</b></span>
                 </div>
-                <p style="font-size: 12px; margin-top: 10px; text-align: center; color: #8b949e;">
-                    Market Sentiment: <span style="color: var(--bullish);">Neutral to Bullish</span>
-                </p>
             </div>
 
-            <!-- Strike Price / Option Chain Section -->
-            <div class="sidebar-box">
-                <h2>Live Strike Prices</h2>
+            <div class="box">
+                <h3>Strike Price (Watchlist)</h3>
                 <table>
                     <thead>
                         <tr>
-                            <th>CALL LTP</th>
+                            <th>CE LTP</th>
                             <th>STRIKE</th>
-                            <th>PUT LTP</th>
+                            <th>PE LTP</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="ce-price">185.30</td>
-                            <td class="strike">24100</td>
-                            <td class="pe-price">14.20</td>
-                        </tr>
-                        <tr>
-                            <td class="ce-price">112.45</td>
+                            <td class="ce">142.50</td>
                             <td class="strike">24200</td>
-                            <td class="pe-price">42.10</td>
+                            <td class="pe">18.40</td>
                         </tr>
                         <tr>
-                            <td class="ce-price">58.10</td>
+                            <td class="ce">85.10</td>
                             <td class="strike">24300</td>
-                            <td class="pe-price">88.55</td>
+                            <td class="pe">45.20</td>
                         </tr>
                         <tr>
-                            <td class="ce-price">22.00</td>
+                            <td class="ce">38.40</td>
                             <td class="strike">24400</td>
-                            <td class="pe-price">152.30</td>
+                            <td class="pe">98.15</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- Custom Buttons for Quick Access -->
-            <div class="sidebar-box" style="text-align: center;">
-                <h2>Quick Actions</h2>
-                <button onclick="window.location.reload();" style="background: var(--bullish); color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">Refresh Data</button>
-            </div>
-
+            <button class="refresh-btn" onclick="location.reload();">Refresh Dashboard</button>
+            
+            <p style="font-size: 11px; color: #8b949e; margin-top: 15px; line-height: 1.4;">
+                *Note: Chartink data is real-time. Strike prices are indicative. Use your broker terminal for execution.
+            </p>
         </div>
     </div>
 
     <script>
-        // Real-time Clock
-        function updateClock() {
+        function updateTime() {
             const now = new Date();
-            document.getElementById('live-clock').innerText = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' });
+            document.getElementById('clock').innerText = now.toLocaleTimeString('en-IN', {timeZone: 'Asia/Kolkata'});
         }
-        setInterval(updateClock, 1000);
-        updateClock();
+        setInterval(updateTime, 1000);
+        updateTime();
     </script>
 
 </body>
