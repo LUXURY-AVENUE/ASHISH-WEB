@@ -2,98 +2,93 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSE Live Option Chain Terminal</title>
+    <title>Delta Algo Trader - Ashish</title>
     <style>
-        :root {
-            --bg: #0d1117;
-            --card: #161b22;
-            --border: #30363d;
-            --accent: #58a6ff;
-            --green: #238636;
-            --red: #da3633;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: #c9d1d9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        /* Header Section */
-        .header {
-            background: var(--card);
-            padding: 10px 20px;
-            border-bottom: 2px solid var(--accent);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .main-layout {
-            display: grid;
-            grid-template-columns: 1fr 400px; /* Chart left, Chain right */
-            flex: 1;
-            overflow: hidden;
-        }
-
-        .chart-frame, .option-chain-frame {
-            border: 1px solid var(--border);
-            height: 100%;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .main-layout { grid-template-columns: 1fr; }
-            .option-chain-frame { height: 500px; }
-        }
-
-        .btn-link {
-            background: var(--accent);
-            color: white;
-            padding: 5px 15px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 12px;
-        }
+        body { background: #0b0e11; color: white; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 20px; }
+        .trading-panel { background: #181a20; padding: 20px; border-radius: 15px; border: 1px solid #333; width: 350px; margin: auto; }
+        .price { font-size: 2.5rem; font-weight: bold; color: #f0b90b; margin: 10px 0; }
+        .input-group { margin: 15px 0; text-align: left; }
+        input { width: 90%; padding: 10px; background: #2b2f36; border: 1px solid #474d57; color: white; border-radius: 5px; }
+        .btn-group { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+        .buy-btn { background: #02d39a; color: black; border: none; padding: 12px 30px; border-radius: 5px; font-weight: bold; cursor: pointer; flex: 1; }
+        .sell-btn { background: #f6465d; color: white; border: none; padding: 12px 30px; border-radius: 5px; font-weight: bold; cursor: pointer; flex: 1; }
+        #log { margin-top: 20px; font-size: 0.8rem; color: #848e9c; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h2 style="margin:0; font-size: 18px;">LIVE TRADING TERMINAL</h2>
-        <a href="https://www.nseindia.com/option-chain" target="_blank" class="btn-link">Open Official NSE Chain</a>
-    </div>
+    <h2>Delta Live Trading Terminal</h2>
 
-    <div class="main-layout">
-        <!-- Section 1: Real Chartink Chart -->
-        <div class="chart-frame">
-            <iframe src="https://chartink.com/stocks-new?symbol=NIFTY" title="Live Chart"></iframe>
+    <div class="trading-panel">
+        <div style="font-size: 0.9rem; color: #848e9c;">BTC-USD Live Price</div>
+        <div id="live-price" class="price">Connecting...</div>
+
+        <div class="input-group">
+            <label>Quantity (Contracts):</label><br>
+            <input type="number" id="qty" value="1">
         </div>
 
-        <!-- Section 2: Option Chain Mirror (Jugad Link) -->
-        <div class="option-chain-frame">
-            <!-- NSE Direct Iframe block karta hai, isliye hum ek third-party free 
-                 Option Chain widget use kar rahe hain jo NSE se link hai -->
-            <iframe 
-                src="https://www.tradingview.com/symbols/NSE-NIFTY/option-chain/" 
-                title="Live Option Chain">
-            </iframe>
+        <div class="btn-group">
+            <button class="buy-btn" onclick="placeOrder('buy')">BUY / LONG</button>
+            <button class="sell-btn" onclick="placeOrder('sell')">SELL / SHORT</button>
         </div>
+        
+        <div id="log">Status: Ready</div>
     </div>
 
     <script>
-        console.log("Terminal Ready - NSE Data Link Integrated");
+        const API_KEY = "myIGwx6BwEMz7eUO2QB4TJcTUcBnMw"; // आपकी Key
+        const logElement = document.getElementById('log');
+
+        // लाइव प्राइस अपडेट के लिए WebSocket (पिछले कोड जैसा)
+        const socket = new WebSocket('wss://socket.india.delta.exchange');
+        socket.onopen = () => {
+            socket.send(JSON.stringify({"type": "subscribe","payload": {"channels": [{"name": "v2/ticker","symbols": ["BTCUSD"]}]}}));
+        };
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            if (data.last_price) document.getElementById('live-price').innerText = "$" + data.last_price;
+        };
+
+        // ऑर्डर पंच करने का फंक्शन
+        async function placeOrder(side) {
+            const quantity = document.getElementById('qty').value;
+            logElement.innerText = `Status: Sending ${side.toUpperCase()} order...`;
+
+            // ध्यान दें: असल ट्रेडिंग के लिए 'Signature' जनरेट करना पड़ता है।
+            // डेल्टा की API बिना सिग्नेचर के आर्डर नहीं लेगी।
+            // यह एक स्ट्रक्चर है जो आपकी रिक्वेस्ट भेजेगा:
+            
+            const orderData = {
+                "product_id": 1, // BTCUSD का ID (डेल्टा के हिसाब से बदलें)
+                "size": parseInt(quantity),
+                "side": side === 'buy' ? 'buy' : 'sell',
+                "order_type": "market"
+            };
+
+            try {
+                const response = await fetch('https://api.india.delta.exchange/v2/orders', {
+                    method: 'POST',
+                    headers: {
+                        'api-key': API_KEY,
+                        'Content-Type': 'application/json'
+                        // यहाँ 'api-signature' और 'api-expires' हेडर भी चाहिए होंगे
+                    },
+                    body: JSON.stringify(orderData)
+                });
+
+                const result = await response.json();
+                if(result.success) {
+                    logElement.innerText = "Status: Order Placed Successfully!";
+                    logElement.style.color = "#02d39a";
+                } else {
+                    logElement.innerText = "Error: " + result.error.message;
+                    logElement.style.color = "#f6465d";
+                }
+            } catch (err) {
+                logElement.innerText = "Status: Connection Error (Check IP Whitelist)";
+            }
+        }
     </script>
 </body>
 </html>
