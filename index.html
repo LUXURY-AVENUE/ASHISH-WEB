@@ -3,158 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Trader Dashboard | Live Analysis</title>
+    <title>Advanced Trading Terminal | Chartink & Options</title>
     <style>
+        /* Modern Dark Theme Styling */
+        :root {
+            --bg-dark: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --accent-blue: #58a6ff;
+            --bullish: #238636;
+            --bearish: #da3633;
+        }
+
         body {
-            background-color: #0d1117;
-            color: white;
-            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 10px;
         }
 
-        .dashboard-header {
-            text-align: center;
-            padding: 15px;
-            background: #161b22;
-            margin-bottom: 20px;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: var(--card-bg);
+            border-bottom: 2px solid var(--bullish);
+            margin-bottom: 15px;
             border-radius: 8px;
-            border-bottom: 2px solid #e50914;
         }
 
-        .main-container {
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .main-grid {
             display: grid;
             grid-template-columns: 1fr 350px;
             gap: 15px;
         }
 
         /* Chart Section */
-        .chart-box {
-            height: 650px;
-            background: #161b22;
+        .chart-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
+            height: 600px;
             overflow: hidden;
         }
 
-        /* Sidebar Section */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Sidebar Sections */
         .sidebar {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
-        .widget-box {
-            background: #161b22;
+        .sidebar-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 10px;
-            height: 310px;
+            padding: 15px;
         }
 
-        h3 {
-            margin: 5px 0 10px 0;
+        h2 {
+            margin-top: 0;
             font-size: 16px;
-            color: #58a6ff;
+            color: var(--accent-blue);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
             text-transform: uppercase;
         }
 
-        @media (max-width: 1000px) {
-            .main-container { grid-template-columns: 1fr; }
+        /* Analysis Stats */
+        .analysis-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .stat-item {
+            background: #21262d;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-val {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Strike Price Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th, td {
+            padding: 10px 5px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th { color: #8b949e; font-weight: normal; }
+
+        .strike { 
+            background: #30363d; 
+            color: white; 
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .ce-price { color: var(--bullish); font-weight: bold; }
+        .pe-price { color: var(--bearish); font-weight: bold; }
+
+        @media (max-width: 1024px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .chart-section { height: 450px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="dashboard-header">
-        <h1>LIVE MARKET ANALYSIS</h1>
+    <div class="header">
+        <h1>TRADING TERMINAL</h1>
+        <div id="live-clock" style="color: var(--accent-blue);">Loading...</div>
     </div>
 
-    <div class="main-container">
-        
+    <div class="main-grid">
         <!-- Live Chart Section -->
-        <div class="chart-box">
-            <!-- TradingView Widget BEGIN -->
-            <div class="tradingview-widget-container" style="height:100%;width:100%">
-                <div id="tradingview_main_chart" style="height:100%;width:100%"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-                <script type="text/javascript">
-                new TradingView.widget({
-                    "autosize": true,
-                    "symbol": "NSE:NIFTY",
-                    "interval": "5",
-                    "timezone": "Asia/Kolkata",
-                    "theme": "dark",
-                    "style": "1",
-                    "locale": "in",
-                    "toolbar_bg": "#f1f3f6",
-                    "enable_publishing": false,
-                    "allow_symbol_change": true,
-                    "details": true,
-                    "hotlist": true,
-                    "calendar": true,
-                    "container_id": "tradingview_main_chart"
-                });
-                </script>
-            </div>
-            <!-- TradingView Widget END -->
+        <div class="chart-section">
+            <!-- Yahan Chartink ka link daalein -->
+            <iframe src="https://chartink.com/charts/nifty" title="Live Chart"></iframe>
         </div>
 
-        <!-- Analysis Sidebar -->
+        <!-- Sidebar Section -->
         <div class="sidebar">
             
-            <!-- Technical Analysis Widget -->
-            <div class="widget-box">
-                <h3>Technical Analysis</h3>
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-                    {
-                        "interval": "15m",
-                        "width": "100%",
-                        "isTransparent": true,
-                        "height": "100%",
-                        "symbol": "NSE:NIFTY",
-                        "showIntervalTabs": true,
-                        "locale": "in",
-                        "colorTheme": "dark"
-                    }
-                    </script>
+            <!-- Technical Analysis Section -->
+            <div class="sidebar-box">
+                <h2>Technical Analysis</h2>
+                <div class="analysis-row">
+                    <div class="stat-item">
+                        <span style="font-size: 12px;">PCR (Nifty)</span>
+                        <span class="stat-val" style="color: var(--bullish);">1.08</span>
+                    </div>
+                    <div class="stat-item">
+                        <span style="font-size: 12px;">RSI (14)</span>
+                        <span class="stat-val" style="color: #e3b341;">58.5</span>
+                    </div>
                 </div>
+                <p style="font-size: 12px; margin-top: 10px; text-align: center; color: #8b949e;">
+                    Market Sentiment: <span style="color: var(--bullish);">Neutral to Bullish</span>
+                </p>
             </div>
 
-            <!-- Market Sentiment / Ticker -->
-            <div class="widget-box">
-                <h3>Market Sentiment</h3>
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-                    {
-                        "colorTheme": "dark",
-                        "dateRange": "12M",
-                        "exchange": "NSE",
-                        "showChart": true,
-                        "locale": "in",
-                        "width": "100%",
-                        "height": "100%",
-                        "largeChartUrl": "",
-                        "isTransparent": true,
-                        "showSymbolLogo": true,
-                        "showFloatingTooltip": false,
-                        "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
-                        "plotLineColorFalling": "rgba(41, 98, 255, 1)",
-                        "gridLineColor": "rgba(240, 243, 250, 0)",
-                        "scaleFontColor": "rgba(106, 109, 120, 1)",
-                        "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-                        "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
-                        "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-                        "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-                        "symbolActiveColor": "rgba(41, 98, 255, 0.12)"
-                    }
-                    </script>
-                </div>
+            <!-- Strike Price / Option Chain Section -->
+            <div class="sidebar-box">
+                <h2>Live Strike Prices</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CALL LTP</th>
+                            <th>STRIKE</th>
+                            <th>PUT LTP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce-price">185.30</td>
+                            <td class="strike">24100</td>
+                            <td class="pe-price">14.20</td>
+                        </tr>
+                        <tr>
+                            <td class="ce-price">112.45</td>
+                            <td class="strike">24200</td>
+                            <td class="pe-price">42.10</td>
+                        </tr>
+                        <tr>
+                            <td class="ce-price">58.10</td>
+                            <td class="strike">24300</td>
+                            <td class="pe-price">88.55</td>
+                        </tr>
+                        <tr>
+                            <td class="ce-price">22.00</td>
+                            <td class="strike">24400</td>
+                            <td class="pe-price">152.30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Custom Buttons for Quick Access -->
+            <div class="sidebar-box" style="text-align: center;">
+                <h2>Quick Actions</h2>
+                <button onclick="window.location.reload();" style="background: var(--bullish); color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">Refresh Data</button>
             </div>
 
         </div>
     </div>
+
+    <script>
+        // Real-time Clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('live-clock').innerText = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' });
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
 
 </body>
 </html>
