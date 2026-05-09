@@ -3,113 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANN NEWS | Google Feed & Finance</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>StreamHub | Unlimited Movies</title>
     <style>
-        .google-card { background: white; border-radius: 16px; margin-bottom: 12px; border: 1px solid #e5e7eb; overflow: hidden; }
-        .feed-img { width: 100%; height: 200px; object-fit: cover; }
-        .ticker-patti { background: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%); color: white; }
-        ::-webkit-scrollbar { display: none; }
+        /* Design aur Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Scrollbar hatane ke liye */
+            background-color: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #e50914; /* Netflix Red style */
+            font-size: 24px;
+            font-weight: bold;
+            z-index: -1;
+        }
+
+        /* Movie Player Container */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Top Bar for Professional Look */
+        .header-overlay {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            pointer-events: none; /* User niche click kar sake */
+        }
+
+        .logo {
+            color: #e50914;
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
-<body class="bg-gray-50 font-sans pb-24">
+<body>
 
-    <header class="bg-white sticky top-0 z-50 px-4 py-3 border-b flex justify-between items-center shadow-sm">
-        <div class="text-2xl font-black italic text-red-700 tracking-tighter uppercase">ANN <span class="text-black font-normal">NEWS</span></div>
-        <div class="flex gap-4 text-gray-500 items-center">
-            <i class="fa-solid fa-magnifying-glass text-lg"></i>
-            <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">A</div>
-        </div>
-    </header>
+    <div class="loader">Loading Magic...</div>
 
-    <div class="ticker-patti flex items-center py-2 shadow-inner overflow-hidden">
-        <div class="bg-white text-blue-800 text-[10px] font-black px-3 py-1 ml-2 rounded shadow-sm italic">MARKET</div>
-        <marquee class="font-bold text-xs" scrollamount="6">
-            • NIFTY 50: 24,152.45 <span class="text-green-300">(+0.62%)</span> • SENSEX: 79,480.12 <span class="text-green-300">(+0.45%)</span> • RELIANCE: 2,945.00 • HDFC BANK: 1,542.20 • ANN NEWS डेवलपर आशीष द्वारा संचालित •
-        </marquee>
+    <div class="header-overlay">
+        <div class="logo">STREAM HUB</div>
     </div>
 
-    <main class="p-3">
-        
-        <div class="google-card shadow-sm">
-            <div class="flex p-4 gap-3">
-                <div class="flex-1">
-                    <h2 class="text-md font-bold leading-tight text-gray-800">U.S.-led task force tells ships to reroute on first day of new effort to reopen the Strait of Hormuz</h2>
-                    <div class="flex items-center gap-2 mt-3 text-[10px] text-gray-400 font-bold uppercase">
-                        <img src="https://www.google.com/s2/favicons?domain=ctvnews.ca" class="w-3 h-3"> CTV News • 1d
-                    </div>
-                </div>
-                <img src="https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&q=80&w=150" class="w-24 h-20 rounded-xl object-cover shadow-sm">
-            </div>
-        </div>
-
-        <div class="google-card shadow-sm">
-            <img src="https://images.unsplash.com/photo-1540910419892-f7c748392915?auto=format&fit=crop&q=80&w=600" class="feed-img">
-            <div class="p-4">
-                <h2 class="text-lg font-bold leading-tight">Election Results 2026 Live: तमिलनाडु में कांग्रेस ने बुलाई इमरजेंसी मीटिंग, विजय ने साधा संपर्क</h2>
-                <div class="flex items-center justify-between mt-4">
-                    <div class="flex items-center gap-2 text-[10px] text-gray-400 font-bold uppercase">
-                        <img src="https://www.google.com/s2/favicons?domain=abplive.com" class="w-3 h-3"> ABP News • 40m
-                    </div>
-                    <div class="flex gap-4 text-gray-400">
-                        <i class="fa-solid fa-share-nodes"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="google-card shadow-sm">
-            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600" class="feed-img">
-            <div class="p-4">
-                <h2 class="text-lg font-bold leading-tight italic uppercase">8th Pay Commission update: Where things stand after 6 months</h2>
-                <div class="flex items-center justify-between mt-4">
-                    <div class="flex items-center gap-2 text-[10px] text-gray-400 font-bold uppercase tracking-widest">
-                        <i class="fa-solid fa-newspaper text-blue-600"></i> Business Desk • 2h
-                    </div>
-                    <div class="flex gap-4 text-gray-400">
-                        <i class="fa-solid fa-heart"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <section class="px-3">
-        <h3 class="text-xs font-black text-gray-500 uppercase italic mb-3 px-1">Live News डेस्क</h3>
-        <div class="bg-black rounded-2xl overflow-hidden shadow-2xl">
-            <iframe src="https://www.youtube.com/embed/1Dso3PVZvpI" width="100%" height="210" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </section>
-
-    <footer class="mt-10 mb-24 px-6 text-center">
-        <div class="text-gray-400 text-[10px] uppercase font-bold tracking-[3px] mb-4">News Engine v4.0</div>
-        <div class="bg-white border border-gray-200 p-6 rounded-3xl inline-block shadow-sm">
-            <div class="text-red-600 font-black italic text-xl tracking-tighter">ASHISH DEVELOPER</div>
-            <div class="text-gray-400 text-[8px] mt-1 font-bold tracking-widest">GHAZIABAD TECH HUB</div>
-        </div>
-    </footer>
-
-    <div class="fixed bottom-0 w-full bg-white/90 backdrop-blur-md border-t flex justify-around py-3 z-50">
-        <div class="flex flex-col items-center text-blue-600">
-            <i class="fa-solid fa-compass text-xl"></i>
-            <span class="text-[9px] mt-1 font-black">DISCOVER</span>
-        </div>
-        <div class="flex flex-col items-center text-gray-400">
-            <i class="fa-solid fa-magnifying-glass text-xl"></i>
-            <span class="text-[9px] mt-1 font-black">SEARCH</span>
-        </div>
-        <div class="flex flex-col items-center text-gray-400">
-            <i class="fa-solid fa-clapperboard text-xl text-red-600"></i>
-            <span class="text-[9px] mt-1 font-black text-red-600 uppercase">LIVE TV</span>
-        </div>
-        <div class="flex flex-col items-center text-gray-400">
-            <i class="fa-solid fa-bars text-xl"></i>
-            <span class="text-[9px] mt-1 font-black uppercase">MENU</span>
-        </div>
+    <div class="video-container">
+        <!-- Aapka source link yahan embed ho raha hai -->
+        <iframe 
+            src="https://net22.cc/home" 
+            allowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            mozallowfullscreen="true" 
+            sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation">
+        </iframe>
     </div>
 
 </body>
