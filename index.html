@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Trading Terminal | Chartink Real-Time</title>
+    <title>NSE Live Option Chain Terminal</title>
     <style>
         :root {
-            --bg-color: #090c10;
-            --card-bg: #161b22;
+            --bg: #0d1117;
+            --card: #161b22;
             --border: #30363d;
             --accent: #58a6ff;
             --green: #238636;
@@ -15,37 +15,35 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg);
             color: #c9d1d9;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            overflow: hidden; /* Screen fit rakhne ke liye */
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
 
-        /* Header */
-        .top-nav {
-            background: var(--card-bg);
-            border-bottom: 1px solid var(--border);
+        /* Header Section */
+        .header {
+            background: var(--card);
             padding: 10px 20px;
+            border-bottom: 2px solid var(--accent);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 40px;
         }
 
-        .logo { font-weight: bold; color: var(--accent); letter-spacing: 1px; }
-
-        /* Dashboard Layout */
-        .dashboard {
+        .main-layout {
             display: grid;
-            grid-template-columns: 1fr 320px;
-            height: calc(100vh - 60px);
+            grid-template-columns: 1fr 400px; /* Chart left, Chain right */
+            flex: 1;
+            overflow: hidden;
         }
 
-        /* Real Chart Section */
-        .chart-container {
-            border-right: 1px solid var(--border);
-            background: #000;
+        .chart-frame, .option-chain-frame {
+            border: 1px solid var(--border);
+            height: 100%;
         }
 
         iframe {
@@ -54,115 +52,48 @@
             border: none;
         }
 
-        /* Sidebar Section */
-        .sidebar {
-            padding: 15px;
-            background: var(--card-bg);
-            overflow-y: auto;
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .option-chain-frame { height: 500px; }
         }
 
-        .box {
-            background: var(--bg-color);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 15px;
-        }
-
-        h3 { margin: 0 0 10px 0; font-size: 14px; color: var(--accent); text-transform: uppercase; }
-
-        /* Option Chain Table */
-        table { width: 100%; border-collapse: collapse; font-size: 12px; }
-        th, td { padding: 8px 4px; text-align: center; border-bottom: 1px solid var(--border); }
-        .strike { font-weight: bold; color: #fff; background: #21262d; }
-        .ce { color: var(--green); font-weight: bold; }
-        .pe { color: var(--red); font-weight: bold; }
-
-        .refresh-btn {
-            width: 100%;
-            padding: 10px;
-            background: var(--green);
+        .btn-link {
+            background: var(--accent);
             color: white;
-            border: none;
+            padding: 5px 15px;
+            text-decoration: none;
             border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <div class="logo">PRO-TRADE LIVE</div>
-        <div id="clock" style="font-family: monospace;">Loading...</div>
+    <div class="header">
+        <h2 style="margin:0; font-size: 18px;">LIVE TRADING TERMINAL</h2>
+        <a href="https://www.nseindia.com/option-chain" target="_blank" class="btn-link">Open Official NSE Chain</a>
     </div>
 
-    <div class="dashboard">
-        <!-- Direct Chartink Link Section -->
-        <div class="chart-container">
-            <iframe 
-                src="https://chartink.com/stocks-new?symbol=NIFTY" 
-                title="Chartink Live Chart">
-            </iframe>
+    <div class="main-layout">
+        <!-- Section 1: Real Chartink Chart -->
+        <div class="chart-frame">
+            <iframe src="https://chartink.com/stocks-new?symbol=NIFTY" title="Live Chart"></iframe>
         </div>
 
-        <!-- Sidebar for Analysis & Strikes -->
-        <div class="sidebar">
-            
-            <div class="box">
-                <h3>Live Nifty Analysis</h3>
-                <div style="display: flex; justify-content: space-between;">
-                    <span>PCR: <b style="color: var(--green);">1.05</b></span>
-                    <span>Trend: <b style="color: var(--accent);">Sideways</b></span>
-                </div>
-            </div>
-
-            <div class="box">
-                <h3>Strike Price (Watchlist)</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>CE LTP</th>
-                            <th>STRIKE</th>
-                            <th>PE LTP</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="ce">142.50</td>
-                            <td class="strike">24200</td>
-                            <td class="pe">18.40</td>
-                        </tr>
-                        <tr>
-                            <td class="ce">85.10</td>
-                            <td class="strike">24300</td>
-                            <td class="pe">45.20</td>
-                        </tr>
-                        <tr>
-                            <td class="ce">38.40</td>
-                            <td class="strike">24400</td>
-                            <td class="pe">98.15</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <button class="refresh-btn" onclick="location.reload();">Refresh Dashboard</button>
-            
-            <p style="font-size: 11px; color: #8b949e; margin-top: 15px; line-height: 1.4;">
-                *Note: Chartink data is real-time. Strike prices are indicative. Use your broker terminal for execution.
-            </p>
+        <!-- Section 2: Option Chain Mirror (Jugad Link) -->
+        <div class="option-chain-frame">
+            <!-- NSE Direct Iframe block karta hai, isliye hum ek third-party free 
+                 Option Chain widget use kar rahe hain jo NSE se link hai -->
+            <iframe 
+                src="https://www.tradingview.com/symbols/NSE-NIFTY/option-chain/" 
+                title="Live Option Chain">
+            </iframe>
         </div>
     </div>
 
     <script>
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('clock').innerText = now.toLocaleTimeString('en-IN', {timeZone: 'Asia/Kolkata'});
-        }
-        setInterval(updateTime, 1000);
-        updateTime();
+        console.log("Terminal Ready - NSE Data Link Integrated");
     </script>
-
 </body>
 </html>
