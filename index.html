@@ -3,86 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamHub | Unlimited Movies</title>
+    <title>Pro Trader Dashboard | Live Analysis</title>
     <style>
-        /* Design aur Styling */
-        body, html {
+        body {
+            background-color: #0d1117;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden; /* Scrollbar hatane ke liye */
-            background-color: #000;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 10px;
         }
 
-        /* Loading Animation */
-        .loader {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #e50914; /* Netflix Red style */
-            font-size: 24px;
-            font-weight: bold;
-            z-index: -1;
+        .dashboard-header {
+            text-align: center;
+            padding: 15px;
+            background: #161b22;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-bottom: 2px solid #e50914;
         }
 
-        /* Movie Player Container */
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 15px;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        /* Chart Section */
+        .chart-box {
+            height: 650px;
+            background: #161b22;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        /* Top Bar for Professional Look */
-        .header-overlay {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 60px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
-            z-index: 10;
+        /* Sidebar Section */
+        .sidebar {
             display: flex;
-            align-items: center;
-            padding-left: 20px;
-            pointer-events: none; /* User niche click kar sake */
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .logo {
-            color: #e50914;
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .widget-box {
+            background: #161b22;
+            border-radius: 8px;
+            padding: 10px;
+            height: 310px;
+        }
+
+        h3 {
+            margin: 5px 0 10px 0;
+            font-size: 16px;
+            color: #58a6ff;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 1000px) {
+            .main-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="loader">Loading Magic...</div>
-
-    <div class="header-overlay">
-        <div class="logo">STREAM HUB</div>
+    <div class="dashboard-header">
+        <h1>LIVE MARKET ANALYSIS</h1>
     </div>
 
-    <div class="video-container">
-        <!-- Aapka source link yahan embed ho raha hai -->
-        <iframe 
-            src="https://net22.cc/home" 
-            allowfullscreen="true" 
-            webkitallowfullscreen="true" 
-            mozallowfullscreen="true" 
-            sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation">
-        </iframe>
+    <div class="main-container">
+        
+        <!-- Live Chart Section -->
+        <div class="chart-box">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container" style="height:100%;width:100%">
+                <div id="tradingview_main_chart" style="height:100%;width:100%"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                new TradingView.widget({
+                    "autosize": true,
+                    "symbol": "NSE:NIFTY",
+                    "interval": "5",
+                    "timezone": "Asia/Kolkata",
+                    "theme": "dark",
+                    "style": "1",
+                    "locale": "in",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "allow_symbol_change": true,
+                    "details": true,
+                    "hotlist": true,
+                    "calendar": true,
+                    "container_id": "tradingview_main_chart"
+                });
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+
+        <!-- Analysis Sidebar -->
+        <div class="sidebar">
+            
+            <!-- Technical Analysis Widget -->
+            <div class="widget-box">
+                <h3>Technical Analysis</h3>
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                    {
+                        "interval": "15m",
+                        "width": "100%",
+                        "isTransparent": true,
+                        "height": "100%",
+                        "symbol": "NSE:NIFTY",
+                        "showIntervalTabs": true,
+                        "locale": "in",
+                        "colorTheme": "dark"
+                    }
+                    </script>
+                </div>
+            </div>
+
+            <!-- Market Sentiment / Ticker -->
+            <div class="widget-box">
+                <h3>Market Sentiment</h3>
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+                    {
+                        "colorTheme": "dark",
+                        "dateRange": "12M",
+                        "exchange": "NSE",
+                        "showChart": true,
+                        "locale": "in",
+                        "width": "100%",
+                        "height": "100%",
+                        "largeChartUrl": "",
+                        "isTransparent": true,
+                        "showSymbolLogo": true,
+                        "showFloatingTooltip": false,
+                        "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                        "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                        "gridLineColor": "rgba(240, 243, 250, 0)",
+                        "scaleFontColor": "rgba(106, 109, 120, 1)",
+                        "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                        "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                        "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                        "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                        "symbolActiveColor": "rgba(41, 98, 255, 0.12)"
+                    }
+                    </script>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </body>
