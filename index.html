@@ -1,51 +1,144 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJ BEAT GROUP | Gaming Hub</title>
+    <title>ANNI NEWS | Aaj Ki Taja Khabar</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="overlay" id="gameOverlay">
-        <div class="modal">
-            <h2 id="modalTitle">Game Over</h2>
-            <p id="modalScore">Score: 0</p>
-            <button onclick="resetGame()">Play Again</button>
-            <button onclick="closeGame()">Back to Home</button>
+
+    <!-- Top Breaking News Ticker -->
+    <div class="breaking-news-box bg-danger text-white py-2">
+        <div class="container">
+            <marquee behavior="scroll" direction="left" scrollamount="6">
+                <strong>BREAKING NEWS:</strong> देश और दुनिया की तमाम बड़ी खबरें अब एक ही जगह पर... ANNI NEWS पर आपका स्वागत है! | शेयर बाजार में आज फिर उछाल | खेल जगत से बड़ी खबर...
+            </marquee>
         </div>
     </div>
 
-    <header>
-        <div class="logo">DJ BEAT 🎧</div>
-        <div class="stats">Top Score: <span id="topScore">0</span></div>
-    </header>
-
-    <main id="homeScreen">
-        <h1>Select a Game</h1>
-        <div class="grid">
-            <div class="card" onclick="startSnake()">
-                <div class="icon">🐍</div>
-                <h3>Neon Snake</h3>
-                <p>Classic arcade fun.</p>
-            </div>
-            <div class="card locked">
-                <div class="icon">❓</div>
-                <h3>Quiz Battle</h3>
-                <p>Coming Soon...</p>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-danger" href="#">ANNI NEWS 📺</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#video-news">Live TV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#latest-news">Taja Khabar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Entertainment</a></li>
+                </ul>
             </div>
         </div>
-    </main>
+    </nav>
 
-    <section id="gameArea" style="display: none;">
-        <canvas id="snakeCanvas" width="400" height="400"></canvas>
-        <div class="controls">
-            <p>Use Arrow Keys to Move</p>
-            <button onclick="closeGame()">Exit Game</button>
+    <!-- Main Hero Section (Featured News) -->
+    <section class="container my-4">
+        <div class="row g-4">
+            <!-- Large Featured Card -->
+            <div class="col-lg-8">
+                <div class="card bg-dark text-white border-0 shadow">
+                    <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&q=80&w=1000" class="card-img opacity-50" alt="main news">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <span class="badge bg-danger mb-2 w-25">MUKHYA SAMACHAR</span>
+                        <h2 class="card-title">आज की सबसे बड़ी खबर: यहाँ देखें पूरी रिपोर्ट</h2>
+                        <p class="card-text">देश भर में आज क्या हुआ खास, जानिए विस्तार से हमारे इस विशेष बुलेटिन में।</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Side Live TV Section -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-danger text-white fw-bold">🔴 LIVE TV</div>
+                    <div class="card-body p-0">
+                        <!-- Direct Video Embed (YouTube Live) -->
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/live_stream?channel=UCqM72JK60Sptt_SsczU2#w" title="Live News" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <small>ABP News या किसी भी लाइव चैनल का लिंक यहाँ डालें</small>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Video News Section -->
+    <section id="video-news" class="bg-light py-5">
+        <div class="container">
+            <h2 class="mb-4 text-center fw-bold text-dark border-bottom pb-3">वीडियो खबरें (Direct Play)</h2>
+            <div class="row g-4">
+                <!-- Video 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="News Video 1" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">बड़ी अपडेट: आज की ताज़ा वीडियो रिपोर्ट</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/5N4_5p9V7_4" title="News Video 2" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">मौसम विभाग की चेतावनी: भारी बारिश का अलर्ट</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/jZkK0-tV_6w" title="News Video 3" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">स्पोर्ट्स: भारतीय टीम की ऐतिहासिक जीत</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Grid (Latest News) -->
+    <section id="latest-news" class="container my-5">
+        <h2 class="mb-4 fw-bold">कल की सुर्खियाँ</h2>
+        <div id="news-container" class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- JS will inject news here -->
+            <div class="col text-center">Loading News...</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5 border-top border-danger border-4">
+        <div class="container">
+            <h3>ANNI NEWS 🎧</h3>
+            <p>सच्चाई आप तक, सबसे पहले।</p>
+            <div class="social-icons mb-3">
+                <i class="fab fa-facebook fa-2x mx-2"></i>
+                <i class="fab fa-twitter fa-2x mx-2"></i>
+                <i class="fab fa-youtube fa-2x mx-2 text-danger"></i>
+            </div>
+            <p class="small text-muted">&copy; 2026 DJ Beat Group - Developed by Ashish</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
