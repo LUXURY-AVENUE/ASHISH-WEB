@@ -1,81 +1,36 @@
-const canvas = document.getElementById("snakeCanvas");
-const ctx = canvas.getContext("2d");
-let score = 0;
-let box = 20;
-let snake = [{x: 10 * box, y: 10 * box}];
-let food = { x: Math.floor(Math.random() * 19 + 1) * box, y: Math.floor(Math.random() * 19 + 1) * box };
-let d;
+// News API configuration
+const apiKey = 'YOUR_NEWS_API_KEY'; // Yahan apni API Key daalein
+const newsContainer = document.getElementById('news-section');
 
-document.addEventListener("keydown", direction);
+async function fetchTajaKhabar() {
+    try {
+        // India ki latest news ke liye URL
+        const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`);
+        const data = await response.json();
 
-function direction(event) {
-    if(event.keyCode == 37 && d != "RIGHT") d = "LEFT";
-    else if(event.keyCode == 38 && d != "DOWN") d = "UP";
-    else if(event.keyCode == 39 && d != "LEFT") d = "RIGHT";
-    else if(event.keyCode == 40 && d != "UP") d = "DOWN";
-}
-
-function draw() {
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    for(let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = (i == 0) ? "#00f2ff" : "white";
-        ctx.fillRect(snake[i].x, snake[i].y, box, box);
+        if (data.articles) {
+            displayNews(data.articles);
+        }
+    } catch (error) {
+        console.log("News load nahi ho payi:", error);
     }
-
-    ctx.fillStyle = "#ff00c1";
-    ctx.fillRect(food.x, food.y, box, box);
-
-    let snakeX = snake[0].x;
-    let snakeY = snake[0].y;
-
-    if( d == "LEFT") snakeX -= box;
-    if( d == "UP") snakeY -= box;
-    if( d == "RIGHT") snakeX += box;
-    if( d == "DOWN") snakeY += box;
-
-    if(snakeX == food.x && snakeY == food.y) {
-        score++;
-        food = { x: Math.floor(Math.random() * 19 + 1) * box, y: Math.floor(Math.random() * 19 + 1) * box };
-    } else {
-        snake.pop();
-    }
-
-    let newHead = { x: snakeX, y: snakeY };
-
-    if(snakeX < 0 || snakeX >= canvas.width || snakeY < 0 || snakeY >= canvas.height || collision(newHead, snake)) {
-        clearInterval(game);
-        document.getElementById("gameOverlay").style.display = "flex";
-        document.getElementById("modalScore").innerText = "Score: " + score;
-    }
-
-    snake.unshift(newHead);
 }
 
-function collision(head, array) {
-    for(let i = 0; i < array.length; i++) {
-        if(head.x == array[i].x && head.y == array[i].y) return true;
-    }
-    return false;
+function displayNews(articles) {
+    newsContainer.innerHTML = ''; // Purani khabrein hatane ke liye
+    
+    articles.slice(0, 6).forEach(article => { // Top 6 khabrein dikhayenge
+        const newsHtml = `
+            <div class="news-card">
+                <img src="${article.urlToImage || 'https://via.placeholder.com/300'}" alt="news">
+                <h3>${article.title}</h3>
+                <p>${article.description || 'Puri khabar padhne ke liye click karein...'}</p>
+                <a href="${article.url}" target="_blank">Puri Khabar Padhein</a>
+            </div>
+        `;
+        newsContainer.innerHTML += newsHtml;
+    });
 }
 
-let game;
-
-function startSnake() {
-    document.getElementById("homeScreen").style.display = "none";
-    document.getElementById("gameArea").style.display = "flex";
-    game = setInterval(draw, 100);
-}
-
-function closeGame() {
-    location.reload();
-}
-
-function resetGame() {
-    document.getElementById("gameOverlay").style.display = "none";
-    snake = [{x: 10 * box, y: 10 * box}];
-    score = 0;
-    d = null;
-    game = setInterval(draw, 100);
-}
+// Page load hote hi news update ho jaye
+window.onload = fetchTajaKhabar;
