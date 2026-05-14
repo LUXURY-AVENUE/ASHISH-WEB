@@ -1,144 +1,99 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANNI NEWS | Aaj Ki Taja Khabar</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Aasheesh Kumar | Professional Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="container">
+        <!-- Sidebar / Profile Section -->
+        <aside class="sidebar">
+            <div class="profile-img">
+                <img src="profile.jpg" alt="Aasheesh Kumar">
+            </div>
+            <h1 class="name">AASHEESH KUMAR</h1>
+            <p class="tagline">Full-Stack Developer & AI Automation Expert</p>
+            
+            <div class="contact-info">
+                <div class="info-item"><i class="fas fa-phone"></i> +91 7530919863</div>
+                <div class="info-item"><i class="fas fa-envelope"></i> ashish95823@gmail.com</div>
+                <div class="info-item"><i class="fas fa-map-marker-alt"></i> Ghaziabad, UP 201009</div>
+            </div>
 
-    <!-- Top Breaking News Ticker -->
-    <div class="breaking-news-box bg-danger text-white py-2">
-        <div class="container">
-            <marquee behavior="scroll" direction="left" scrollamount="6">
-                <strong>BREAKING NEWS:</strong> देश और दुनिया की तमाम बड़ी खबरें अब एक ही जगह पर... ANNI NEWS पर आपका स्वागत है! | शेयर बाजार में आज फिर उछाल | खेल जगत से बड़ी खबर...
-            </marquee>
-        </div>
-    </div>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-danger" href="#">ANNI NEWS 📺</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#video-news">Live TV</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#latest-news">Taja Khabar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Entertainment</a></li>
+            <div class="hobbies">
+                <h3><i class="fas fa-heart"></i> Hobbies</h3>
+                <ul>
+                    <li><i class="fas fa-chess"></i> Strategic Thinking</li>
+                    <li><i class="fas fa-cricket-ball"></i> Playing Cricket</li>
+                    <li><i class="fas fa-film"></i> Watching Movies</li>
+                    <li><i class="fas fa-code"></i> Tech Research</li>
                 </ul>
             </div>
-        </div>
-    </nav>
+        </aside>
 
-    <!-- Main Hero Section (Featured News) -->
-    <section class="container my-4">
-        <div class="row g-4">
-            <!-- Large Featured Card -->
-            <div class="col-lg-8">
-                <div class="card bg-dark text-white border-0 shadow">
-                    <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&q=80&w=1000" class="card-img opacity-50" alt="main news">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end">
-                        <span class="badge bg-danger mb-2 w-25">MUKHYA SAMACHAR</span>
-                        <h2 class="card-title">आज की सबसे बड़ी खबर: यहाँ देखें पूरी रिपोर्ट</h2>
-                        <p class="card-text">देश भर में आज क्या हुआ खास, जानिए विस्तार से हमारे इस विशेष बुलेटिन में।</p>
-                    </div>
+        <!-- Main Dashboard Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="intro">
+                    <h2>Professional Overview</h2>
+                    <p>"Innovative developer with 5+ years of experience in blending finance with technology. Expert in building AI-driven solutions and automated systems that bridge the gap between complex business needs and modern software architecture."</p>
+                </div>
+            </header>
+
+            <!-- Experience Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>5+ Years</h3>
+                    <p>Total Experience</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Working At</h3>
+                    <p>Aashra Enterprise</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Specialization</h3>
+                    <p>AI & Automation</p>
                 </div>
             </div>
-            <!-- Side Live TV Section -->
-            <div class="col-lg-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-header bg-danger text-white fw-bold">🔴 LIVE TV</div>
-                    <div class="card-body p-0">
-                        <!-- Direct Video Embed (YouTube Live) -->
-                        <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/live_stream?channel=UCqM72JK60Sptt_SsczU2#w" title="Live News" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="card-footer text-center">
-                        <small>ABP News या किसी भी लाइव चैनल का लिंक यहाँ डालें</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Video News Section -->
-    <section id="video-news" class="bg-light py-5">
-        <div class="container">
-            <h2 class="mb-4 text-center fw-bold text-dark border-bottom pb-3">वीडियो खबरें (Direct Play)</h2>
-            <div class="row g-4">
-                <!-- Video 1 -->
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="News Video 1" allowfullscreen></iframe>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">बड़ी अपडेट: आज की ताज़ा वीडियो रिपोर्ट</h5>
-                        </div>
-                    </div>
+            <!-- Skills Dashboard -->
+            <section class="section">
+                <h3><i class="fas fa-bolt"></i> Tech & Business Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-tag">AI Automation</div>
+                    <div class="skill-tag">WhatsApp AI Bot</div>
+                    <div class="skill-tag">APK Development</div>
+                    <div class="skill-tag">Website Development</div>
+                    <div class="skill-tag">GeM Tenders</div>
+                    <div class="skill-tag">GST & Tally</div>
+                    <div class="skill-tag">Advanced Excel</div>
+                    <div class="skill-tag">Graphic Designing</div>
+                    <div class="skill-tag">Flutter/Python</div>
                 </div>
-                <!-- Video 2 -->
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/5N4_5p9V7_4" title="News Video 2" allowfullscreen></iframe>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">मौसम विभाग की चेतावनी: भारी बारिश का अलर्ट</h5>
-                        </div>
-                    </div>
+            </section>
+
+            <!-- Experience Details -->
+            <section class="section">
+                <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                <div class="exp-box">
+                    <h4>Current Role: Tech Lead & Operations</h4>
+                    <h5>Aashra Enterprise | 5 Years of Excellence</h5>
+                    <ul>
+                        <li>Automating business workflows using AI and WhatsApp Bots.</li>
+                        <li>Managing GeM Tenders and financial compliance (GST/Tally).</li>
+                        <li>Developing custom APKs and Web Apps for internal efficiency.</li>
+                    </ul>
                 </div>
-                <!-- Video 3 -->
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/jZkK0-tV_6w" title="News Video 3" allowfullscreen></iframe>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">स्पोर्ट्स: भारतीय टीम की ऐतिहासिक जीत</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- News Grid (Latest News) -->
-    <section id="latest-news" class="container my-5">
-        <h2 class="mb-4 fw-bold">कल की सुर्खियाँ</h2>
-        <div id="news-container" class="row row-cols-1 row-cols-md-3 g-4">
-            <!-- JS will inject news here -->
-            <div class="col text-center">Loading News...</div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4 mt-5 border-top border-danger border-4">
-        <div class="container">
-            <h3>ANNI NEWS 🎧</h3>
-            <p>सच्चाई आप तक, सबसे पहले।</p>
-            <div class="social-icons mb-3">
-                <i class="fab fa-facebook fa-2x mx-2"></i>
-                <i class="fab fa-twitter fa-2x mx-2"></i>
-                <i class="fab fa-youtube fa-2x mx-2 text-danger"></i>
-            </div>
-            <p class="small text-muted">&copy; 2026 DJ Beat Group - Developed by Ashish</p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+            <!-- Best Line/Quote -->
+            <footer class="footer-quote">
+                <p>"Transforming complex problems into simple, automated digital realities."</p>
+            </footer>
+        </main>
+    </div>
 </body>
 </html>
