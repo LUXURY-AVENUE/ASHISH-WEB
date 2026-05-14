@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aasheesh Kumar App</title>
+    <title>Aasheesh Kumar | Official App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,107 +13,98 @@
             --wa: #22c55e;
         }
 
-        /* Essential APK-Style Reset */
+        /* Full Screen App Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
         
         html, body { 
             height: 100%; 
             width: 100%; 
-            overflow: hidden; /* No scrolling like a real app */
+            overflow: hidden; /* Scroll bilkul band */
             background-color: var(--bg);
             display: flex;
             justify-content: center;
         }
 
-        .app-frame {
+        .app-shell {
             width: 100vw;
             height: 100vh;
             display: flex;
             flex-direction: column;
             padding: 15px;
-            gap: 10px;
+            justify-content: space-between; /* Content ko upar se niche tak phailata hai */
         }
 
-        /* App Header (Compact) */
+        /* Compact Header */
         header {
             text-align: center;
-            padding: 10px 0;
-            flex-shrink: 0;
+            padding: 5px 0;
         }
 
-        .img-wrapper {
-            width: 90px;
-            height: 90px;
-            border-radius: 20px;
+        .profile-frame {
+            width: 100px;
+            height: 100px;
+            border-radius: 24px;
             overflow: hidden;
             border: 2px solid var(--accent);
             margin: 0 auto 10px;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
         }
-        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-        h1 { font-size: 20px; font-weight: 800; color: #fff; }
+        h1 { font-size: 22px; font-weight: 800; color: #fff; }
         h1 span { color: var(--accent); }
-        .sub { font-size: 11px; color: #94a3b8; }
+        .tag { font-size: 11px; color: #94a3b8; font-weight: 500; }
 
-        /* Direct Action Buttons */
-        .btn-row {
+        /* App Action Buttons */
+        .actions {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             justify-content: center;
-            margin: 5px 0;
+            margin: 10px 0;
         }
         .btn {
             text-decoration: none;
             padding: 10px 25px;
-            border-radius: 12px;
+            border-radius: 14px;
             font-size: 12px;
             font-weight: 700;
             color: white;
             display: flex;
             align-items: center;
-            gap: 6px;
-        }
-        .wa { background: var(--wa); }
-        .em { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
-
-        /* Dashboard Content Area (Fixed Spacing) */
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
             gap: 8px;
-            justify-content: space-between; /* Spreads items to fill screen accurately */
-            padding-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
+        .btn-wa { background: var(--wa); }
+        .btn-em { background: rgba(255,255,255,0.05); border: 1px solid var(--border); }
 
-        .app-card {
+        /* Dashboard Content Sections */
+        .section-card {
             background: var(--card);
             border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 15px;
-            padding: 12px 15px;
+            border-radius: 18px;
+            padding: 15px;
         }
 
-        h3 { font-size: 12px; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
+        h3 { font-size: 12px; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 1px; }
 
         /* Experience Accountant Details */
-        .exp-info h4 { font-size: 13px; color: #fff; }
+        .exp-info h4 { font-size: 14px; color: #fff; }
         .exp-info b { font-size: 10px; color: var(--accent); display: block; margin-bottom: 5px; }
-        .list { font-size: 10.5px; color: #cbd5e1; list-style: none; }
-        .list li { margin-bottom: 4px; display: flex; gap: 8px; }
-        .list li::before { content: "•"; color: var(--accent); }
+        .list { font-size: 11px; color: #cbd5e1; list-style: none; }
+        .list li { margin-bottom: 5px; display: flex; gap: 8px; }
+        .list li::before { content: "•"; color: var(--accent); font-weight: bold; }
 
-        /* Skills Chip Row */
-        .chips { display: flex; flex-wrap: wrap; gap: 5px; }
-        .chip { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 6px; font-size: 9.5px; font-weight: 600; border: 1px solid rgba(56, 189, 248, 0.1); }
+        /* Skills Chips */
+        .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+        .chip { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 5px 12px; border-radius: 8px; font-size: 10px; font-weight: 600; border: 1px solid rgba(56, 189, 248, 0.1); }
 
-        .edu-flex { display: flex; justify-content: space-between; align-items: center; }
-        .edu-flex div h4 { font-size: 11.5px; }
-        .edu-flex div p { font-size: 9.5px; color: #94a3b8; }
+        .edu-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+        .edu-row div h4 { font-size: 12px; }
+        .edu-row div p { font-size: 10px; color: #94a3b8; margin-top: 2px; }
 
         footer {
             text-align: center;
-            font-size: 9px;
+            font-size: 10px;
             color: #475569;
             padding-top: 5px;
         }
@@ -121,66 +112,65 @@
 </head>
 <body>
 
-    <div class="app-frame">
+    <div class="app-shell">
         <header>
-            <div class="img-wrapper">
+            <div class="profile-frame">
+                <!-- Using your provided image name from the ledger -->
                 <img src="1000230620.jpg" alt="Aasheesh Kumar">
             </div>
             <h1>AASHEESH <span>KUMAR</span></h1>
-            <p class="sub">Senior Accountant & AI Automation Expert</p>
+            <p class="tag">Senior Accountant & AI Automation Expert</p>
             
-            <div class="btn-row">
-                <a href="https://wa.me/917530919863" class="btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="mailto:ashish95823@gmail.com" class="btn em"><i class="fas fa-envelope"></i> Email</a>
+            <div class="actions">
+                <a href="https://wa.me/917530919863" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="mailto:ashish95823@gmail.com" class="btn btn-em"><i class="fas fa-envelope"></i> Email</a>
             </div>
         </header>
 
-        <div class="content">
-            <!-- Professional Experience Card -->
-            <div class="app-card">
-                <h3><i class="fas fa-calculator"></i> Experience</h3>
-                <div class="exp-info">
-                    <b>2019 — PRESENT | Aashra Enterprise</b>
-                    <h4>Accountant & Tech Lead</h4>
-                    <ul class="list">
-                        <li>Managed GST, TDS, and Tally Prime accounts.</li>
-                        <li>Automated workflows via AI WhatsApp Bots & Excel.</li>
-                        <li>Strategized GeM Tender processes & compliance.</li>
-                    </ul>
-                </div>
+        <!-- Professional Experience Section -->
+        <div class="section-card">
+            <h3><i class="fas fa-briefcase"></i> Professional Journey</h3>
+            <div class="exp-info">
+                <b>2019 — PRESENT | Aashra Enterprise</b>
+                <h4>Senior Accountant & Tech Lead</h4>
+                <ul class="list">
+                    <li>Managed GST, TDS, and Tally Prime.</li>
+                    <li>Developed AI WhatsApp Bots for automation.</li>
+                    <li>Advanced Excel VBA for financial reports.</li>
+                </ul>
             </div>
-
-            <!-- Core Skills Card -->
-            <div class="app-card">
-                <h3><i class="fas fa-bolt"></i> Expertise</h3>
-                <div class="chips">
-                    <span class="chip">GST & Tally</span>
-                    <span class="chip">AI Automation</span>
-                    <span class="chip">WhatsApp Bots</span>
-                    <span class="chip">GeM Tenders</span>
-                    <span class="chip">Advanced Excel</span>
-                </div>
-            </div>
-
-            <!-- Education Card -->
-            <div class="app-card">
-                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                <div class="edu-flex">
-                    <div><h4>Mewar Institute</h4><p>BCA | Ghaziabad</p></div>
-                    <div style="text-align: right;"><h4>Delhi University</h4><p>B.Com</p></div>
-                </div>
-            </div>
-
-            <!-- Interests Card -->
-            <div class="app-card">
-                <h3><i class="fas fa-fingerprint"></i> Interests</h3>
-                <p style="font-size: 10px; color: #cbd5e1;">Cricket • Technical Research • AI Innovation</p>
-            </div>
-
-            <footer>
-                Ghaziabad, UP | +91 7530919863 | &copy; 2026
-            </footer>
         </div>
+
+        <!-- Expertise Chips Section -->
+        <div class="section-card">
+            <h3><i class="fas fa-bolt"></i> Core Expertise</h3>
+            <div class="chip-row">
+                <span class="chip">GST & Tally Prime</span>
+                <span class="chip">AI Automation</span>
+                <span class="chip">WhatsApp Bots</span>
+                <span class="chip">GeM Tenders</span>
+                <span class="chip">Advanced Excel</span>
+            </div>
+        </div>
+
+        <!-- Education Grid -->
+        <div class="section-card">
+            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+            <div class="edu-row">
+                <div><h4>Mewar Institute</h4><p>BCA | Ghaziabad</p></div>
+                <div style="text-align: right;"><h4>Delhi University</h4><p>B.Com</p></div>
+            </div>
+        </div>
+
+        <!-- Hobbies Section -->
+        <div class="section-card">
+            <h3><i class="fas fa-fingerprint"></i> Interests</h3>
+            <p style="font-size: 11px; color: #cbd5e1;">Cricket Enthusiast • Technical Research • AI Innovation</p>
+        </div>
+
+        <footer>
+            Ghaziabad, UP | +91 7530919863 | &copy; 2026
+        </footer>
     </div>
 
 </body>
