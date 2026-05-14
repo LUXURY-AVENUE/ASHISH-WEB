@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aasheesh Kumar | Accountant & Tech Dashboard</title>
+    <title>Aasheesh Kumar | Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #0b4a44; 
             --secondary: #061c1a;
-            --yellow-accent: #facc15; 
+            --yellow-accent: #facc15; /* Golden Yellow */
             --wa-green: #22c55e;
             --text-dark: #1e293b;
         }
 
-        /* Essential reset */
+        /* Standard Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
         body { 
@@ -27,7 +27,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Dashboard Container */
+        /* Dashboard Wrapper */
         #resume-dashboard {
             width: 100%;
             max-width: 900px;
@@ -39,7 +39,7 @@
             flex-direction: column;
         }
 
-        /* Header Section with 3D Profile Circle */
+        /* Header Section */
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             padding: 50px 40px;
@@ -48,29 +48,20 @@
             align-items: center;
             gap: 40px;
             border-bottom: 6px solid var(--yellow-accent);
-            position: relative;
         }
 
-        /* 3D Circular Profile Container */
+        /* 3D Circular Image */
         .profile-container {
-            width: 170px;
-            height: 170px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            padding: 5px;
+            padding: 4px;
             background: linear-gradient(135deg, #ffffff, var(--yellow-accent));
-            box-shadow: 
-                0 15px 35px rgba(0,0,0,0.5), 
-                0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-container:hover {
-            transform: scale(1.03);
         }
 
         .profile-container img { 
@@ -81,16 +72,16 @@
             border: 4px solid #fff;
         }
 
-        .header-info h1 { font-size: 40px; letter-spacing: -1px; font-weight: 900; }
-        .header-info p { font-size: 22px; color: var(--yellow-accent); font-weight: 700; margin-top: 5px; }
+        .header-info h1 { font-size: 38px; letter-spacing: -1px; font-weight: 900; }
+        .header-info p { font-size: 20px; color: var(--yellow-accent); font-weight: 700; margin-top: 5px; }
 
-        /* Grid Content */
+        /* Content Structure */
         .content-grid { display: grid; grid-template-columns: 1.3fr 2fr; padding: 40px; gap: 40px; }
 
         .side-bar { border-right: 2px solid #f1f5f9; padding-right: 20px; }
         
         .section-title { 
-            font-size: 14px; 
+            font-size: 13px; 
             font-weight: 900; 
             color: var(--primary); 
             text-transform: uppercase; 
@@ -101,7 +92,7 @@
             gap: 10px; 
         }
 
-        /* Contact Details with Inline Buttons */
+        /* Contact Details */
         .contact-row {
             display: flex; align-items: center; justify-content: space-between;
             margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9;
@@ -113,40 +104,35 @@
         .inline-btn {
             padding: 8px 14px; border-radius: 10px; font-size: 11px; font-weight: 800;
             text-decoration: none; color: white; display: flex; align-items: center; gap: 5px;
-            box-shadow: 2px 2px 0px rgba(0,0,0,0.2); transition: 0.2s;
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
         }
         .inline-wa { background: var(--wa-green); }
         .inline-mail { background: #ef4444; }
 
-        /* 3D Yellow Skills Chips with Depth */
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        /* 3D Yellow Skills/Hobbies Chips */
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
         .skill-chip { 
             background: var(--yellow-accent); 
             color: black; 
-            padding: 10px 16px; 
+            padding: 9px 15px; 
             border-radius: 12px; 
-            font-size: 12px; 
+            font-size: 11.5px; 
             font-weight: 800; 
-            box-shadow: 4px 4px 0px var(--primary); /* Deep 3D Shadow */
+            box-shadow: 3px 3px 0px var(--primary); 
             text-transform: uppercase;
-            transition: all 0.2s ease;
-        }
-        .skill-chip:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px var(--primary);
         }
 
-        /* Work Experience Section */
+        /* Experience Section */
         .work-entry { margin-bottom: 30px; }
         .work-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
         .work-header h4 { font-size: 18px; color: #111; font-weight: 800; text-transform: uppercase; }
-        .work-header span { font-size: 12px; background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-weight: bold; }
+        .work-header span { font-size: 11px; background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-weight: bold; }
 
         .list-style { list-style: none; margin-top: 10px; }
         .list-style li { font-size: 14px; color: #475569; margin-bottom: 10px; display: flex; gap: 10px; line-height: 1.5; }
         .list-style li::before { content: "✔"; color: var(--primary); font-weight: bold; }
 
-        /* Address Footer Bar (Accurate Ghaziabad Address) */
+        /* Address Bar Footer */
         .address-footer {
             background: var(--primary);
             color: white;
@@ -156,22 +142,25 @@
             gap: 20px;
             border-top: 5px solid var(--yellow-accent);
         }
-        .address-footer i { font-size: 24px; color: var(--yellow-accent); }
-        .address-footer p { font-size: 14px; font-weight: 500; line-height: 1.5; }
+        .address-footer i { font-size: 22px; color: var(--yellow-accent); }
+        .address-footer p { font-size: 13.5px; font-weight: 500; }
 
-        /* Floating Green Call Button with Phone Icon */
-        .contact-fab-green {
-            position: fixed; bottom: 30px; right: 30px;
-            width: 60px; height: 60px; border-radius: 50%; background: var(--wa-green);
-            color: white; font-size: 26px; border: 4px solid white;
-            cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        /* Custom Small Black & Golden Call Button */
+        .contact-fab-gold {
+            position: fixed; bottom: 20px; right: 20px;
+            width: 48px; height: 48px; border-radius: 50%; 
+            background: #000000; /* Black Background */
+            color: var(--yellow-accent); /* Golden Icon */
+            font-size: 20px; 
+            border: 2px solid var(--yellow-accent);
+            cursor: pointer; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             display: flex; align-items: center; justify-content: center;
             z-index: 1000; text-decoration: none;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.3s ease;
         }
-        .contact-fab-green:hover { transform: scale(1.15) rotate(15deg); background: #1eb954; }
+        .contact-fab-gold:hover { transform: scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
 
-        /* Responsive Settings */
         @media (max-width: 768px) {
             header { flex-direction: column; text-align: center; padding: 40px 20px; }
             .content-grid { grid-template-columns: 1fr; padding: 25px; }
@@ -184,10 +173,9 @@
 <body>
 
     <div id="resume-dashboard">
-        <!-- Professional Header with 3D Image -->
+        <!-- Dashboard Header -->
         <header>
             <div class="profile-container">
-                <!-- Using asset 1000230620.jpg -->
                 <img src="1000230620.jpg" alt="Aasheesh Kumar Profile">
             </div>
             <div class="header-info">
@@ -196,10 +184,10 @@
             </div>
         </header>
 
-        <!-- Main Dashboard Body -->
+        <!-- Main Grid Area -->
         <div class="content-grid">
-            <!-- Sidebar for Contact & Skills -->
-            <aside class="side-bar" id="contact-sec">
+            <!-- Sidebar -->
+            <aside class="side-bar">
                 <div class="section-title"><i class="fas fa-id-card"></i> Contact Details</div>
                 
                 <div class="contact-row">
@@ -212,7 +200,6 @@
                     <a href="mailto:ashish95823@gmail.com" class="inline-btn inline-mail"><i class="fas fa-envelope"></i> Drop Mail</a>
                 </div>
                 
-                <!-- Headings: SKILLS & HOBBIES -->
                 <div class="section-title" style="margin-top: 40px;"><i class="fas fa-bolt"></i> SKILLS</div>
                 <div class="skills-grid">
                     <span class="skill-chip">GST & Tally</span>
@@ -232,21 +219,20 @@
                 </div>
             </aside>
 
-            <!-- Main Content Area -->
+            <!-- Main Content -->
             <main class="main-panel">
                 <div class="section-title"><i class="fas fa-briefcase"></i> Work Experience</div>
                 <div class="work-entry">
                     <div class="work-header">
-                        <!-- Employer in CAPS -->
                         <h4>AASHRA ENTERPRISE</h4>
                         <span>2019 - Present</span>
                     </div>
                     <p style="font-weight: 800; color: var(--primary); margin-bottom: 10px;">Accountant</p>
                     <ul class="list-style">
                         <li>Expert management of financial accounts, GST, TDS, and Tally Prime.</li>
-                        <li>Development of AI-driven WhatsApp Bots for automated business communication.</li>
-                        <li>Specialized in GeM Tender strategy, technical bids, and financial compliance.</li>
-                        <li>Lead Graphic Designer and Website Developer for digital branding solutions.</li>
+                        <li>Development of AI-driven WhatsApp Bots for business automation.</li>
+                        <li>Specialized in GeM Tender strategy and financial compliance.</li>
+                        <li>Lead Graphic Designer and Website Developer for company projects.</li>
                     </ul>
                 </div>
 
@@ -260,15 +246,15 @@
             </main>
         </div>
 
-        <!-- Green Address Footer Patti -->
+        <!-- Green Address Board -->
         <div class="address-footer">
             <i class="fas fa-map-marker-alt"></i>
             <p>331/1, Gali No-9, Kailash Nagar, Gandhi Chowk, Ghaziabad, Ghaziabad, Uttar Pradesh - 201009</p>
         </div>
     </div>
 
-    <!-- Green Floating Phone Call Button -->
-    <a href="#contact-sec" class="contact-fab-green" title="Contact Now">
+    <!-- Small Black & Golden Floating Call Button linked to your phone number -->
+    <a href="tel:7530919863" class="contact-fab-gold" title="Call Aasheesh">
         <i class="fas fa-phone"></i>
     </a>
 
