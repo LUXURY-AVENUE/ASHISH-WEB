@@ -2,86 +2,206 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aasheesh Kumar | Tech Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aasheesh Kumar | Tech App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --emerald: #0b4a44;
+            --dark-app: #061c1a;
+            --wa-green: #25d366;
+            --gmail-red: #ea4335;
+            --text-white: #ffffff;
+        }
+
+        /* Full Screen Mobile App Reset */
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        
+        html, body { 
+            height: 100%; 
+            width: 100%; 
+            overflow: hidden; /* No scroll on body */
+            background: var(--dark-app);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Full Page Wrapper */
+        .app-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            position: relative;
+        }
+
+        /* App Header Section */
+        header {
+            background: var(--emerald);
+            padding: 35px 20px;
+            color: white;
+            border-bottom-left-radius: 60px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .profile-img {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.2);
+            margin: 0 auto 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        h1 { font-size: 22px; letter-spacing: 1px; margin-bottom: 5px; }
+        .role { font-size: 13px; color: #a5d1cc; display: block; margin-bottom: 12px; }
+
+        /* Scrollable Content Area */
+        .app-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        /* Contact Action Bar (WhatsApp/Gmail) */
+        .action-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .action-btn {
+            flex: 1;
+            text-decoration: none;
+            color: white;
+            padding: 15px 5px;
+            border-radius: 18px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .wa { background: var(--wa-green); }
+        .gm { background: var(--gmail-red); }
+        .cl { background: #007bff; }
+
+        /* App-Style Section Cards */
+        .section-card {
+            background: white;
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .tag {
+            background: var(--emerald);
+            color: white;
+            font-size: 10px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .edu-item, .work-item { margin-bottom: 15px; }
+        .edu-item h4, .work-item h4 { font-size: 14px; color: #333; }
+        .edu-item p, .work-item p { font-size: 12px; color: #666; margin-top: 2px; }
+        
+        .work-meta { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 5px; }
+        .work-meta b { color: var(--emerald); }
+
+        .list { font-size: 11.5px; color: #555; padding-left: 15px; margin-top: 8px; }
+        .list li { margin-bottom: 4px; }
+
+        /* Skill Progress Bars */
+        .skill { margin-bottom: 12px; font-size: 11px; font-weight: bold; }
+        .bar-outer { height: 7px; background: #eee; border-radius: 10px; margin-top: 5px; }
+        .bar-inner { height: 100%; background: var(--emerald); border-radius: 10px; }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 10px;
+            color: #999;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="mobile-wrapper">
-        <!-- Header Section with your Image -->
-        <header class="hero-header">
-            <div class="profile-container">
-                <div class="img-frame">
-                    <!-- Aapki image yahan integrate kar di gayi hai -->
-                    <img src="1000230620.jpg" alt="Aasheesh Kumar">
-                </div>
-                <div class="hero-text">
-                    <h1>AASHEESH KUMAR</h1>
-                    <p>AI Automation & Tech Architect</p>
-                </div>
+    <div class="app-container">
+        <!-- App Header -->
+        <header>
+            <div class="profile-img">
+                <!-- 1000230620.jpg image added here -->
+                <img src="1000230620.jpg" alt="Aasheesh Kumar">
             </div>
-            <p class="bio-text">5+ years of experience in AI, Automation, and FinTech systems. Specializing in WhatsApp Bots and GeM Tenders.</p>
+            <h1>AASHEESH KUMAR</h1>
+            <span class="role">AI Automation & Tech Architect</span>
         </header>
 
-        <!-- Interactive Contact Buttons -->
-        <div class="action-grid">
-            <a href="https://wa.me/917530919863" class="btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="mailto:ashish95823@gmail.com" class="btn mail"><i class="fas fa-envelope"></i> Email</a>
-            <a href="tel:+917530919863" class="btn call"><i class="fas fa-phone"></i> Call Now</a>
-        </div>
-
-        <!-- Dashboard Content -->
-        <div class="dashboard-body">
+        <!-- App Body Content -->
+        <div class="app-content">
             
-            <section class="card">
-                <h3 class="section-tag">Education</h3>
-                <div class="item">
-                    <strong>Mewar Institute, GHAZIABAD</strong>
+            <!-- Direct Action Buttons -->
+            <div class="action-bar">
+                <a href="https://wa.me/917530919863" class="action-btn wa"><i class="fab fa-whatsapp fa-lg"></i> WhatsApp</a>
+                <a href="mailto:ashish95823@gmail.com" class="action-btn gm"><i class="fas fa-envelope fa-lg"></i> Gmail</a>
+                <a href="tel:+917530919863" class="action-btn cl"><i class="fas fa-phone fa-lg"></i> Call</a>
+            </div>
+
+            <!-- Education Card -->
+            <section class="section-card">
+                <span class="tag">EDUCATION</span>
+                <div class="edu-item">
+                    <h4>Mewar Institute, GHAZIABAD</h4>
                     <p>Bachelor of Computer Application (BCA)</p>
                 </div>
-                <div class="item">
-                    <strong>Delhi University</strong>
+                <div class="edu-item">
+                    <h4>Delhi University</h4>
                     <p>Bachelor of Commerce (B.Com)</p>
                 </div>
             </section>
 
-            <section class="card">
-                <h3 class="section-tag">Work Experience</h3>
-                <div class="item">
-                    <div class="flex-row">
-                        <strong>AASHRA ENTERPRISE</strong>
-                        <span class="year">2019-Present</span>
-                    </div>
-                    <p class="role">Tech Lead (5 Years)</p>
-                    <ul class="points">
-                        <li>WhatsApp AI Bot Automation & APK Solutions.</li>
-                        <li>GeM Tenders & Technical Compliance.</li>
-                        <li>GST, Tally & Advanced Excel BI tools.</li>
+            <!-- Work Experience Card -->
+            <section class="section-card">
+                <span class="tag">EXPERIENCE</span>
+                <div class="work-item">
+                    <div class="work-meta"><b>AASHRA ENTERPRISE</b> <span>2019-Present</span></div>
+                    <p style="font-weight: bold; color: #333;">Tech Lead & Operations Specialist</p>
+                    <ul class="list">
+                        <li>AI-driven WhatsApp Bot & APK Development.</li>
+                        <li>Strategic Management of GeM Tenders.</li>
+                        <li>Financial Automation (GST, Tally, Excel).</li>
                     </ul>
                 </div>
             </section>
 
-            <section class="card">
-                <h3 class="section-tag">Key Skills</h3>
-                <div class="skill-bar"><span>AI & Bot Automation</span><div class="prog"><div class="fill" style="width:95%"></div></div></div>
-                <div class="skill-bar"><span>FinTech (GST/Tally)</span><div class="prog"><div class="fill" style="width:90%"></div></div></div>
-                <div class="skill-bar"><span>Web & App Development</span><div class="prog"><div class="fill" style="width:85%"></div></div></div>
+            <!-- Skills Dashboard Card -->
+            <section class="section-card">
+                <span class="tag">SKILLS</span>
+                <div class="skill">AI & Bot Automation <div class="bar-outer"><div class="bar-inner" style="width: 95%;"></div></div></div>
+                <div class="skill">Web & App Development <div class="bar-outer"><div class="bar-inner" style="width: 90%;"></div></div></div>
+                <div class="skill">FinTech (GST/Tally) <div class="bar-outer"><div class="bar-inner" style="width: 92%;"></div></div></div>
             </section>
 
-            <section class="card hobbies">
-                <h3 class="section-tag">Hobbies</h3>
-                <div class="hobby-icons">
-                    <span><i class="fas fa-baseball-bat-ball"></i> Cricket</span>
-                    <span><i class="fas fa-film"></i> Movies</span>
-                    <span><i class="fas fa-robot"></i> AI Research</span>
-                </div>
-            </section>
         </div>
 
         <footer class="footer">
-            <p>Developed by Aasheesh Kumar | Kailash Nagar, Ghaziabad</p>
+            Developed by Aasheesh Kumar | Kailash Nagar, Ghaziabad 201009
         </footer>
     </div>
 
