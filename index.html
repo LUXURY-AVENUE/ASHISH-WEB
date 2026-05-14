@@ -2,198 +2,226 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aasheesh Kumar | AI Automation & FinTech Architect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aasheesh Kumar | Professional Resume</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #0ea5e9;
-            --wa-green: #22c55e;
-            --glass: rgba(255, 255, 255, 0.03);
+            --bg: #0f172a;
+            --accent: #38bdf8;
+            --card: rgba(30, 41, 59, 0.7);
             --border: rgba(255, 255, 255, 0.1);
+            --wa: #22c55e;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
         
         body {
-            background-color: var(--primary);
+            background-color: var(--bg);
             color: #f1f5f9;
-            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
             overflow-x: hidden;
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
+        .resume-container {
+            width: 100%;
+            max-width: 480px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            gap: 15px; /* Compact spacing to remove large gaps */
+        }
+
+        /* Header Section */
+        header {
             text-align: center;
-            background: radial-gradient(circle at top right, #1e293b, #0f172a);
-            padding: 20px;
+            padding: 20px 0 10px;
         }
 
-        .profile-frame {
-            width: 140px;
-            height: 140px;
-            border-radius: 30px;
+        .resume-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
             overflow: hidden;
-            border: 3px solid var(--accent);
-            margin-bottom: 25px;
-            box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);
+            border: 2px solid var(--accent);
+            margin: 0 auto 15px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
         }
 
-        .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
 
-        h1 { font-size: 3rem; letter-spacing: -1px; margin-bottom: 10px; }
+        h1 { font-size: 24px; font-weight: 800; }
         h1 span { color: var(--accent); }
-        .tagline { font-size: 1.2rem; color: #94a3b8; max-width: 600px; }
+        .title { font-size: 13px; color: #94a3b8; margin-top: 5px; }
 
-        /* Quick Connect Bar */
-        .cta-bar {
-            margin-top: 30px;
+        /* Action Buttons */
+        .btn-group {
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 10px;
             justify-content: center;
+            margin: 10px 0;
         }
 
-        .cta-btn {
+        .btn {
             text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 50px;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 12px;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: 0.3s;
         }
 
-        .cta-wa { background: var(--wa-green); color: white; }
-        .cta-mail { border: 1px solid var(--border); color: white; backdrop-filter: blur(10px); }
+        .btn-wa { background: var(--wa); color: white; }
+        .btn-mail { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white; }
 
-        /* Main Dashboard Grid */
-        .dashboard {
-            max-width: 1100px;
-            margin: -50px auto 50px;
+        /* Dashboard Grid */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: 1fr;
+            gap: 12px;
         }
 
         .card {
-            background: var(--glass);
+            background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 30px;
+            border-radius: 18px;
+            padding: 18px;
             backdrop-filter: blur(10px);
         }
 
-        h3 { color: var(--accent); margin-bottom: 20px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
-
-        /* Experience & Education */
-        .item { margin-bottom: 20px; }
-        .item h4 { font-size: 1.1rem; margin-bottom: 5px; }
-        .item p { font-size: 0.9rem; color: #94a3b8; }
-        .badge { background: #1e293b; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; color: var(--accent); font-weight: bold; }
-
-        /* Skills */
-        .skill-tag {
-            display: inline-block;
-            background: rgba(14, 165, 233, 0.1);
-            color: var(--accent);
-            padding: 8px 16px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            margin: 5px;
-            font-weight: 500;
+        h3 { 
+            font-size: 14px; 
+            color: var(--accent); 
+            margin-bottom: 12px; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        footer { text-align: center; padding: 40px; color: #475569; font-size: 0.9rem; border-top: 1px solid var(--border); }
+        /* Experience Section (Accountant Focused) */
+        .exp-item h4 { font-size: 15px; margin-bottom: 4px; }
+        .exp-item p { font-size: 12px; color: #94a3b8; }
+        .badge { background: #0c4a6e; color: var(--accent); padding: 2px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; margin-bottom: 8px; display: inline-block; }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .dashboard { margin-top: 20px; }
+        .list { 
+            list-style: none; 
+            margin-top: 10px;
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+        .list li { margin-bottom: 6px; display: flex; gap: 8px; }
+        .list li::before { content: "•"; color: var(--accent); font-weight: bold; }
+
+        /* Skills */
+        .skills-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 600; }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #475569;
+            font-size: 11px;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 380px) {
+            .resume-container { padding: 15px; }
+            h1 { font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="profile-frame">
-            <!-- Replace with 1000230620.jpg -->
-            <img src="1000230620.jpg" alt="Aasheesh Kumar">
-        </div>
-        <h1>AASHEESH <span>KUMAR</span></h1>
-        <p class="tagline">Global AI Automation Architect & FinTech Specialist</p>
-        
-        <div class="cta-bar">
-            <a href="https://wa.me/917530919863" class="cta-btn cta-wa"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
-            <a href="mailto:ashish95823@gmail.com" class="cta-btn cta-mail"><i class="fas fa-envelope"></i> Drop an Email</a>
-        </div>
-    </section>
+    <div class="resume-container">
+        <header>
+            <span class="resume-label">Official Resume</span>
+            <div class="profile-img">
+                <img src="1000230620.jpg" alt="Aasheesh Kumar">
+            </div>
+            <h1>AASHEESH <span>KUMAR</span></h1>
+            <p class="title">Senior Accountant & AI Automation Expert</p>
+            
+            <div class="btn-group">
+                <a href="https://wa.me/917530919863" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="mailto:ashish95823@gmail.com" class="btn btn-mail"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </header>
 
-    <div class="dashboard">
-        <!-- Experience Card -->
-        <div class="card">
-            <h3><i class="fas fa-briefcase"></i> Experience</h3>
-            <div class="item">
-                <span class="badge">2019 — PRESENT</span>
-                <h4>Aashra Enterprise</h4>
-                <p>Tech Lead & Operations Specialist</p>
-                <ul style="font-size: 0.85rem; margin-top: 10px; color: #94a3b8; padding-left: 15px;">
-                    <li>End-to-end AI Automation Architecting</li>
-                    <li>WhatsApp AI Bot Development</li>
-                    <li>GeM Tender Strategy & Execution</li>
-                </ul>
+        <div class="grid">
+            <!-- Professional Experience (Accountant Specific) -->
+            <div class="card">
+                <h3><i class="fas fa-calculator"></i> Experience</h3>
+                <div class="exp-item">
+                    <span class="badge">2019 — PRESENT</span>
+                    <h4>Aashra Enterprise</h4>
+                    <p>Senior Accountant & Tech Lead</p>
+                    <ul class="list">
+                        <li>Managed complete accounts including GST, TDS, and Tally Prime.</li>
+                        <li>Automated financial reporting using Advanced Excel and AI tools.</li>
+                        <li>Strategized GeM Tender processes and financial compliance.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Core Expertise -->
+            <div class="card">
+                <h3><i class="fas fa-bolt"></i> Core Skills</h3>
+                <div class="skills-wrap">
+                    <span class="tag">GST & Tally Prime</span>
+                    <span class="tag">Financial Auditing</span>
+                    <span class="tag">Advanced Excel</span>
+                    <span class="tag">AI Automation</span>
+                    <span class="tag">WhatsApp Bots</span>
+                    <span class="tag">GeM Tenders</span>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="card">
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="item">
+                    <h4 style="font-size: 14px;">Mewar Institute, Ghaziabad</h4>
+                    <p style="font-size: 11px;">Bachelor of Computer Application (BCA)</p>
+                </div>
+                <div class="item" style="margin-top: 10px;">
+                    <h4 style="font-size: 14px;">Delhi University</h4>
+                    <p style="font-size: 11px;">Bachelor of Commerce (B.Com)</p>
+                </div>
+            </div>
+
+            <!-- Lifestyle -->
+            <div class="card">
+                <h3><i class="fas fa-heart"></i> Hobbies</h3>
+                <div class="list" style="margin-top: 0;">
+                    <li>Strategic Cricket Playing</li>
+                    <li>Technical Movie Research</li>
+                    <li>Exploring New AI Technologies</li>
+                </div>
             </div>
         </div>
 
-        <!-- Skills Card -->
-        <div class="card">
-            <h3><i class="fas fa-bolt"></i> Core Expertise</h3>
-            <div class="skill-tags">
-                <span class="skill-tag">AI Automation</span>
-                <span class="skill-tag">APK Development</span>
-                <span class="skill-tag">WhatsApp Bots</span>
-                <span class="skill-tag">GST & Tally Prime</span>
-                <span class="skill-tag">Advanced Excel</span>
-                <span class="skill-tag">Graphic Designing</span>
-                <span class="skill-tag">GeM Tenders</span>
-            </div>
-        </div>
-
-        <!-- Education Card -->
-        <div class="card">
-            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-            <div class="item">
-                <h4>Mewar Institute, Ghaziabad</h4>
-                <p>Bachelor of Computer Application (BCA)</p>
-            </div>
-            <div class="item">
-                <h4>Delhi University</h4>
-                <p>Bachelor of Commerce (B.Com)</p>
-            </div>
-        </div>
-
-        <!-- Lifestyle & Hobbies -->
-        <div class="card">
-            <h3><i class="fas fa-heart"></i> Passions</h3>
-            <div class="item">
-                <p><i class="fas fa-baseball-bat-ball"></i> Cricket Enthusiast</p>
-                <p><i class="fas fa-film"></i> Movie Critic</p>
-                <p><i class="fas fa-robot"></i> AI Research & Innovation</p>
-            </div>
-        </div>
+        <footer>
+            <p>Ghaziabad, UP | +91 7530919863</p>
+            <p style="margin-top: 5px;">&copy; 2026 Developed by Aasheesh Kumar</p>
+        </footer>
     </div>
-
-    <footer>
-        <p>Kailash Nagar, Ghaziabad | +91 7530919863</p>
-        <p style="margin-top: 10px;">&copy; 2026 Developed by Aasheesh Kumar</p>
-    </footer>
 
 </body>
 </html>
